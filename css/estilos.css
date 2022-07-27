@@ -1,0 +1,34 @@
+/*Fuentes importadas*/
+@font-face {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  src: url("../recursos/fuentes/Edu_NSW_ACT_Foundation/EduNSWACTFoundation-VariableFont_wght.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("../recursos/fuentes/Poppins/Poppins-Thin.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Raleway", sans-serif;
+  src: url("../recursos/fuentes/Raleway/Raleway-VariableFont_wght.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Condensed", sans-serif;
+  src: url("../recursos/fuentes/Roboto_Condensed/RobotoCondensed-Light.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Sans Pro", sans-serif;
+  src: url("../recursos/fuentes/Source_Sans_Pro/SourceSansPro-Black.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+/*Paleta de Colores*/
+
+/*# sourceMappingURL=estilos.css.map */
