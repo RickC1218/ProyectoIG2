@@ -30,6 +30,7 @@
   font-style: normal;
 }
 /*Paleta de Colores*/
+/*estrenos*/
 body {
   background: radial-gradient(#04293A, #041C32);
   background-size: cover;
@@ -46,10 +47,7 @@ body #cabecera .barra {
   text-align: right;
 }
 body #cabecera .barra li a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 10px 15px;
   border-radius: 5px;
   background-color: #041C32;
   font-size: 20px;
@@ -66,41 +64,60 @@ body #cabecera .barra li #boton {
 body #cabecera .barra li #boton:hover {
   background-color: #064663;
 }
-body #peliculas .cuadro {
-  float: left;
-  margin: 2%;
-  margin-top: 1%;
-  transition: all 300ms;
+body #peliculas {
+  padding: auto;
+  margin: 3rem;
+  border-color: #ECB365;
 }
-body #peliculas .cuadro .card {
+body #peliculas #pelicula {
+  font-family: "Roboto Condensed";
+  margin: auto;
+  color: #ECB365;
+}
+body #peliculas #pelicula .cuadro {
   float: left;
-  transition: all 300ms;
-  text-decoration: none;
   background-color: #064663;
+  padding: 20px;
+  margin: 15px 5px;
+  border: 5px;
+  border-radius: 25px;
+  border-color: #ECB365;
 }
-body #peliculas .cuadro .card img {
+body #peliculas #pelicula .cuadro .card {
   width: 100%;
-  height: 200px;
+  margin: auto;
+  background-color: #041C32;
 }
-body #peliculas .cuadro .card:hover {
-  transform: scale(1.1);
-  padding: 0rem 1rem 0rem 1rem;
-  text-decoration: none;
+body #peliculas #pelicula .cuadro .card img {
+  width: 210px;
+  height: 280px;
+  padding: 2px;
+  transition: all 300ms;
 }
-body #peliculas .cuadro .category {
+body #peliculas #pelicula .cuadro .category {
   width: 100%;
-  font-size: 17px;
+  font-size: 10px;
   padding: auto;
   text-align: center;
+}
+body #peliculas #pelicula .cuadro .category h5, body #peliculas #pelicula .cuadro .category h6 {
   color: #ECB365;
-  text-decoration: none;
+  text-transform: uppercase;
 }
-body #peliculas .cuadro .category h5 {
+body #peliculas #pelicula .cuadro:hover {
+  background-color: #ECB365;
+  margin: 2px;
+}
+body #peliculas #pelicula .cuadro:hover .card {
+  transform: scale(1.1);
+  padding: 5px;
+  border-radius: 15px;
+}
+body #peliculas #pelicula .cuadro:hover .category {
+  padding-top: 15px;
+}
+body #peliculas #pelicula .cuadro:hover .category h5, body #peliculas #pelicula .cuadro:hover .category h6 {
   color: #064663;
-}
-body #peliculas .cuadro .category h5:hover {
-  padding: 0rem 1rem 0rem 1rem;
-  text-decoration: none;
 }
 
 /*# sourceMappingURL=estilos.css.map */
