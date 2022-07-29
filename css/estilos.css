@@ -30,5 +30,77 @@
   font-style: normal;
 }
 /*Paleta de Colores*/
+body {
+  background: radial-gradient(#04293A, #041C32);
+  background-size: cover;
+}
+body #cabecera .logo {
+  background-color: #041C32;
+  border-radius: 5px;
+}
+body #cabecera .logo img:hover {
+  background-color: #064663;
+}
+body #cabecera .barra {
+  background-color: #041C32;
+  text-align: right;
+}
+body #cabecera .barra li a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+  background-color: #041C32;
+  font-size: 20px;
+  font-family: "Roboto Condensed";
+  color: white;
+  text-align: center;
+}
+body #cabecera .barra li a:hover {
+  background-color: #064663;
+}
+body #cabecera .barra li #boton {
+  background-color: #ECB365;
+}
+body #cabecera .barra li #boton:hover {
+  background-color: #064663;
+}
+body #peliculas .cuadro {
+  float: left;
+  margin: 2%;
+  margin-top: 1%;
+  transition: all 300ms;
+}
+body #peliculas .cuadro .card {
+  float: left;
+  transition: all 300ms;
+  text-decoration: none;
+  background-color: #064663;
+}
+body #peliculas .cuadro .card img {
+  width: 100%;
+  height: 200px;
+}
+body #peliculas .cuadro .card:hover {
+  transform: scale(1.1);
+  padding: 0rem 1rem 0rem 1rem;
+  text-decoration: none;
+}
+body #peliculas .cuadro .category {
+  width: 100%;
+  font-size: 17px;
+  padding: auto;
+  text-align: center;
+  color: #ECB365;
+  text-decoration: none;
+}
+body #peliculas .cuadro .category h5 {
+  color: #064663;
+}
+body #peliculas .cuadro .category h5:hover {
+  padding: 0rem 1rem 0rem 1rem;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=estilos.css.map */
