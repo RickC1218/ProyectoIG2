@@ -7,8 +7,6 @@
 
 #header {
     margin: 10px 50px;
-    border: 1px solid white;
-    border-radius: 10px;
     #logo {
         width: 40%;
         border-radius: 15px;
@@ -26,21 +24,13 @@
             margin-left: 7px;
             margin-right: 7px;
             letter-spacing: 2px;
-        }
-    }
-
-}
-#MenuDespegable{
-    ul{
-        li{
             a{
-                color: white;
+                color:white;
             }
         }
     }
 
 }
-
 .barra-opciones:hover {
     border: 1px solid white;
     background-color: base.$color-cajas;
@@ -81,4 +71,14 @@
 
 .carrito svg path {
     color: white;
+}
+
+@media (max-width: 991px) {
+    #MenuDespegable{
+        ul{
+            li{
+                text-align: center
+            }
+        }
+    }
 }
