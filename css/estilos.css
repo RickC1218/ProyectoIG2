@@ -44,6 +44,10 @@ body {
   font-family: "Roboto Condensed";
 }
 
+.navbar-toggler {
+  background-color: #ECB365;
+}
+
 * {
   margin: 0;
   padding: 0;
