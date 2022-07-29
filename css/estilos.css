@@ -37,30 +37,25 @@
 }
 
 body {
-  background: linear-gradient(#041C32, #04293A);
+  background: linear-gradient(to bottom, #041C32, #04293A) fixed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 #header {
   margin: 10px 50px;
+  border: 1px solid white;
+  border-radius: 10px;
 }
-
-#logo {
-  background-color: #064663;
+#header #logo {
   width: 40%;
   border-radius: 15px;
 }
-
-#logo span img {
-  width: 30%;
-}
-
-#logo a b {
-  font-size: 5vw;
-  letter-spacing: 3px;
-}
-
-#logo a b span {
-  color: white;
+#header #logo a img {
+  width: 150px;
 }
 
 #MenuDespegable ul li {
@@ -114,6 +109,17 @@ body {
 
 .carrito svg path {
   color: white;
+}
+
+footer {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+
+.img-footer {
+  margin-top: -50px;
 }
 
 /*# sourceMappingURL=estilos.css.map */

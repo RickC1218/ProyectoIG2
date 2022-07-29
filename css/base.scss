@@ -47,5 +47,5 @@ $color-botones-enlaces: #ECB365;
 }
 
 body {
-    background: linear-gradient($color-primario, $color-secundario);
+    background: linear-gradient(to bottom, $color-primario, $color-secundario) fixed;
 }
