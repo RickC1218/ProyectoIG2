@@ -39,3 +39,13 @@ $color-primario: #041C32;
 $color-secundario: #04293A;
 $color-cajas: #064663;
 $color-botones-enlaces: #ECB365;
+
+/*Clase clearfix*/
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+body {
+    background: linear-gradient($color-primario, $color-secundario);
+}
