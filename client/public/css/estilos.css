@@ -147,4 +147,11 @@ body {
   font-weight: bold;
 }
 
+#modificar{
+  width: 50%;
+  padding-bottom:20px;
+}
+#modificar label{
+  color: white;
+}
 /*# sourceMappingURL=estilos.css.map */

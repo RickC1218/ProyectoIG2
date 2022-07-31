@@ -1,5 +1,20 @@
 React-server
 npx create-react-app cliente
+npm install multer
 
 node js - cliente.js
 npm init --yes
+
+
+<div className="mb-3">
+                <label htmlFor="IdImput" className="form-label">ID Promocion</label>
+                <input type="number" className="form-control" id="IdImput"/>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="Tipo-Promocion" className="form-label">Tipo Promocion</label>
+                <input type="number" className="form-control" id="ipo-Promocion"/>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="Desc-Promocion" className="form-label">Descripcion Promocion</label>
+                <input type="text" className="form-control" id="Desc-Promocion"/>
+              </div>
