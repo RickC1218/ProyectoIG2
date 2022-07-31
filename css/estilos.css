@@ -130,5 +130,21 @@ body {
   color: white;
   padding-top: 20px;
 }
+.container #modif-promo {
+  border: 1px solid #ECB365;
+  background-color: #ECB365;
+  color: white;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.container #modif-promo:hover {
+  border: 1px solid white;
+  background-color: #064663;
+  color: white;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=estilos.css.map */
