@@ -1,0 +1,5 @@
+React-server
+npx create-react-app cliente
+
+node js - cliente.js
+npm init --yes
