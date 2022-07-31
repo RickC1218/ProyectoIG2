@@ -1,9 +1,17 @@
-React-server
-npx create-react-app cliente
+SERVER
+npm init --yes
+npm install nodemon --save-dev
+npm install mysql2
+npm install express-myconnection
 npm install multer
 npm install cors
 
-node js - cliente.js
-npm init --yes
+//editar script en el archivo package.json
+
+
+CLIENTE - React
+npx create-react-app cliente
+ejecutar react npm start
+
 
 
