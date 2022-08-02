@@ -20,14 +20,6 @@ insert into snack values (1,'Gaseosa-Pequeña',2.15,5,'aa');
 insert into snack values (2,'Canguil-Pequeño',2.50,15,'aa');
 
 
-/*combo*/
-insert into combo values (1,'aa','combo 1');
-
-/*Combo Snack*/
-insert into combo_snack values (1,1);
-insert into combo_snack values (1,2);
-
-
 /*cliente*/
 insert into cliente values (123456789, 'Erick','Valdez','1999-10-19','email@email.com','1234');
 
@@ -36,7 +28,14 @@ insert into modo_pago values (1,1);
 
 /*Promocion*/
 insert into promocion values (1,1,'Combo Agrandado','aaa');
-insert into promocion values (1,2,'2x1','aa');
+insert into promocion values (2,2,'2x1','aa');
+
+/*combo*/
+insert into combo values (1,1,'aa','combo 1',5.0);
+
+/*Combo Snack*/
+insert into combos_snack values (1,1);
+insert into combos_snack values (1,2);
 
 
 

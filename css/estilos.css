@@ -130,6 +130,13 @@ body {
   color: white;
   padding-top: 20px;
 }
+.container #modificar {
+  width: 50%;
+  margin-bottom: 20px;
+}
+.container #modificar label {
+  color: white;
+}
 .container #modif-promo {
   border: 1px solid #ECB365;
   background-color: #ECB365;

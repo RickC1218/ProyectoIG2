@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <!--Iconos-->
     <link rel="stylesheet" href="recursos/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/promo.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -22,9 +24,8 @@
                     <a class="navbar-brand" href="#"><img class="img-fluid" src="recursos/imagenes/logo-TopCine.png"
                             alt="Logo TopCine" title="Logo TopCine"></a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#MenuDespegable" aria-controls="MenuDespegable" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuDespegable"
+                    aria-controls="MenuDespegable" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="MenuDespegable">
@@ -61,6 +62,65 @@
     <!--Fin Header-->
     <div class="clearfix"></div>
     <!--Inicio Contenido-->
+    <section class="content">
+        <div class="container">
+            <div>
+                <p class="h1">Aprovecha nuestras promociones y descuentos</p>
+                <button type="button" class="btn" id="modif-promo">Modificar</button>
+            </div>
+            <form id="modificar" method="POST">
+                <div class="mb-3">
+                    <label for="IdPromo" class="form-label">ID Promocion</label>
+                    <input type="number" name ="IdPromo" class="form-control" id="IdPromo" />
+                </div>
+                <div class="mb-3">
+                    <label for="Tipo-Promocion" class="form-label">Tipo Promocion</label>
+                    <input type="number" name="tipo-Promocion" class="form-control" id="tipo-Promocion" />
+                </div>
+                <div class="mb-3">
+                    <label for="Desc-Promocion" class="form-label">Descripcion Promocion</label>
+                    <input type="text" name="Desc-Promocion" class="form-control" id="Desc-Promocion" />
+                </div>
+                <div class="mb-3">
+                    <label for="img-Promocion" class="form-label">Imagen</label>
+                    <input id="img-Promocion"  name="img-Promocion" type="file" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <img class="img-fluid  rounded-3" alt="promocion"
+                            src="recursos/imagenes/promociones1.png" />
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quia quibusdam eaque
+                            voluptatibus suscipit voluptatem architecto, ducimus adipisci aspernatur rem, tempora hic
+                            voluptate omnis asperiores odio cum vero repellat iste?</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <img class="img-fluid  rounded-3" alt="promocion"
+                            src="recursos/imagenes/promociones1.png" />
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quia quibusdam eaque
+                            voluptatibus suscipit voluptatem architecto, ducimus adipisci aspernatur rem, tempora hic
+                            voluptate omnis asperiores odio cum vero repellat iste?</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <img class="img-fluid  rounded-3" alt="promocion"
+                            src="recursos/imagenes/promociones1.png" />
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quia quibusdam eaque
+                            voluptatibus suscipit voluptatem architecto, ducimus adipisci aspernatur rem, tempora hic
+                            voluptate omnis asperiores odio cum vero repellat iste?</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <img class="img-fluid  rounded-3" alt="promocion"
+                            src="recursos/imagenes/promociones1.png" />
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quia quibusdam eaque
+                            voluptatibus suscipit voluptatem architecto, ducimus adipisci aspernatur rem, tempora hic
+                            voluptate omnis asperiores odio cum vero repellat iste?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--Fin Contenido-->
     <div class="clearfix"></div>
     <!--Inicio Footer-->
@@ -72,7 +132,6 @@
                 <!-- Facebook -->
                 <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
                         class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-
                 <!-- Instagram -->
                 <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
                         class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
