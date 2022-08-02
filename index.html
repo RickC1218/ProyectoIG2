@@ -68,10 +68,10 @@
                 <p class="h1">Aprovecha nuestras promociones y descuentos</p>
                 <button type="button" class="btn" id="modif-promo">Modificar</button>
             </div>
-            <form id="modificar" method="POST">
+            <form id="modificar" method="POST" enctype='multipart/form-data'>
                 <div class="mb-3">
-                    <label for="IdPromo" class="form-label">ID Promocion</label>
-                    <input type="number" name ="IdPromo" class="form-control" id="IdPromo" />
+                    <label for="idPromo" class="form-label">ID Promocion</label>
+                    <input type="number" name ="idPromo" class="form-control" id="idPromo" />
                 </div>
                 <div class="mb-3">
                     <label for="Tipo-Promocion" class="form-label">Tipo Promocion</label>
@@ -85,7 +85,7 @@
                     <label for="img-Promocion" class="form-label">Imagen</label>
                     <input id="img-Promocion"  name="img-Promocion" type="file" class="form-control" />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button name ="guardar" type="submit" class="btn btn-primary">Submit</button>
             </form>
             <div>
                 <div class="row">
