@@ -81,6 +81,9 @@
                         <h6><?php echo $mostrar['DURACION_PELICULA'] ?></h6>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
             </div>
         </section>
     </div>
