@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
     var mostrar = $("#modificar");
     mostrar.hide();
     var modificar = document.querySelector("#modif-promo")
-    var form = document.getElementById("#modificar")
+    var form = document.querySelector("#modificar")
 
     modificar.addEventListener("click", function () {
         if (mostrar.is(":hidden")) {
@@ -18,18 +18,22 @@ window.addEventListener('load', () => {
         e.preventDefault();
 
         let formulario = new FormData(form)
-        fetch('registar.php', {
+        
+        fetch('php/registrar.php', {
                 method: 'POST',
                 body: formulario
         })
-        .then(res => res.json())
+        .then(res =>{
+            console.log(res)
+            return res.json()
+        })
         .then(data => {
             if (data == 'true') {
-                document.getElementById('IdPromo').value = ''
+                document.getElementById('idPromo').value = ''
                 document.getElementById('tipo-Promocion').value = ''
                 document.getElementById('Desc-Promocion').value = ''
-                document.getElementById('fileinput').value = ''
-                alert('Informationt sent successfully.')
+                document.getElementById('img-Promocion').value = ''
+                alert('Information sent successfully.')
             } else {
                 console.log('data error: ' + data)
             }
