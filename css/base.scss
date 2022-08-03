@@ -209,6 +209,7 @@ nav ul li a:hover{
     fill: $color-botones-enlaces;
 }
 .hero-slider .flickity-page-dots {
+    list-style: none;
     bottom: 30px;
 }
 .hero-slider .flickity-page-dots .dot {

@@ -213,6 +213,7 @@ nav ul li a:hover {
 }
 
 .hero-slider .flickity-page-dots {
+  list-style: none;
   bottom: 30px;
 }
 
@@ -228,6 +229,17 @@ nav ul li a:hover {
 .hero-slider .flickity-page-dots .dot.is-selected {
   background: #ECB365;
   border: 0 solid #ECB365;
+}
+
+.Pelicula {
+  float: left;
+}
+.Pelicula .Info_Pelicula {
+  width: 500px;
+}
+
+.img_Pelicula {
+  width: 200px;
 }
 
 /*# sourceMappingURL=estilos.css.map */
