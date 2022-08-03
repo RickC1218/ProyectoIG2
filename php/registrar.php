@@ -1,4 +1,6 @@
 <?php
+
+    
     $idPromocion = isset($_POST['idPromo']) ? $_POST['idPromo'] : '';
     $tipoPromocion = isset($_POST['tipo-Promocion']) ? $_POST['tipo-Promocion'] : '';
     $descPromocion = isset($_POST['Desc-Promocion']) ? $_POST['Desc-Promocion'] : '';

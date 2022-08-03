@@ -23,7 +23,6 @@ window.addEventListener('load', () => {
                 body: formulario
         })
         .then(res =>{
-            console.log(res)
             return res.json()
         })
         .then(data => {
