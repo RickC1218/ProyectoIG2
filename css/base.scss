@@ -116,6 +116,7 @@ body{
                 }
             }
             .cuadro:hover{
+                cursor:pointer;
                 background-color: $color-botones-enlaces;
                 transition: all 300ms;
                 .card{

@@ -1,3 +1,6 @@
+<?php
+    $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,67 +67,18 @@
             <div class="clearfix"></div>
             <div id="pelicula">
                 <h2><strong>Hola,</strong> bienvenido a nuestra cartelera...</h2>
+                <?php 
+                    $sql = "SELECT * from pelicula";
+                    $result = mysqli_query($conexion, $sql);
+                    while ($mostrar = mysqli_fetch_array($result)) {
+                ?>
                 <div class="cuadro">
                     <div class="card">
-                        <img src="/recursos/imagenes/pelicula1.png" class="img-rounded" alt="peli1">
+                        <img src=<?php echo $mostrar['IMAGEN_PELICULA']; ?> class="img-rounded" alt="peli1">
                     </div>
                     <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
-                    </div>
-                </div>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src="/recursos/imagenes/pelicula2.png" class="img-rounded" alt="peli2">
-                    </div>
-                    <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
-                    </div>
-                </div>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src="/recursos/imagenes/pelicula3.png" class="img-rounded" alt="peli3">
-                    </div>
-                    <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
-                    </div>
-                </div>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src="/recursos/imagenes/pelicula4.png" class="img-rounded" alt="peli4">
-                    </div>
-                    <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
-                    </div>
-                </div>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src="/recursos/imagenes/pelicula3.png" class="img-rounded" alt="peli5">
-                    </div>
-                    <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
-                    </div>
-                </div>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src="/recursos/imagenes/pelicula2.png" class="img-rounded" alt="peli6">
-                    </div>
-                    <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
-                    </div>
-                </div>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src="/recursos/imagenes/pelicula1.png" class="img-rounded" alt="peli7">
-                    </div>
-                    <div class="category">
-                        <h5><strong>Nombre de película</strong></h5>
-                        <h6>+12</h6>
+                        <h5><strong><?php echo $mostrar['TITULO_PELICULA'] ?></strong></h5>
+                        <h6><?php echo $mostrar['DURACION_PELICULA'] ?></h6>
                     </div>
                 </div>
             </div>
