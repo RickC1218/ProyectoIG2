@@ -18,7 +18,6 @@ window.addEventListener('load', () => {
         e.preventDefault();
 
         let formulario = new FormData(form)
-        
         fetch('php/registrar.php', {
                 method: 'POST',
                 body: formulario

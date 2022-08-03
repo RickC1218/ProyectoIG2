@@ -4,13 +4,6 @@
     $descPromocion = isset($_POST['Desc-Promocion']) ? $_POST['Desc-Promocion'] : '';
     $imgPromocion = isset($_POST['img-Promocion']) ? $_POST['img-Promocion'] : '';
 
-    if (isset($_REQUEST['guardar'])) {
-        if(isset($_FILES['img-Promocion']['name'])){
-            $imgTamaño = $_FILES['img-Promocion']['size'];
-            $img
-
-        }
-    }
 
     try{
         $conexion   = new PDO('mysql:host=localhost;port=3306;dbname=topcine','root','');
