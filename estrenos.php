@@ -66,25 +66,44 @@
         <section id="peliculas" class="col-12">
             <div class="clearfix"></div>
             <div id="pelicula">
-                <h2><strong>Hola,</strong> bienvenido a nuestra cartelera...</h2>
+                <h2><strong>Hola,</strong> bienvenido a una experiencia entre estrellas...</h2>
                 <?php 
                     $sql = "SELECT * from pelicula";
                     $result = mysqli_query($conexion, $sql);
                     while ($mostrar = mysqli_fetch_array($result)) {
                 ?>
-                <div class="cuadro">
-                    <div class="card">
-                        <img src=<?php echo $mostrar['IMAGEN_PELICULA']; ?> class="img-rounded" alt="peli1">
+                <div id="cajaPelicula">
+                    <div id="tarjeta" class="card">
+                        <div id="posterPelicula">
+                            <img src=<?php echo $mostrar['IMAGEN_PELICULA']; ?> class="img-rounded" alt="peli1">
+                        </div>
+                        <div id="trailerPelicula">
+                            <!--trailer-->
+                        </div>
                     </div>
                     <div class="category">
                         <h5><strong><?php echo $mostrar['TITULO_PELICULA'] ?></strong></h5>
-                        <h6><?php echo $mostrar['DURACION_PELICULA'] ?></h6>
+                        <h6><?php echo $mostrar['ESTRENO_PELICULA'] ?></h6>
+                    </div>
+                    <div id="infoPelicula">
+                        <h6><strong>Estrellas principales: </strong></h6>
+                        <p><?php echo $mostrar['ACTPRIN_PELICULA'] ?></p>
+                        
+                        <h6><strong>Estrellas secundarios: </strong></h6>
+                        <p><?php echo $mostrar['ACTSECUN_PELICULA'] ?></p>
+                        <p><strong>SINÓPSIS: </strong><?php echo $mostrar['SINOPSIS_PELICULA'] ?></p>
+                        <h6><strong>Idioma disponible: </strong></h6>
+                        <p><?php echo $mostrar['IDIOMA_PELICULA'] ?></p>
+                        <button id="boton" type="btn">
+                            <h5> Comprar boletos </h5>
+                        </button>
                     </div>
                 </div>
                 <?php
                     }
                 ?>
             </div>
+            <script type="text/javascript" src="/backend/contador.js"></script>
         </section>
     </div>
 </body>
