@@ -28,7 +28,7 @@
 - [Usage](#usage)
 - [Built Using](#built_using)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Funciones](#Funciones)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -130,8 +130,44 @@ Add additional notes about how to deploy this on a live system.
 - [@AlexanderG1999](https://github.com/AlexanderG1999) - Alexander Guillin
 
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+## 🎉 Funciones <a name = "Funciones"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- Función de manejo de slider de Estrenos populares
+```js
+flkty.on("scroll", function ()});
+```
+Esta función emplea un for each para que cada uno de los banners de los estrenos populares se muestren en la pantalla principal, con controles manueles y un control de tiempo.
+
+- Funcion de mostrar los trailers de los estrenos populares
+```js
+ function Estreno_i() //con i={1,2,...n}
+```
+Esta función esta controlada por un botón que lanza la acción que muestra el trailer de manera automática además dentro de este campo se muestra una opción de adquirir entradas.
+
+- Funcion Botón Adquirir Entradas
+```php
+    include ("BasedeDatos.php");
+    $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =". $_GET["ID"].";"; //Se extrae la información de las peliculas de la base de datos.
+
+    $result = mysqli_query($con,$Peliculas);
+    
+    if($result->num_rows > 0){
+        $row = mysqli_fetch_assoc($result);
+        ?>        
+        
+
+    <div class="Pelicula">
+        <div class="Info_Pelicula">
+        <h1 style="color: white; margin-bottom: 20px;">Escoger Numero de Entradas</h1>
+            <?php echo '<img class=img_Pelicula src="data:image/png;base64,'.base64_encode($row['IMAGEN_PELICULA']).'"/>';}
+?>
+ 
+            <div class="text_Pelicula">
+                <h1><?php echo $row['TITULO_PELICULA']?></h1>
+                <h2>Duracion: <?php echo $row['DURACION_PELICULA']?> minutos </h2>
+                <h2>Reparto</h2>
+                <p>Actores Principales:<?php echo $row['ACTPRINCIPAL_PELICULA']?> <br> Actores Secundarios:<?php echo $row['ACTSECUNDARIOS_PELICULAS']?> </p> //Se muestra toda la información de las peliculas (incluidos horarios y fechas)
+            </div>
+        </div>
+    </div>
+```

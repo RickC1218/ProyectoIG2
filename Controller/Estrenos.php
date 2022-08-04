@@ -73,7 +73,7 @@
     if($result->num_rows > 0){
         $row = mysqli_fetch_assoc($result);
         ?>        
-        .Numero_Boletos
+        
 
     <div class="Pelicula">
         <div class="Info_Pelicula">
