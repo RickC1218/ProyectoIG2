@@ -68,31 +68,32 @@ $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
                     $result = mysqli_query($conexion, $sql);
                     while ($mostrar = mysqli_fetch_array($result)) {
                 ?>
-                <div id="cajaPelicula">
-                    <div id="tarjeta" class="card">
-                        <div id="posterPelicula">
-                            <img src=<?php echo $mostrar['IMAGEN_PELICULA']; ?> class="img-rounded" alt="peli1">
+                <div id="cajaPelicula" class="row">
+                    <div class="inicial col-12">
+                        <div id="tarjeta" class="col">
+                            <div id="posterPelicula">
+                                <img src=<?php echo $mostrar['IMAGEN_PELICULA']; ?> class="img-rounded" alt="peli">
+                            </div>
+                            <div class="category">
+                                <h5><strong><?php echo $mostrar['TITULO_PELICULA'] ?></strong></h5>
+                                <h6><?php echo $mostrar['ESTRENO_PELICULA'] ?></h6>
+                            </div>
                         </div>
-                        <div id="trailerPelicula">
+                        <div id="trailerPelicula" style="display: none;" class="col">
                             <!--trailer-->
                         </div>
-                    </div>
-                    <div class="category">
-                        <h5><strong><?php echo $mostrar['TITULO_PELICULA'] ?></strong></h5>
-                        <h6><?php echo $mostrar['ESTRENO_PELICULA'] ?></h6>
-                    </div>
-                    <div id="infoPelicula">
-                        <h6><strong>Estrellas principales: </strong></h6>
-                        <p><?php echo $mostrar['ACTPRIN_PELICULA'] ?></p>
-                        
-                        <h6><strong>Estrellas secundarios: </strong></h6>
-                        <p><?php echo $mostrar['ACTSECUN_PELICULA'] ?></p>
-                        <p><strong>SINÓPSIS: </strong><?php echo $mostrar['SINOPSIS_PELICULA'] ?></p>
-                        <h6><strong>Idioma disponible: </strong></h6>
-                        <p><?php echo $mostrar['IDIOMA_PELICULA'] ?></p>
-                        <button id="boton" type="btn">
-                            <h5> Comprar boletos </h5>
-                        </button>
+                        <div id="infoPelicula" class="info col">
+                            <h6><strong>Estrellas principales: </strong></h6>
+                            <p><?php echo $mostrar['ACTPRIN_PELICULA'] ?></p>
+                            <h6><strong>Estrellas secundarios: </strong></h6>
+                            <p><?php echo $mostrar['ACTSECUN_PELICULA'] ?></p>
+                            <p><strong>SINÓPSIS: </strong><?php echo $mostrar['SINOPSIS_PELICULA'] ?></p>
+                            <h6><strong>Idioma disponible: </strong></h6>
+                            <p><?php echo $mostrar['IDIOMA_PELICULA'] ?></p>
+                            <button id="boton" type="btn">
+                                <h5> Comprar boletos </h5>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <?php
@@ -105,7 +106,7 @@ $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
     <!--footer-->
     <div class="clearfix"></div>
     <!--Inicio Footer-->
-    <footer class="bg-dark text-center text-white">
+    <footer class="bg-dark text-center text-white pt-5">
         <!-- Grid container -->
         <div class="container p-4">
             <!-- Section: Social media -->

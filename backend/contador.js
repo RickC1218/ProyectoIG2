@@ -7,21 +7,34 @@ contador = 0;
 
 function visionCompleta(){
     if(contador == 0){
-        infoPelicula.style.display = 'block';
         trailerPelicula.style.display = 'none';
+        trailerPelicula.style.width = 'auto';
+        
         cajaPelicula.style.transition= 'all 300ms';
-        infoPelicula.style.width = '80%';
-        infoPelicula.style.float = 'center';
-        card.style.float = 'left';
-        card.style.width = '215px';
-        card.style.height = '280px';
+        cajaPelicula.style.width = 'auto';
+        cajaPelicula.style.margin = 'auto';
+        cajaPelicula.style.display = 'flex';
+        cajaPelicula.style.justifyContent = 'center';
+
+        infoPelicula.style.display = 'block';
+        infoPelicula.style.width = 'auto';
+        infoPelicula.style.float = 'auto';
+
+        card.style.width = 'auto';
+        card.style.float = 'auto';
+        
         contador = 1;
     } else {
-        infoPelicula.style.display = 'none';
         trailerPelicula.style.display = 'none';
+        
         cajaPelicula.style.transition= 'all 300ms';
+        cajaPelicula.style.width = 'auto';
+        
+        infoPelicula.style.display = 'none';
+
         card.style.float = 'center';
-        card.style.width = '100%';
+        card.style.width = 'auto';
+
         contador = 0;
     }
 }
