@@ -1,6 +1,6 @@
 <?php
     include ("BasedeDatos.php");
-    $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA = 1;";
+    $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =". $_GET["ID"].";";
 ?>
 
 <!DOCTYPE html>

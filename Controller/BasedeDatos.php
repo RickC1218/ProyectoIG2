@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost"; // Nombre/IP del servidor
-$database = "TOPCINE"; // Nombre de la BBDD
+$database = "topcine"; // Nombre de la BBDD
 $username = "Carlos"; // Nombre del usuario
 $password = "Linkcar_1999"; // Contraseña del usuario
 // Creamos la conexión
