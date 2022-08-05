@@ -39,3 +39,25 @@ $color-primario: #041C32;
 $color-secundario: #04293A;
 $color-cajas: #064663;
 $color-botones-enlaces: #ECB365;
+
+body{
+    margin: 0;
+    padding: 0;
+    background: radial-gradient($color-secundario, $color-primario);
+    background-size: cover;
+    .container{
+        background-color: $color-cajas;
+        border-radius: 15px;
+        border-color: $color-botones-enlaces;
+        margin-top: 100px;
+        #logo{
+            background-color: $color-botones-enlaces;
+            border-radius: 15px;
+            
+            img{
+                width: 100%;
+                margin:auto;
+            }
+        }
+    }
+}

@@ -30,5 +30,25 @@
   font-style: normal;
 }
 /*Paleta de Colores*/
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(#04293A, #041C32);
+  background-size: cover;
+}
+body .container {
+  background-color: #064663;
+  border-radius: 15px;
+  border-color: #ECB365;
+  margin-top: 100px;
+}
+body .container #logo {
+  background-color: #ECB365;
+  border-radius: 15px;
+}
+body .container #logo img {
+  width: 100%;
+  margin: auto;
+}
 
 /*# sourceMappingURL=estilos.css.map */
