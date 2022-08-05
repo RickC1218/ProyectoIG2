@@ -31,24 +31,20 @@
 }
 /*Paleta de Colores*/
 body {
-  margin: 0;
-  padding: 0;
   background: radial-gradient(#04293A, #041C32);
   background-size: cover;
 }
-body .container {
-  background-color: #064663;
-  border-radius: 15px;
-  border-color: #ECB365;
-  margin-top: 100px;
+body .bg-glass {
+  background-color: #064663 !important;
+  backdrop-filter: saturate(200%) blur(25px);
 }
-body .container #logo {
-  background-color: #ECB365;
-  border-radius: 15px;
-}
-body .container #logo img {
+body .boton {
   width: 100%;
-  margin: auto;
+  background-color: #ECB365;
+  color: #041C32;
+}
+body .card {
+  color: #ECB365;
 }
 
 /*# sourceMappingURL=estilos.css.map */

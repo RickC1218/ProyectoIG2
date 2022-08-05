@@ -41,23 +41,18 @@ $color-cajas: #064663;
 $color-botones-enlaces: #ECB365;
 
 body{
-    margin: 0;
-    padding: 0;
     background: radial-gradient($color-secundario, $color-primario);
     background-size: cover;
-    .container{
-        background-color: $color-cajas;
-        border-radius: 15px;
-        border-color: $color-botones-enlaces;
-        margin-top: 100px;
-        #logo{
-            background-color: $color-botones-enlaces;
-            border-radius: 15px;
-            
-            img{
-                width: 100%;
-                margin:auto;
-            }
-        }
+    .bg-glass {
+        background-color: $color-cajas !important;
+        backdrop-filter: saturate(200%) blur(25px);
+    }
+    .boton{
+        width: 100%;
+        background-color: $color-botones-enlaces;
+        color: $color-primario;
+    }
+    .card{
+        color: $color-botones-enlaces;
     }
 }
