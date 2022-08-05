@@ -10,7 +10,6 @@
 
         $conexion ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conexion ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        echo 'ok';
 
     }catch (PDOException $error){
         echo $error->getMessage();

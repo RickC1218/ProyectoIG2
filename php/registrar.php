@@ -9,7 +9,6 @@
     $v_pswd = isset($_POST['v-pswd']) ? $_POST['v-pswd'] : '';
     require('conexion.php');
 
-
     $pdo = $conexion ->prepare('INSERT INTO cliente(NUMCED_CLI, NOMBRE_CLI, APELLIDO_CLI, FECHANACIMIENTO_CLI, EMAIL_CLI, CONTRASENA_CLI) VALUES(?, ?, ?, ?, ?, ?)');
     $pdo->bindParam(1,$ci);
     $pdo->bindParam(2,$nombre);
