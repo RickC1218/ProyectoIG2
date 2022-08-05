@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
                     })
                     form.reset()
                 } else {
-                    console.log('data error: ' + response)
+                    alert('Error al registrar')
                 }
             });
     });
