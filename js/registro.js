@@ -1,13 +1,9 @@
 'use strict'
 window.addEventListener('load', () => {
-
     alert ('vinculado js')
     var form = document.querySelector("#formRegistro")
-
     form.addEventListener("submit", function (e) {
-
         e.preventDefault();
-
         let formulario = new FormData(form)
         fetch('php/registrar.php', {
                 method: 'POST',
@@ -27,9 +23,5 @@ window.addEventListener('load', () => {
                     console.log('data error: ' + response)
                 }
             });
-    })
-
-
-
-
+    });
 });
