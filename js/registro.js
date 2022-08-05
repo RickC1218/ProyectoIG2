@@ -1,6 +1,7 @@
 'use strict'
 window.addEventListener('load', () => {
 
+    alert ('vinculado js')
     var form = document.querySelector("#formRegistro")
 
     form.addEventListener("submit", function (e) {
@@ -23,7 +24,7 @@ window.addEventListener('load', () => {
                     })
                     form.reset()
                 } else {
-                    console.log('data error: ' + data)
+                    console.log('data error: ' + response)
                 }
             });
     })
