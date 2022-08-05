@@ -42,8 +42,14 @@ body .boton {
   width: 100%;
   background-color: #ECB365;
   color: #041C32;
+  border-radius: 10px;
 }
 body .card {
+  color: #ECB365;
+  background-color: #064663;
+}
+body .card .enlace {
+  text-decoration: underline;
   color: #ECB365;
 }
 

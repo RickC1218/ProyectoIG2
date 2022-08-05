@@ -51,8 +51,14 @@ body{
         width: 100%;
         background-color: $color-botones-enlaces;
         color: $color-primario;
+        border-radius: 10px;
     }
     .card{
         color: $color-botones-enlaces;
+        background-color: $color-cajas;
+        .enlace{
+            text-decoration:underline;
+            color: $color-botones-enlaces;
+        }
     }
 }
