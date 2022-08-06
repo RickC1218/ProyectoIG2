@@ -4,13 +4,11 @@
     $pswd = isset($_POST['pswd']) ? $_POST['pswd'] : '';
     require('conexion.php');
 
-    $pdo = $conexion ->prepare('SELECT EMAIL_CLI, CONTRASENA_CLI FROM cliente WHERE cliente.EMAIL_CLI=, CONTRASENA_CLI');
-    $pdo->bindParam(1,$ci);
-    $pdo->bindParam(2,$nombre);
-    $pdo->bindParam(3,$apellido);
-    $pdo->bindParam(4,$fecha);
-    $pdo->bindParam(5,$email);
-    $pdo->bindParam(6,$pswd);
-    $pdo->execute() or die(print($pdo->errorInfo()));
+
+    $sql = "SELECT * FROM cliente WHERE NOMBRE_CLI='Erick'";
+    $result = $conexion->query($sql);
+    $resultado = $result -> fetchAll(PDO::FETCH_ASSOC);
+
+    print_r($resultado['NUMCED_CLI']);
     echo 'ok';
 ?>
