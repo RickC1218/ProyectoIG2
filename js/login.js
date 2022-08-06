@@ -18,14 +18,12 @@ window.addEventListener('load', () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
-                    form.reset()
+                    window.location.href = "./perfil_usr.html"
                 } else {
                     alert('Error al iniciar sesión')
                 }
             });
     });
-    
-
 })
 
 

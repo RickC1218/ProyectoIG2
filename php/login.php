@@ -5,10 +5,18 @@
     require('conexion.php');
 
 
-    $sql = "SELECT * FROM cliente WHERE NOMBRE_CLI='Erick'";
+    $sql = "SELECT EMAIL_CLI, CONTRASENA_CLI FROM cliente WHERE EMAIL_CLI='$email'";
     $result = $conexion->query($sql);
     $resultado = $result -> fetchAll(PDO::FETCH_ASSOC);
 
-    print_r($resultado['NUMCED_CLI']);
-    echo 'ok';
+    if ($email === $resultado[0]['EMAIL_CLI']){
+        if ($pswd === $resultado[0]['CONTRASENA_CLI']){
+            echo 'ok';
+        }else{
+            echo 'fail';
+        }
+    }else{
+        echo 'fail';
+    }
+
 ?>
