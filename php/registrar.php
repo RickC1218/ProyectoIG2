@@ -23,5 +23,4 @@
         echo'contraseñas no coinciden';
     }
 
-
-    
+?>
