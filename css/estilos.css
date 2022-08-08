@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*Fuentes importadas*/
 @font-face {
   font-family: "Edu NSW ACT Foundation", cursive;
@@ -39,6 +38,18 @@
 
 body {
   background: linear-gradient(to bottom, #041C32, #04293A) fixed;
+}
+body .bg-glass {
+  background-color: #064663 !important;
+  color: #ECB365;
+  text-align: center;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+body .boton {
+  width: 100%;
+  background-color: #ECB365;
+  color: #041C32;
+  border-radius: 10px;
 }
 
 .h1 {
@@ -130,148 +141,26 @@ body {
     text-align: center;
   }
 }
-.container .h1 {
-  color: white;
+.wrap h2 {
+  color: #ECB365;
   padding-bottom: 20px;
   padding-top: 20px;
 }
-.container p {
-  color: white;
+.wrap p {
+  color: #ECB365;
   padding-top: 20px;
 }
-
-/*Cartas Dulcería*/
-.container-cartas {
-  margin-top: 70px;
-  margin-bottom: 100px;
-  justify-content: center;
-}
-.container-cartas h2 {
-  color: white;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-  margin-left: 100px;
-}
-.container-cartas .tarjeta {
-  margin: 20px 20px;
-  background-color: #04293A;
-  min-height: 250px;
-  margin-bottom: 20px;
-  width: 250px;
-  border-radius: 10px;
-  border: 1px solid white;
-}
-.container-cartas .tarjeta img {
-  margin-top: 10px;
-}
-.container-cartas .tarjeta .card-body p {
-  color: white;
-}
-
-.card-body h4 {
-  color: white;
-  letter-spacing: 2px;
-}
-.card-body a {
-  background-color: #ECB365;
-  border: 1px solid black;
-  border-radius: 10px;
-  color: white;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-.card-body a:hover {
+.wrap .card {
   background-color: #064663;
-  border: 1px solid white;
+}
+.wrap .card .editar {
+  color: #ECB365;
+}
+.wrap .card .editar:hover {
   color: white;
 }
-
-.menu-tipos-dulces {
-  border-radius: 10px;
-  /*.nav-link:checked {
-      background-color: aqua;
-  }*/
-}
-.menu-tipos-dulces .nav-link {
-  color: white;
-  letter-spacing: 2px;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 10px;
-}
-.menu-tipos-dulces .nav-link:hover {
-  background-color: #064663;
-  border: 1px solid white;
-  border-radius: 10px;
-}
-
-.container-menu-dulceria {
-  margin: 50px 50px;
-}
-
-/*PopUp*/
-#myModal .modal-content {
-  background-color: #041C32;
-}
-#myModal .modal-content .card-title {
-  color: white;
-}
-#myModal .modal-content .card-text {
-  color: white;
-}
-#myModal .modal-content .tarjetaPopUp {
-  background-color: #041C32;
-  border-right: 1px solid white;
-}
-#myModal .modal-content #accordion .card {
-  background-color: #041C32;
-}
-#myModal .modal-content .card-header {
-  border: 1px solid white;
-  border-radius: 10px;
-  text-align: center;
-}
-#myModal .modal-content .card-header h2,
-#myModal .modal-content p {
-  color: white;
-}
-#myModal .modal-content .btn-group-vertical {
-  width: 100%;
-}
-#myModal .modal-content .btn-group-vertical .btn {
-  color: white;
-  background-color: #064663;
-  border: 1px solid white;
-  text-align: justify;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-#myModal .modal-content .btn-group-vertical .btn:hover {
-  background-color: #ECB365;
-}
-#myModal .modal-content .modal-footer #botonMenos,
-#myModal .modal-content .modal-footer #botonMas {
-  background-color: #064663;
-  height: 50px;
-  width: 50px;
-  border-radius: 30px;
-  margin-right: 37px;
-  border: 1px solid white;
-  font-weight: bold;
-}
-#myModal .modal-content .modal-footer #botonMenos:hover,
-#myModal .modal-content .modal-footer #botonMas:hover,
-#myModal .modal-content .modal-footer #addProdCarrito:hover {
-  background-color: #ECB365;
-}
-#myModal .modal-content .modal-footer #addProdCarrito {
-  background-color: #064663;
-  width: 240px;
-  border-radius: 10px;
-  border: 1px solid white;
-  font-weight: bold;
-  font-size: 12px;
-  letter-spacing: 1px;
+.wrap .card .table {
+  color: #ECB365;
 }
 
 /*# sourceMappingURL=estilos.css.map */

@@ -48,6 +48,18 @@ $color-botones-enlaces: #ECB365;
 
 body {
   background: linear-gradient(to bottom, $color-primario, $color-secundario) fixed;
+  .bg-glass {
+    background-color: $color-cajas !important;
+    color: $color-botones-enlaces;
+    text-align: center;
+    backdrop-filter: saturate(200%) blur(25px);
+  }
+  .boton{
+    width: 100%;
+    background-color: $color-botones-enlaces;
+    color: $color-primario;
+    border-radius: 10px;
+}
 }
 
 .h1 {

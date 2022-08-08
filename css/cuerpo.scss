@@ -1,176 +1,25 @@
 @use 'base';
 
-.container {
-    .h1 {
-        color: white;
+.wrap {
+    h2 {
+        color: base.$color-botones-enlaces;
         padding-bottom: 20px;
         padding-top: 20px;
     }
-
     p {
-        color: white;
+        color: base.$color-botones-enlaces;
         padding-top: 20px;
     }
-}
-
-/*Cartas Dulcería*/
-.container-cartas {
-    margin-top: 70px;
-    margin-bottom: 100px;
-    justify-content: center;
-
-    h2 {
-        color: white;
-        margin-bottom: 30px;
-        letter-spacing: 2px;
-        margin-left: 100px;
-    }
-
-    .tarjeta {
-        margin: 20px 20px;
-        background-color: base.$color-secundario;
-        min-height: 250px;
-        margin-bottom: 20px;
-        width: 250px;
-        border-radius: 10px;
-        border: 1px solid white;
-
-        img {
-            margin-top: 10px;
+    .card{
+        background-color: base.$color-cajas;
+        .editar{
+            color: base.$color-botones-enlaces;
         }
-
-        .card-body p {
+        .editar:hover{
             color: white;
         }
-    }
-}
-
-.card-body {
-
-    h4 {
-        color: white;
-        letter-spacing: 2px;
-    }
-
-    a {
-        background-color: base.$color-botones-enlaces;
-        border: 1px solid black;
-        border-radius: 10px;
-        color: white;
-        letter-spacing: 1px;
-        font-weight: bold;
-    }
-
-    a:hover {
-        background-color: base.$color-cajas;
-        border: 1px solid white;
-        color: white;
-    }
-}
-
-.menu-tipos-dulces {
-    border-radius: 10px;
-
-    .nav-link {
-        color: white;
-        letter-spacing: 2px;
-        margin: 5px;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    .nav-link:hover {
-        background-color: base.$color-cajas;
-        border: 1px solid white;
-        border-radius: 10px;
-    }
-
-    /*.nav-link:checked {
-        background-color: aqua;
-    }*/
-
-}
-
-.container-menu-dulceria {
-    margin: 50px 50px;
-}
-
-/*PopUp*/
-#myModal .modal-content {
-    background-color: base.$color-primario;
-
-    .card-title {
-        color: white;
-    }
-
-    .card-text {
-        color: white;
-    }
-
-    .tarjetaPopUp {
-        background-color: base.$color-primario;
-        border-right: 1px solid white;
-    }
-
-    #accordion .card {
-        background-color: base.$color-primario;
-    }
-
-    .card-header {
-        border: 1px solid white;
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    .card-header h2,
-    p {
-        color: white;
-    }
-
-    .btn-group-vertical {
-        width: 100%;
-    }
-
-    .btn-group-vertical .btn {
-        color: white;
-        background-color: base.$color-cajas;
-        border: 1px solid white;
-        text-align: justify;
-        font-weight: bold;
-        letter-spacing: 2px;
-    }
-
-    .btn-group-vertical .btn:hover {
-        background-color: base.$color-botones-enlaces;
-    }
-
-    .modal-footer {
-
-        #botonMenos,
-        #botonMas {
-            background-color: base.$color-cajas;
-            height: 50px;
-            width: 50px;
-            border-radius: 30px;
-            margin-right: 37px;
-            border: 1px solid white;
-            font-weight: bold;
-        }
-
-        #botonMenos:hover,
-        #botonMas:hover,
-        #addProdCarrito:hover {
-            background-color: base.$color-botones-enlaces;
-        }
-
-        #addProdCarrito {
-            background-color: base.$color-cajas;
-            width: 240px;
-            border-radius: 10px;
-            border: 1px solid white;
-            font-weight: bold;
-            font-size: 12px;
-            letter-spacing: 1px;
+        .table{
+            color: base.$color-botones-enlaces;
         }
     }
 }
