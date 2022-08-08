@@ -1,88 +1,69 @@
 /*Fuentes importadas*/
 @font-face {
-  font-family: "Edu NSW ACT Foundation", cursive;
-  src: url("../recursos/fuentes/Edu_NSW_ACT_Foundation/EduNSWACTFoundation-VariableFont_wght.ttf");
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  src: url('../recursos/fuentes/Edu_NSW_ACT_Foundation/EduNSWACTFoundation-VariableFont_wght.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Poppins", sans-serif;
-  src: url("../recursos/fuentes/Poppins/Poppins-Thin.ttf");
+  font-family: 'Poppins', sans-serif;
+  src: url('../recursos/fuentes/Poppins/Poppins-Thin.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Raleway", sans-serif;
-  src: url("../recursos/fuentes/Raleway/Raleway-VariableFont_wght.ttf");
+  font-family: 'Raleway', sans-serif;
+  src: url('../recursos/fuentes/Raleway/Raleway-VariableFont_wght.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto Condensed", sans-serif;
-  src: url("../recursos/fuentes/Roboto_Condensed/RobotoCondensed-Light.ttf");
+  font-family: 'Roboto Condensed', sans-serif;
+  src: url('../recursos/fuentes/Roboto_Condensed/RobotoCondensed-Light.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Source Sans Pro", sans-serif;
-  src: url("../recursos/fuentes/Source_Sans_Pro/SourceSansPro-Black.ttf");
+  font-family: 'Source Sans Pro', sans-serif;
+  src: url('../recursos/fuentes/Source_Sans_Pro/SourceSansPro-Black.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
 /*Paleta de Colores*/
-$color-primario: #041c32;
-$color-secundario: #04293a;
+$color-primario: #041C32;
+$color-secundario: #04293A;
 $color-cajas: #064663;
-$color-botones-enlaces: #ecb365;
+$color-botones-enlaces: #ECB365;
 
-/*estrenos*/
+/*Clase clearfix*/
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+.navbar-toggler{
+  background-color: $color-botones-enlaces;
+}
+
 body {
-  background: radial-gradient($color-secundario, $color-primario);
-  background-size: cover;
-  #cabecera {
-    .logo {
-      background-color: transparent;
-      border-radius: 5px;
-    }
-    .barra {
-      background-color: transparent;
-      text-align: right;
-      li {
-        a {
-          padding: 10px 15px;
-          border-radius: 5px;
-          background-color: transparent;
-          font-size: 20px;
-          font-family: "Roboto Condensed";
-          color: white;
-          text-align: center;
-        }
-        a:hover {
-          background-color: $color-cajas;
-        }
-        #boton {
-          background-color: $color-botones-enlaces;
-        }
-        #boton:hover {
-          color: $color-cajas;
-        }
-      }
-    }
-  }
+  background: linear-gradient(to bottom, $color-primario, $color-secundario) fixed;
+
   #peliculas {
     padding: auto;
     border: 50px;
     border-color: $color-botones-enlaces;
+
     #pelicula {
       font-family: "Roboto Condensed";
       margin: auto;
       transition: all 300ms;
       color: $color-botones-enlaces;
+
       #cajaPelicula {
         float: left;
         background-color: $color-cajas;
@@ -91,11 +72,13 @@ body {
         border: 5px;
         border-radius: 20px;
         border-color: $color-botones-enlaces;
+
         #tarjeta {
           margin: auto;
           background-color: $color-cajas;
           border-radius: 5px;
           text-align: center;
+
           img {
             width: 200px;
             height: 280px;
@@ -103,11 +86,13 @@ body {
             border-radius: 5px;
             transition: all 300ms;
           }
+
           .category {
             width: 100%;
             font-size: 10px;
             padding: auto;
             text-align: center;
+
             h5,
             h6 {
               color: $color-botones-enlaces;
@@ -115,6 +100,7 @@ body {
             }
           }
         }
+
         /*Cuando haga click entrará en funcionamiento lo siguiente*/
         #infoPelicula {
           display: none;
@@ -128,23 +114,28 @@ body {
           font-size: 12px;
           padding: auto;
           text-align: center;
+
           #trailerPelicula {
             display: none;
           }
+
           h5,
           h6,
           p {
             color: $color-botones-enlaces;
           }
+
           #boton {
             background-color: $color-botones-enlaces;
             border: $color-cajas;
             border-radius: 10px;
             padding-top: 8px;
+
             h5 {
               color: white;
             }
           }
+
           #boton:hover {
             h5 {
               color: $color-secundario;
@@ -152,26 +143,32 @@ body {
           }
         }
       }
+
       #cajaPelicula:hover {
         cursor: pointer;
         background-color: $color-secundario;
         border: solid 1px;
         border-color: $color-botones-enlaces;
+
         #tarjeta {
           border-radius: 15px;
           background-color: $color-secundario;
           transform: scale(0.95);
           transition: all 300ms;
+
           img {
             border-radius: 15px;
           }
+
           .category {
+
             h5,
             h6 {
               color: $color-botones-enlaces;
             }
           }
         }
+
         #infoPelicula {
           display: none;
           background: $color-secundario;
