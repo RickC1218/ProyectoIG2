@@ -4,12 +4,12 @@ window.addEventListener('load', () => {
 
 
     function listarCliente() {
-        fetch('php/listar.php', {
+        fetch('php/bienvenida.php', {
                 metod: 'POST'
             })
             .then(respose => respose.text())
             .then(response => {
-                promocion.innerHTML = response
+                contenidoCli.innerHTML = response
             })
     }
 
