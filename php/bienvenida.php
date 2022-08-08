@@ -1,8 +1,17 @@
 <?php
-    echo '<section class="row">
+session_start();
+require("conexion.php");
+
+$numced = $_SESSION['user'];
+
+$sql = "SELECT NOMBRE_CLI, APELLIDO_CLI FROM cliente WHERE NUMCED_CLI=$numced";
+$result = $conexion->query($sql);
+$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+
+echo '<section class="row">
     <div class="clearfix"></div>
     <div class="col-12">
-        <h2><strong>Hola,</strong> bienvenido Nombre Apellido</h2>
+        <h2><strong>Hola,</strong> bienvenido ' . $resultado[0]['NOMBRE_CLI'] . ' ' . $resultado[0]['APELLIDO_CLI'] . '</h2>
     </div>
     <div id="perfil" class="col-6 col-sm-6 col-lg-3 mt-4">
         <div class="card">
@@ -92,4 +101,3 @@
         </div>
     </div>
 </section>';
-?>
