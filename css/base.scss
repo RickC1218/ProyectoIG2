@@ -1,37 +1,37 @@
 /*Fuentes importadas*/
 @font-face {
-    font-family: 'Edu NSW ACT Foundation', cursive;
-    src: url('../recursos/fuentes/Edu_NSW_ACT_Foundation/EduNSWACTFoundation-VariableFont_wght.ttf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  src: url('../recursos/fuentes/Edu_NSW_ACT_Foundation/EduNSWACTFoundation-VariableFont_wght.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('../recursos/fuentes/Poppins/Poppins-Thin.ttf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Poppins', sans-serif;
+  src: url('../recursos/fuentes/Poppins/Poppins-Thin.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Raleway', sans-serif;
-    src: url('../recursos/fuentes/Raleway/Raleway-VariableFont_wght.ttf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Raleway', sans-serif;
+  src: url('../recursos/fuentes/Raleway/Raleway-VariableFont_wght.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto Condensed', sans-serif;
-    src: url('../recursos/fuentes/Roboto_Condensed/RobotoCondensed-Light.ttf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Roboto Condensed', sans-serif;
+  src: url('../recursos/fuentes/Roboto_Condensed/RobotoCondensed-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Source Sans Pro', sans-serif;
-    src: url('../recursos/fuentes/Source_Sans_Pro/SourceSansPro-Black.ttf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
+  src: url('../recursos/fuentes/Source_Sans_Pro/SourceSansPro-Black.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*Paleta de Colores*/
@@ -40,25 +40,28 @@ $color-secundario: #04293A;
 $color-cajas: #064663;
 $color-botones-enlaces: #ECB365;
 
-body{
-    background: radial-gradient($color-secundario, $color-primario);
-    background-size: cover;
-    .bg-glass {
-        background-color: $color-cajas !important;
-        backdrop-filter: saturate(200%) blur(25px);
-    }
-    .boton{
-        width: 100%;
-        background-color: $color-botones-enlaces;
-        color: $color-primario;
-        border-radius: 10px;
-    }
-    .card{
-        color: $color-botones-enlaces;
-        background-color: $color-cajas;
-        .enlace{
-            text-decoration:underline;
-            color: $color-botones-enlaces;
-        }
-    }
+/*Clase clearfix*/
+.clearfix{
+  float: none;
+  clear: both;
+}
+
+body {
+  background: linear-gradient(to bottom, $color-primario, $color-secundario) fixed;
+}
+
+.h1 {
+  font-family: 'Roboto Condensed';
+}
+
+.h2 {
+  font-family: 'Roboto Condensed';
+}
+
+.h4 {
+  font-family: cursive;
+}
+
+.navbar-toggler{
+  background-color: $color-botones-enlaces;
 }
