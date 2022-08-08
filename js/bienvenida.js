@@ -1,7 +1,7 @@
 'use strict'
 window.addEventListener('load', () => {
-    listarCliente();
-
+    listarCliente()
+    alert('Please wait...')
 
     function listarCliente() {
         fetch('php/bienvenida.php', {

@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
-                    window.location.href = "./perfil_usr.html"
+                    window.location.href = "./usuario.html"
                 } else {
                     alert('Error al iniciar sesión')
                 }
