@@ -12,14 +12,58 @@
     }
     .card{
         background-color: base.$color-cajas;
-        .editar{
+        .editarPerfil{
             color: base.$color-botones-enlaces;
         }
-        .editar:hover{
+        .editarPerfil:hover{
             color: white;
+            cursor: pointer;
         }
         .table{
             color: base.$color-botones-enlaces;
         }
+        .mostrarPedidos{
+            color: base.$color-botones-enlaces;
+        }
+        .mostrarPedidos:hover{
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+#formMostrarCli{
+    padding: 3%;
+    #dato{
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 1%;
+        color: base.$color-botones-enlaces;
+        background-color: base.$color-primario;
+        border-radius: 5px;
+        text-align: center;
+        input{
+            border-radius: 10px;
+            background-color: base.$color-cajas;
+            color: white;
+            width: 100%;
+            border: none;
+            text-align: center;
+        }
+    }
+    button{
+        width: 90%;
+        border-radius: 10px;
+        letter-spacing: 1px;
+        border-color: white;
+    }
+    button:hover{
+        transform: scale(1.1);
+    }
+}
+
+@media(max-width:991px){
+    #perfil{
+        margin: auto;
     }
 }

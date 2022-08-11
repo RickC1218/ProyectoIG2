@@ -153,14 +153,58 @@ body .boton {
 .wrap .card {
   background-color: #064663;
 }
-.wrap .card .editar {
+.wrap .card .editarPerfil {
   color: #ECB365;
 }
-.wrap .card .editar:hover {
+.wrap .card .editarPerfil:hover {
   color: white;
+  cursor: pointer;
 }
 .wrap .card .table {
   color: #ECB365;
+}
+.wrap .card .mostrarPedidos {
+  color: #ECB365;
+}
+.wrap .card .mostrarPedidos:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#formMostrarCli {
+  padding: 3%;
+}
+#formMostrarCli #dato {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 1%;
+  color: #ECB365;
+  background-color: #041C32;
+  border-radius: 5px;
+  text-align: center;
+}
+#formMostrarCli #dato input {
+  border-radius: 10px;
+  background-color: #064663;
+  color: white;
+  width: 100%;
+  border: none;
+  text-align: center;
+}
+#formMostrarCli button {
+  width: 90%;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  border-color: white;
+}
+#formMostrarCli button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+  #perfil {
+    margin: auto;
+  }
 }
 
 /*# sourceMappingURL=estilos.css.map */
