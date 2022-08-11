@@ -25,7 +25,37 @@ window.addEventListener('load', () => {
             });
     });
 
+    function borrarInfo(id) {
+        Swal.fire({
+            title: 'Estas seguro?',
+            text: "No podras revertirlo!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borralo!',
+            cancelButtonText: 'No, deseo conservarlo'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('php/borrarInfo.php', {
+                        method: 'POST',
+                        body: id
+                    })
+                    .then(response => response.text())
+                    .then(response => {
+                        console.log(response);
+                        if (response == 'ok') {
+                            listarPromocion()
+                            Swal.fire(
+                                'Eliminado!',
+                                'La promocion ha sido borrada!',
+                            )
+                        }
+                    })
+            }
+        })
+    }
 
 
-    
+
 });
