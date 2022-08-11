@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
             .then(response => {
                 contenidoCli.innerHTML = response
                 var datosCliente = document.querySelector('#editProfile');
-                console.log(datosCliente);
                 var historialCliente = document.querySelector('#showRecord');
 
                 var cliente = $('#editarInfo');
