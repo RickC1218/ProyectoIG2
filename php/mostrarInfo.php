@@ -103,35 +103,35 @@ echo '<section class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="nombre">Nombre</label>
-                        <input type="text" class="form-label" value="'.$resultado[0]['NOMBRE_CLI'] .'" />
+                        <input type="text" name="nombre" class="form-control" placeholder="label" value="'.$resultado[0]['NOMBRE_CLI'] .'" />
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
                         <label class="form-label" for="apellido">Apellido</label>
-                        <input type="text" class="form-label" value="'.$resultado[0]['APELLIDO_CLI'] .'" />
+                        <input type="text" name="apellido" class="form-label" value="'.$resultado[0]['APELLIDO_CLI'] .'" />
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <label class="form-label" for="ci">Cédula de Identidad</label>
-                    <input type="number" class="form-label" value="'.$resultado[0]['NUMCED_CLI'] .'" readonly />
+                    <input type="number" name="ci" class="form-label" value="'.$resultado[0]['NUMCED_CLI'] .'" readonly />
                 </div>
                 <div class="col-md-6 mb-4">
                     <label class="form-label" for="ci">Fecha de nacimiento</label>
-                    <input type="date" class="form-label" value="'.$resultado[0]['FECHANACIMIENTO_CLI'] .'" />
+                    <input type="date" name="fecha" class="form-label" value="'.$resultado[0]['FECHANACIMIENTO_CLI'] .'" />
                 </div>
                 <div class="col-md-12 mb-4">
                     <label class="form-label" for="ci">Correo electrónico</label>
-                    <input type="email" class="form-label" value="'.$resultado[0]['EMAIL_CLI'] .'" />
+                    <input type="email" name="email" class="form-label" value="'.$resultado[0]['EMAIL_CLI'] .'" />
                 </div>
                 <div class="col-6">
-                    <button onclick="editarInfo('.$resultado[0]['NUMCED_CLI'] .')" class="btn btn-primary btn-block mt-4 mb-4"
+                    <button onclick="editarInfo()" class="btn btn-primary btn-block mt-4 mb-4"
                         style="background-color: green;">
                         Actualizar cuenta
                     </button>
                 </div>
                 <div class="col-6">
-                    <button onclick="borrarInfo('.$resultado[0]['NUMCED_CLI'] .')" class="btn btn-primary btn-block mt-4 mb-4"
+                    <button onclick="borrarInfo()" class="btn btn-primary btn-block mt-4 mb-4"
                         style="background-color: red;">
                         Eliminar cuenta
                     </button>

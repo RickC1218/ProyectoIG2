@@ -1,5 +1,6 @@
 <?php
-    $data = file_get_contents("php://input");
+    session_start();
+    $data = $_SESSION['user'];
     require('conexion.php');
     $pdo = $conexion -> prepare("DELETE FROM CLIENTE WHERE NUMCED_CLI = :id");
     $pdo ->bindParam(":id", $data);

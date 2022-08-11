@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
     listarCliente()
     alert('Please wait...')
 
+
     function listarCliente() {
         fetch('php/mostrarInfo.php', {
                 metod: 'POST'
@@ -10,6 +11,12 @@ window.addEventListener('load', () => {
             .then(respose => respose.text())
             .then(response => {
                 contenidoCli.innerHTML = response
+
+                var form = document.querySelector("#formMostrarCli")
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                })
+
                 var datosCliente = document.querySelector('#editProfile');
                 var historialCliente = document.querySelector('#showRecord');
 
