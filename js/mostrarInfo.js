@@ -1,9 +1,6 @@
 'use strict'
 window.addEventListener('load', () => {
     listarCliente()
-    alert('Please wait...')
-
-
     function listarCliente() {
         fetch('php/mostrarInfo.php', {
                 metod: 'POST'

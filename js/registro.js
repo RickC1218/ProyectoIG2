@@ -1,6 +1,5 @@
 'use strict'
 window.addEventListener('load', () => {
-    alert ('vinculado js')
     var form = document.querySelector("#formRegistro")
     form.addEventListener("submit", function (e) {
         e.preventDefault();

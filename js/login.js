@@ -1,6 +1,5 @@
 'use strict'
 window.addEventListener('load', () => {
-    alert('login')
     var formulario = document.querySelector("#formLogin")
     formulario.addEventListener("submit", function (e) {
         e.preventDefault();
