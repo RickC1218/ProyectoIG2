@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
     listarCliente()
     function listarCliente() {
         fetch('php/mostrarInfo.php', {
-                metod: 'POST'
+                method: 'POST'
             })
             .then(respose => respose.text())
             .then(response => {
