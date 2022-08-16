@@ -9,5 +9,5 @@ $con = mysqli_connect($servername, $username, $password, $database);
 if (!$con) {
     die("La conexión ha fallado: " . mysqli_connect_error());
 }
-#echo "Conexión satisfactoria";
-mysqli_set_charset($con,"utf8");
+//echo "Conexión satisfactoria";
+mysqli_set_charset($con, "utf8");

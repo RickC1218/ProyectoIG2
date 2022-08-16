@@ -231,15 +231,4 @@ nav ul li a:hover {
   border: 0 solid #ECB365;
 }
 
-.Pelicula {
-  float: left;
-}
-.Pelicula .Info_Pelicula {
-  width: 500px;
-}
-
-.img_Pelicula {
-  width: 200px;
-}
-
 /*# sourceMappingURL=estilos.css.map */
