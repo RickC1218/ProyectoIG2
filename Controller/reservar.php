@@ -5,6 +5,6 @@ require "SALA.php";
 
 //Se reservan los asientos en la base de datos
 SALA::save($_POST["id_sala"], $_POST["asientos"],$_POST["id_usuario"]);
-echo '<script language="javascript">alert("Asientos Reservados");
-location.reload();
-</script>';
+printf('<script language="javascript">alert("Asientos Reservados");
+window.history.back().reload();
+</script>');

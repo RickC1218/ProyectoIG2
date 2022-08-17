@@ -81,7 +81,7 @@ Explain how to run the automated tests for this system.
 
 ### Break down into end to end tests
 
-Prueba de Conexio Base de datos:
+Prueba de Conexión Base de datos:
 
 ```php
 <?php

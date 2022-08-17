@@ -1,3 +1,4 @@
+
 var reservacion = {
   // Asiento escogido
   toggle: (btn_Butaca) => {
@@ -11,7 +12,15 @@ var reservacion = {
 
     // Si no se ha escodigo asientos se le envia una alerta al usuario
     if (seleccionados.length == 0) {
-      alert("Por Favor Seleccione sus Asientos");
+      //alert("Por Favor Seleccione sus Asientos");
+      Swal.fire({
+        icon: 'error',
+        title: 'Escoge tus asientos porfavor',
+        background: '#041C32',
+        color: '#ffff',
+        confirmButtonColor: '#ECB365',
+        showCloseButton: true,
+      });
     }
 
     // Se envia al formulario para hacer la reservación de los asientos
