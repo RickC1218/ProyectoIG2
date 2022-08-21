@@ -4,13 +4,15 @@ require("conexion.php");
 
 $numced = $_SESSION['user'];
 
+
 $sql = "SELECT * FROM cliente WHERE NUMCED_CLI=$numced";
 $result = $conexion->query($sql);
 $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
 
 $sql2 = "SELECT titulo_pelicula, cantboletos_detpel, FECHACOMPRA_FACTURA, VALTOTAL_FACTURA 
         from cliente, factura, detalle_pelicula, pelicula 
-        where cliente.NUMCED_CLI= factura.NUMCED_CLI 
+        where cliente.NUMCED_CLI=  $numced
+            and factura.NUMCED_CLI = $numced
             and factura.ID_FACTURA = detalle_pelicula.ID_FACTURA 
             and detalle_pelicula.ID_PELICULA = pelicula.ID_PELICULA;";
 $result = $conexion->query($sql2);
