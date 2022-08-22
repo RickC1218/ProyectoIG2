@@ -70,8 +70,6 @@
                     <!--se va a mostrarPelículas-->
                 </div>
             </div>
-
-            <script type="text/javascript" src="../js/contador.js"></script>
             <script type="text/javascript" src="../js/mostrarPeliculas.js"></script>
         </section>
     </div>
