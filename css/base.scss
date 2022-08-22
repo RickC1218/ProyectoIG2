@@ -67,11 +67,11 @@ body {
       #cajaPelicula {
         float: left;
         background-color: $color-cajas;
-        padding: 20px;
-        margin: 15px 5px;
+        padding: 10px;
+        margin: auto auto;
         border: 5px;
         border-radius: 20px;
-        border-color: $color-botones-enlaces;
+        border-color: $color-botones-enlaces !important;
 
         #tarjeta {
           margin: auto;
@@ -92,11 +92,11 @@ body {
             font-size: 10px;
             padding: auto;
             text-align: center;
-
-            h5,
-            h6 {
+            h5{
               color: $color-botones-enlaces;
-              text-transform: uppercase;
+            }
+            h6 {
+              color: white !important;
             }
           }
         }
@@ -106,23 +106,19 @@ body {
           display: none;
           float: right;
           background-color: $color-cajas;
-          padding: 20px;
+          padding: 5px;
           margin: 15px 5px;
           border: 5px;
-          border-radius: 25px;
+          border-radius: 15px;
           border-color: $color-botones-enlaces;
-          font-size: 12px;
-          padding: auto;
+          font-size: 14px;
           text-align: center;
 
-          #trailerPelicula {
-            display: none;
-          }
-
-          h5,
-          h6,
-          p {
+          h5{
             color: $color-botones-enlaces;
+          }
+          h6, p {
+            color: white !important;
           }
 
           #boton {
@@ -130,48 +126,54 @@ body {
             border: $color-cajas;
             border-radius: 10px;
             padding-top: 8px;
-
             h5 {
-              color: white;
+              color: $color-primario;
             }
           }
-
           #boton:hover {
+            cursor: pointer;
             h5 {
-              color: $color-secundario;
+              color: white;
             }
           }
         }
       }
 
       #cajaPelicula:hover {
-        cursor: pointer;
         background-color: $color-secundario;
         border: solid 1px;
-        border-color: $color-botones-enlaces;
+        padding: 10px;
+        margin: 5px 5px;
 
-        #tarjeta {
+        #tarjeta:hover {
           border-radius: 15px;
-          background-color: $color-secundario;
+          border: 3px white solid !important;
+          background-color: $color-cajas;
           transform: scale(0.95);
-          transition: all 300ms;
-
+          transition: all 150ms;
           img {
             border-radius: 15px;
           }
 
           .category {
-
-            h5,
-            h6 {
+            h5{
               color: $color-botones-enlaces;
+            }
+            h6 {
+              color: white !important;
             }
           }
         }
 
         #infoPelicula {
-          display: none;
+          display: flex;
           background: $color-secundario;
+          p{
+            color: white;
+          }
+          strong{
+            color: $color-botones-enlaces !important;
+          }
         }
       }
     }

@@ -1,6 +1,3 @@
-<?php
-$conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +8,8 @@ $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
     <title>TopCine</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="recursos/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="../recursos/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body>
@@ -21,7 +18,7 @@ $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <div id="logo">
-                    <a class="navbar-brand" href="#"><img class="img-fluid" src="recursos/imagenes/logo-TopCine.png"
+                    <a class="navbar-brand" href="#"><img class="img-fluid" src="../recursos/imagenes/logo-TopCine.png"
                             alt="Logo TopCine" title="Logo TopCine"></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuDespegable"
@@ -69,44 +66,13 @@ $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
             <div class="clearfix"></div>
             <div id="pelicula">
                 <h2><strong>Hola,</strong> bienvenido a una experiencia entre estrellas...</h2>
-                <?php 
-                    $sql = "SELECT * from pelicula";
-                    $result = mysqli_query($conexion, $sql);
-                    while ($mostrar = mysqli_fetch_array($result)) {
-                ?>
-                <div id="cajaPelicula" class="row">
-                    <div class="inicial col-12">
-                        <div id="tarjeta" class="col">
-                            <div id="posterPelicula">
-                                <img src=<?php echo $mostrar['IMAGEN_PELICULA']; ?> class="img-rounded" alt="peli">
-                            </div>
-                            <div class="category">
-                                <h5><strong><?php echo $mostrar['TITULO_PELICULA'] ?></strong></h5>
-                                <h6><?php echo $mostrar['ESTRENO_PELICULA'] ?></h6>
-                            </div>
-                        </div>
-                        <div id="trailerPelicula" style="display: none;" class="col">
-                            <!--trailer-->
-                        </div>
-                        <div id="infoPelicula" class="info col">
-                            <h6><strong>Estrellas principales: </strong></h6>
-                            <p><?php echo $mostrar['ACTPRIN_PELICULA'] ?></p>
-                            <h6><strong>Estrellas secundarios: </strong></h6>
-                            <p><?php echo $mostrar['ACTSECUN_PELICULA'] ?></p>
-                            <p><strong>SINÓPSIS: </strong><?php echo $mostrar['SINOPSIS_PELICULA'] ?></p>
-                            <h6><strong>Idioma disponible: </strong></h6>
-                            <p><?php echo $mostrar['IDIOMA_PELICULA'] ?></p>
-                            <button id="boton" type="btn">
-                                <h5> Comprar boletos </h5>
-                            </button>
-                        </div>
-                    </div>
+                <div id="listaPeliculas" class="row justify-content-center">
+                    <!--se va a mostrarPelículas-->
                 </div>
-                <?php
-                }
-                ?>
             </div>
-            <script type="text/javascript" src="/backend/contador.js"></script>
+
+            <script type="text/javascript" src="../js/contador.js"></script>
+            <script type="text/javascript" src="../js/mostrarPeliculas.js"></script>
         </section>
     </div>
     <!--footer-->
@@ -148,7 +114,7 @@ $conexion = mysqli_connect('localhost', 'root', 'admin', 'proyecto_cine');
                     <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <img src="recursos/imagenes/logo-TopCine.png" alt="Logo TopCine" title="Logo TopCine"
+                                <img src="../recursos/imagenes/logo-TopCine.png" alt="Logo TopCine" title="Logo TopCine"
                                     class="img-fluid ">
                             </li>
                         </ul>
