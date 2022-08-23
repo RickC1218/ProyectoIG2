@@ -1,6 +1,6 @@
 <?php
 require "conexion.php";
-$consulta = $pdo->prepare("SELECT * FROM pelicula ORDER BY ESTRENO_PELICULA");
+$consulta = $pdo->prepare("SELECT * FROM PELICULA ORDER BY ESTRENO_PELICULA");
 $consulta->execute();
 $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 foreach ($resultado as $key => $data) {
@@ -9,7 +9,7 @@ foreach ($resultado as $key => $data) {
             <div class='inicial'>
                 <div id='tarjeta'>
                     <div id='posterPelicula'>
-                        <img class='img-rounded' src='data:image/png;base64,'" . base64_encode($data['IMAGEN_PELICULA']) . "'/>
+                        <img class='img-rounded' src='" . $data['IMAGEN_PELICULA'] . "'/>
                     </div>
                     <div class='category'>
                         <h5><strong>" . $data['TITULO_PELICULA'] . "</strong></h5>
