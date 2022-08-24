@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numero de Boletos</title>
+    <title>Nùmero de Boletos</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
        crossorigin="anonymous">
@@ -222,8 +222,8 @@
     <script src="http://localhost:90/ProyectoIG2/Controller/js/Contador.js"></script>
     <div  style= "color: white;" class="fechas_Disponibles">
     <?php
-        $fechaInicio=strtotime("08-08-2022");
-        $fechaFin=strtotime("16-08-2022");
+        $fechaInicio=strtotime(date("m-d-Y")); // desde la fecha actual hastala fecha en la que la pelicula estarà en cartelera
+        $fechaFin=strtotime("16-08-2022"); // se extrae el dato de fecha en cartelera de la pelicula seleccionada (dato quemado por el momento)
         setlocale(LC_ALL, 'spanish');
         echo "<h2>".strftime('%B')."</h2> <br>";
         for($i=$fechaInicio; $i<=$fechaFin; $i+=86400){

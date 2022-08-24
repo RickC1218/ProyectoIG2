@@ -1,7 +1,7 @@
 <?php
 $URL_BASE = "http://localhost:90/ProyectoIG2/Controller";
 #require ("ASIENTO.php");
-include("BasedeDatos.php");
+require("BasedeDatos.php");
 #$Salas = "SELECT *FROM SALA WHERE ID_SALA =". $_GET["ID_SALA"].";";
 require("SALA.php");
 #$N_Butacas = $_GET['n_butacas'];
@@ -165,7 +165,8 @@ require("SALA.php");
         $json = json_encode($Asientos);
         ?>
         <?php
-        //$id = $_GET["id"];
+        
+        //datos quemados aqui se debe enviar el id del usuario en la sesiòn
         $id_usuario = 1;
 
         ?>
