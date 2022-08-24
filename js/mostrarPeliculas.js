@@ -1,9 +1,9 @@
-listarPeliculas();
+'use strict'
 
 function listarPeliculas(id) {
-    fetch("listar.php", {
+    fetch("php/listar.php", {
         method: "POST",
-        body:id
+        body: id
     })
         .then(response => response.text())
         .then(response => {
