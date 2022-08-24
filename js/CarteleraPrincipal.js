@@ -46,10 +46,6 @@ window.addEventListener("load", () => {
       confirmButtonText: '<a href = "http://localhost:90/ProyectoIG2/Controller/Estrenos.php?ID=4"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true,
-      // imageUrl: "recursos/imagenes/CarteleraPrincipal/cartelera1.jpg",
-      // imageWidth: 9000,
-      // imageHeight: 400,
-      // imageAlt: "Custom image",
     });
   }
   function Estreno2() {
@@ -63,10 +59,6 @@ window.addEventListener("load", () => {
       confirmButtonText: '<a href = "http://localhost:90/ProyectoIG2/Controller/Estrenos.php?ID=2"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true
-      // imageUrl: "recursos/imagenes/CarteleraPrincipal/cartelera1.jpg",
-      // imageWidth: 9000,
-      // imageHeight: 400,
-      // imageAlt: "Custom image",
     });
   }
   function Estreno3() {
@@ -80,10 +72,6 @@ window.addEventListener("load", () => {
       confirmButtonText: '<a href = "http://localhost:90/ProyectoIG2/Controller/Estrenos.php?ID=1"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true
-      // imageUrl: "recursos/imagenes/CarteleraPrincipal/cartelera1.jpg",
-      // imageWidth: 9000,
-      // imageHeight: 400,
-      // imageAlt: "Custom image",
     });
   }
   function Estreno4() {
@@ -97,10 +85,6 @@ window.addEventListener("load", () => {
       confirmButtonText: '<a href="http://localhost:90/ProyectoIG2/Controller/Estrenos.php?ID=3" style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true
-      // imageUrl: "recursos/imagenes/CarteleraPrincipal/cartelera1.jpg",
-      // imageWidth: 9000,
-      // imageHeight: 400,
-      // imageAlt: "Custom image",
     });
   }  
 });
