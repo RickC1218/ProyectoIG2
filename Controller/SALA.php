@@ -15,9 +15,23 @@ class SALA
 
     public function __construct($id_sala, $aforo, $estado)
     {
+        require("BasedeDatos.php");
         $this->ID_SALA = $id_sala;
         $this->aforo = $aforo;
         $this->ESTADO_SALA = $estado;
+        
+
+        // el crear una sala se inserta dicha sala en la base de datos
+
+        $Insert = "INSERT INTO Sala Values (${id_sala},${aforo},${estado})";
+
+        if (mysqli_query($con, $Insert)) {
+            echo "registrado con exito";
+        } else {
+            echo "error" . $Insert . "<br>" . mysqli_error($con);
+        }
+
+
     }
 
     //para establecer el estado cuando el usaurio escoja los nuevos asientos
@@ -50,39 +64,10 @@ class SALA
                 } else {
                     echo "error" . $Insert . "<br>" . mysqli_error($con);
                 }
-                //echo '<button type="button" class="btn_Butaca" id='.$id_asiento.' onclick="btnChanger('.$id_asiento.')" >B'. $id_asiento.'</button>';
 
             }
-            //echo '<br>';
         }
     }
-
-
-    // public function set_Estado_by_ID($id){
-    //     $n = $this->n_asientos;
-    //     for ($i=0; $i < ($this->aforo/$n) ; $i++) {
-
-    //         for ($j=0; $j <($n) ; $j++) { 
-    //         if (($this->Asientos[$i][$j])->ID_ASIENTO  == $id && ($this->Asientos[$i][$j])->get_estado () == "vacio"){
-    //             ($this->Asientos[$i][$j])->set_estado ("elegido");
-    //             break;
-    //         }
-    //     }                
-    //     }
-    // }    
-
-    // public function get_Estado_by_ID($id){
-    //     $n = $this->n_asientos;
-    //     for ($i=0; $i < ($this->aforo/$n) ; $i++) {
-
-    //         for ($j=0; $j <($n) ; $j++) { 
-    //         if (($this->Asientos[$i][$j])->ID_ASIENTO  == $id){
-    //             echo " existe asiento con ese id con estado ".($this->Asientos[$i][$j])->get_estado ();
-    //             break;
-    //         }
-    //     }                
-    //     }    
-    // }
 
     public static function get_Sala($id_sala)
     {

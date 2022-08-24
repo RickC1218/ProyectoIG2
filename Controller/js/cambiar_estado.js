@@ -15,7 +15,17 @@ var reservacion = {
       //alert("Por Favor Seleccione sus Asientos");
       Swal.fire({
         icon: 'error',
-        title: 'Escoge tus asientos porfavor',
+        title: 'Escoja sus asientos porfavor',
+        background: '#041C32',
+        color: '#ffff',
+        confirmButtonColor: '#ECB365',
+        showCloseButton: true,
+      });
+    }
+    if (seleccionados.length > num_asientos){
+      Swal.fire({
+        icon: 'error',
+        title: 'Escoja unicamente'+ num_asientos + 'asientos',
         background: '#041C32',
         color: '#ffff',
         confirmButtonColor: '#ECB365',
