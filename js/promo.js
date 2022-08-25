@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     listarPromocion();
 
     function listarPromocion() {
-        fetch('../UseCases/listarPromociones.php', {
+        fetch('UseCases/listarPromociones.php', {
             method: 'POST'
         })
             .then(response => response.text())

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Add meta tags for mobile and IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> PayPal Checkout Integration | Client Demo </title>
+</head>
+
+<body>
+    <!-- Set up a container element for the button -->
+    <div id="paypal-button-container"></div>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+
+    <p id="error" class="hidden">Click the checkbox</p>
+    <label><input id="check" type="checkbox" required> Click here to continue</label>
+
+    <script>
+        paypal.Buttons({
+
+            // onInit is called when the button first renders
+            onInit: function (data, actions) {
+
+                // Disable the buttons
+                actions.disable();
+
+                // Listen for changes to the checkbox
+                document.querySelector('#check')
+                    .addEventListener('change', function (event) {
+
+                        // Enable or disable the button when it is checked or unchecked
+                        if (event.target.checked) {
+                            actions.enable();
+                        } else {
+                            actions.disable();
+                        }
+                    });
+            },
+
+            // onClick is called when the button is clicked
+            onClick: function () {
+
+                // Show a validation error if the checkbox is not checked
+                if (!document.querySelector('#check').checked) {
+                    document.querySelector('#error').classList.remove('hidden');
+                }
+            }
+
+        }).render('#paypal-button-container');
+    </script>
+</body>
+
+</html>

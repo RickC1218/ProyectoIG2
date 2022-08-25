@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="recursos/imagenes/logo-TopCine.png" alt="Project logo"></a>
+ <img width=200px height=200px src="resources/imagenes/logo-TopCine.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">TopCine</h3>

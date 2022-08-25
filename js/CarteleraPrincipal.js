@@ -30,10 +30,10 @@ window.addEventListener("load", () => {
 
   //Mostrar Trailers 
 
-  document.querySelector("#Estreno1").addEventListener("click",Estreno1);
-  document.querySelector("#Estreno2").addEventListener("click",Estreno2);
-  document.querySelector("#Estreno3").addEventListener("click",Estreno3);
-  document.querySelector("#Estreno4").addEventListener("click",Estreno4);
+  document.querySelector("#Estreno1").addEventListener("click", Estreno1);
+  document.querySelector("#Estreno2").addEventListener("click", Estreno2);
+  document.querySelector("#Estreno3").addEventListener("click", Estreno3);
+  document.querySelector("#Estreno4").addEventListener("click", Estreno4);
 
   function Estreno1() {
     Swal.fire({
@@ -86,6 +86,6 @@ window.addEventListener("load", () => {
       confirmButtonColor: '#ECB365',
       showCloseButton: true
     });
-  }  
+  }
 });
 
