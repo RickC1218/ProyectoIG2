@@ -1,8 +1,8 @@
 <?php
 
-    $server= 'mysql:host=localhost;port=3306;dbname=topcine';
-    $user ='root';
-    $psw ='';
+    $server= 'mysql:host=bmedwpkvqgclxvayszaa-mysql.services.clever-cloud.com;port=3306;dbname=bmedwpkvqgclxvayszaa';
+    $user ='u4njwbpubmoozhpo';
+    $psw ='urZrypNkE3L25QF0n9jx';
 
     try{
 
@@ -15,3 +15,4 @@
         echo $error->getMessage();
         die();
     }
+?>

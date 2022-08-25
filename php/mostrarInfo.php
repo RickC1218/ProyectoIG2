@@ -14,7 +14,7 @@ $sql2 = "SELECT titulo_pelicula, cantboletos_detpel, FECHACOMPRA_FACTURA, VALTOT
         where cliente.NUMCED_CLI=  $numced
             and factura.NUMCED_CLI = $numced
             and factura.ID_FACTURA = detalle_pelicula.ID_FACTURA 
-            and detalle_pelicula.ID_PELICULA = pelicula.ID_PELICULA;";
+            and detalle_pelicula.ID_DETPEL = pelicula.ID_PELICULA;";
 $result = $conexion->query($sql2);
 $resultado2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
