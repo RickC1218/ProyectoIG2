@@ -93,7 +93,7 @@ require "core/config.php";
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.php" class="menu-link">
+              <a href="http://localhost:90/ProyectoIG2/dashboard/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -101,7 +101,7 @@ require "core/config.php";
 
             <!-- Layouts -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="./interfaces/Peliculas.php" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-video"></i>
                 <div data-i18n="Layouts">Peliculas</div>
               </a>
@@ -123,7 +123,7 @@ require "core/config.php";
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
+                  <a href="./interfaces/Combos.php" class="menu-link">
                     <div data-i18n="Account">Combos</div>
                   </a>
                 </li>

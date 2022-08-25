@@ -2,9 +2,9 @@
 require "../core/config.php";
 require "../../Controller/BasedeDatos.php";
 
-$sql = "SELECT * FROM PELICULA";
+$sql = "SELECT * FROM COMBOS";
 $result = mysqli_query($con, $sql);
-$r = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$combos = mysqli_fetch_all($result, MYSQLI_ASSOC);
 if (mysqli_query($con, $sql)) {
 } else {
     echo "error " . $sql . "<br>" . mysqli_error($con);
@@ -96,8 +96,8 @@ if (mysqli_query($con, $sql)) {
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item  active">
-              <a href="Peliculas.php" class="menu-link menu-toggle">
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-video"></i>
                 <div data-i18n="Layouts">Peliculas</div>
               </a>
@@ -112,19 +112,19 @@ if (mysqli_query($con, $sql)) {
                 </li>
               </ul>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-coffee"></i>
                 <div data-i18n="Account Settings">Snacks</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub active">
                 <li class="menu-item">
                   <a href="Combos.php" class="menu-link">
                     <div data-i18n="Account">Combos</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="Combos.php" class="menu-link">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
                     <div data-i18n="Notifications">Bebidas</div>
                   </a>
                 </li>
@@ -257,7 +257,7 @@ if (mysqli_query($con, $sql)) {
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Películas/</span> Estrenos</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Snacks/</span> Combos</h4>
 
               <!-- Hoverable Table rows -->
               <div class="card">
@@ -267,30 +267,22 @@ if (mysqli_query($con, $sql)) {
                     <thead>
                       <tr>
                         <th>Id</th>
-                        <th>Título</th>
-                        <th>Actores Principales</th>
-                        <th>Actores Secundarios</th>
-                        <th>Idioma</th>
-                        <th>Estreno</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
                         <th>Banner</th>
-                        <th>Duración</th>
-                        <th>Sinapsis</th>
                         <th>Acción</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php
-                    foreach ($r  as $pelicula){
+                    foreach ($combos  as $combo){
                       echo "<tr>
-                        <td><i class='fab fa-angular fa-lg text-danger me-3'></i> <strong>${pelicula['ID_PELICULA']}</strong></td>
-                        <td>${pelicula['TITULO_PELICULA']}</td>
-                        <td>${pelicula['ACTPRIN_PELICULA']}</td>
-                        <td>${pelicula['ACTSECUN_PELICULA']}</td>
-                        <td>${pelicula['IDIOMA_PELICULA']}</td>
-                        <td>${pelicula['ESTRENO_PELICULA']}</td>
-                        <td>${pelicula['IMAGEN_PELICULA']}</td>
-                        <td>${pelicula['DURACION_PELICULA']} minutos</td>
-                        <td>${pelicula['SINOPSIS_PELICULA']}</td>
+                        <td><i class='fab fa-angular fa-lg text-danger me-3'></i> <strong>${combo['ID_COMBO']}</strong></td>
+                        <td>${combo['NOMB_COMBO']}</td>
+                        <td>${combo['DESCRIP_COMBO']}</td>
+                        <td>${combo['PRECIO_COMBO']}</td>
+                        <td>${combo['IMG_COMBO']}</td>
                         <td>
                           <div class='dropdown'>
                             <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>

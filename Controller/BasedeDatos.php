@@ -9,5 +9,14 @@ $con = mysqli_connect($servername, $username, $password, $database);
 if (!$con) {
     die("La conexión ha fallado: " . mysqli_connect_error());
 }
-echo "Conexión satisfactoria";
+print "Conexión satisfactoria\n";
 mysqli_set_charset($con, "utf8");
+
+// $sql = "SELECT * FROM COMBOS";
+// $result = mysqli_query($con, $sql);
+// $r = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// if (mysqli_query($con, $sql)) {
+//     print_r($r);
+// } else {
+//     echo "error " . $sql . "<br>" . mysqli_error($con);
+// }
