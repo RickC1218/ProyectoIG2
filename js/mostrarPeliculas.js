@@ -1,7 +1,7 @@
 'use strict'
 
 function listarPeliculas(id) {
-    fetch("../UseCases/listar.php", {
+    fetch("../UseCases/listarEstrenos.php", {
         method: "POST",
         body: id
     })

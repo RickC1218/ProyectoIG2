@@ -24,8 +24,10 @@
     <!--Scripts-->
     <script src="../js/CarteleraPrincipal.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/promo.js"></script>
 
-    <title>Cartelera Principal</title>
+    <title>Home | TopCine</title>
 </head>
 
 <body>
@@ -75,7 +77,8 @@
 
     <!--Inicio Contenido-->
     <div class="hero-slider" data-carousel>
-        <div class="carousel-cell" style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera3.jpg);">
+        <div class="carousel-cell"
+            style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera3.jpg);">
             <div class="overlay"></div>
             <div class="inner">
                 <h2 class="title">Buzz Lightyear</h2>
@@ -83,7 +86,8 @@
             </div>
         </div>
 
-        <div class="carousel-cell" style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera2.jpg);">
+        <div class="carousel-cell"
+            style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera2.jpg);">
             <div class="overlay"></div>
             <div class="inner">
                 <h2 class="title">Minions</h2>
@@ -91,14 +95,16 @@
             </div>
         </div>
 
-        <div class="carousel-cell" style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera1.jpg);">
+        <div class="carousel-cell"
+            style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera1.jpg);">
             <div class="overlay"></div>
             <div class="inner">
                 <h2 class="title">Thor: Thunder and Love</h2>
                 <a href="#" class="btn" id="Estreno3">Ver Trailer</a>
             </div>
         </div>
-        <div class="carousel-cell" style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera4.jpg);">
+        <div class="carousel-cell"
+            style="background-image: url(../resources/imagenes/CarteleraPrincipal/cartelera4.jpg);">
             <div class="overlay"></div>
             <div class="inner">
                 <h2 class="title">The Black Phone</h2>
@@ -106,6 +112,20 @@
             </div>
         </div>
     </div>
+
+    <!--Inicio Promociones-->
+    <section class="content">
+        <div class="containerPromocion">
+            <div>
+                <p class="h1">Aprovecha nuestras promociones y descuentos</p>
+            </div>
+            <div>
+                <div class="row" id="promocion">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Fin Promociones-->
     <!--Fin Contenido-->
 
     <!--Inicio Footer-->
@@ -147,8 +167,8 @@
                     <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <img src="../resources/imagenes/logo-TopCine.png" alt="Logo TopCine" title="Logo TopCine"
-                                    class="img-fluid ">
+                                <img src="../resources/imagenes/logo-TopCine.png" alt="Logo TopCine"
+                                    title="Logo TopCine" class="img-fluid ">
                             </li>
                         </ul>
                     </div>
