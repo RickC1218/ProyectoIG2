@@ -215,7 +215,7 @@ function deleteUser(id) {
     });
 }
 
-/*function getPayPalButtons() {
+function getPayPalButtons() {
     paypal.Buttons({
         style: {
             color: 'blue',
@@ -241,8 +241,13 @@ function deleteUser(id) {
                 title: 'Pago realizado con éxito!',
             });
             actions.order.capture().then(function (detalles) {
-                console.log(detalles);
-                var userData = 'action_type=updateFactura';
+                let detalles = JSON.parse(localStorage.getItem('detalles'));
+                let statusCompra = detalles.status;
+                let fechaCompra = detalles.create_time.split('T')[0];
+                let totalCompra = detalles.purchase_units[0].amount.value;
+                let idFactura = 1;
+
+                var userData = 'action_type=updateFactura' + '&tbName=FACTURA' + '&id=' + idFactura;
                 $.ajax({
                     type: 'POST',
                     url: '../UseCases/userAction.php',
@@ -261,4 +266,4 @@ function deleteUser(id) {
             console.log(data);
         }
     }).render('#paypal-button-container');
-}*/
+}

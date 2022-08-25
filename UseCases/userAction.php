@@ -283,6 +283,14 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
             $delete = $db->delete($_POST['table_name'], $condition);
             echo $delete ? 'ok' : 'err';
         }
+    } elseif ($_POST['action_type'] == 'updateFactura') {
+        $updateData = array(
+            'ID_METPAGO' => $_POST['id_factura'],
+            'FECHCOMP_FACTURA' => $_POST['id'], // id combo o snack
+            'VALTOTAL_FACTURA' => $_POST['array_ids'],
+            'cantidad_detdul' => $_POST['cantidad_detdul'],
+            'precio' => $_POST['precio']
+        );
     }
     exit;
 }

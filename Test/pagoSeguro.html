@@ -18,7 +18,14 @@
     <div id="paypal-button-container" style="width: 400px;"></div>
 
     <script>
-        paypal.Buttons({
+        let detalles = JSON.parse(localStorage.getItem('detalles'));
+        let statusCompra = detalles.status;
+        let fechaCompra = detalles.create_time.split('T')[0];
+        let totalCompra = detalles.purchase_units[0].amount.value;
+        console.log('Status Compra: ' + statusCompra + ' ' + typeof statusCompra);
+        console.log('Fecha Compra: ' + fechaCompra + ' ' + typeof fechaCompra);
+        console.log('Total Compra: ' + totalCompra + ' ' + typeof totalCompra);
+        /*paypal.Buttons({
             style: {
                 color: 'blue',
                 shape: 'pill',
@@ -36,14 +43,14 @@
             },
             onApprove: function (data, actions) {
                 actions.order.capture().then(function (detalles) {
-                    console.log(detalles);
+                    localStorage.setItem('detalles', JSON.stringify(detalles));
                 });
             },
             onCancel: function (data) {
                 alert('Pago cancelado');
                 console.log(data);
             }
-        }).render('#paypal-button-container');
+        }).render('#paypal-button-container');*/
     </script>
 </body>
 
