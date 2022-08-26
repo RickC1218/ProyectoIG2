@@ -71,7 +71,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
         <script>
             localStorage.setItem("precio_C_S", <?php echo $precioCS; ?>);
         </script>
-<?php
+        <?php
         if (!empty($table)) {
             if ($flag == 0) { // snack
                 $output .= '
@@ -267,11 +267,11 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                 ';
                 $precioTotalDulceria += (float)$value['PRECIO_DETDUL'];
             }
-?>
-        <script>
-            // guarda en el local storage el valor total del detalle de la dulceria
-            localStorage.setItem("precioTotalDulceria", <?php echo $precioTotalDulceria; ?>);
-        </script>
+        ?>
+            <script>
+                // guarda en el local storage el valor total del detalle de la dulceria
+                localStorage.setItem("precioTotalDulceria", <?php echo $precioTotalDulceria; ?>);
+            </script>
 <?php
             echo $output;
         } else {
@@ -284,13 +284,17 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
             echo $delete ? 'ok' : 'err';
         }
     } elseif ($_POST['action_type'] == 'updateFactura') {
+        $tblName = $_POST['tbName'];
         $updateData = array(
-            'ID_METPAGO' => $_POST['id_factura'],
-            'FECHCOMP_FACTURA' => $_POST['id'], // id combo o snack
-            'VALTOTAL_FACTURA' => $_POST['array_ids'],
-            'cantidad_detdul' => $_POST['cantidad_detdul'],
-            'precio' => $_POST['precio']
+            'ID_METPAGO' => $_POST['statusCompra'],
+            'FECHCOMP_FACTURA' => $_POST['fechaCompra'], // id combo o snack
+            'VALTOTAL_FACTURA' => $_POST['totalCompra']
         );
+        $conditions = array(
+            'ID_FACTURA' => $_POST['id']
+        );
+        $update = $db->update($tblName, $updateData, $conditions);
+        echo $update ? 'ok' : 'err';
     }
     exit;
 }

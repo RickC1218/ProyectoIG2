@@ -226,7 +226,6 @@ function getPayPalButtons() {
         createOrder: function (data, actions) {
             var precioTotalDulceria = parseFloat(localStorage.getItem('precioTotalDulceria'));
 
-            //console.log('hola'); // conocer que boton se dio click
             return actions.order.create({
                 purchase_units: [{
                     amount: {
@@ -236,24 +235,26 @@ function getPayPalButtons() {
             });
         },
         onApprove: function (data, actions) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Pago realizado con éxito!',
-            });
             actions.order.capture().then(function (detalles) {
-                let detalles = JSON.parse(localStorage.getItem('detalles'));
-                let statusCompra = detalles.status;
-                let fechaCompra = detalles.create_time.split('T')[0];
-                let totalCompra = detalles.purchase_units[0].amount.value;
-                let idFactura = 1;
+                var statusCompra = detalles.status;
+                if (statusCompra == 'COMPLETED') {
+                    statusCompra = 1;
+                }
+                var fechaCompra = detalles.create_time.split('T')[0];
+                var totalCompra = detalles.purchase_units[0].amount.value;
+                var idFactura = 1;
 
-                var userData = 'action_type=updateFactura' + '&tbName=FACTURA' + '&id=' + idFactura;
+                var userData = 'action_type=updateFactura' + '&tbName=FACTURA' + '&id=' + idFactura + '&statusCompra=' + statusCompra + '&fechaCompra=' + fechaCompra + '&totalCompra=' + totalCompra;
                 $.ajax({
                     type: 'POST',
                     url: '../UseCases/userAction.php',
                     data: userData,
                     success: function (html) {
-                        //Código después de que se guardo datos en la BD
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Pago realizado con éxito!',
+                        });
+                        console.log(html);
                     }
                 });
             });
@@ -264,6 +265,7 @@ function getPayPalButtons() {
                 title: 'Pago cancelado!',
             });
             console.log(data);
+            //enviar opcion de eliminar factura
         }
     }).render('#paypal-button-container');
 }
