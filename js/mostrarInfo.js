@@ -1,11 +1,27 @@
 'use strict'
 window.addEventListener('load', () => {
     listarCliente()
+
     function listarCliente() {
         fetch('php/mostrarInfo.php', {
                 method: 'POST'
             })
-            .then(respose => respose.text())
+            .then(response => response.text())
+            .then(response => {
+                if (response == "NO") {
+                    Swal.fire({
+                        title: 'Haz iniciado sesion?',
+                        showCancelButton: true,
+                        confirmButtonText: 'No',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "./login.html"
+                        } else{
+                            window.location.href = "./index.html"
+                        }
+                    })
+                }
+            })
             .then(response => {
                 contenidoCli.innerHTML = response
 
@@ -41,6 +57,7 @@ window.addEventListener('load', () => {
                     cajaCli.css("border", "").css("margin", "").css("border-radius", "");
                 });
             })
+            
     }
 
 });

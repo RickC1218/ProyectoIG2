@@ -1,31 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopCine</title>
+
+    <!--Links-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.css"
+        integrity="sha512-TZTUnuHs1njGko8PJqZlHzqZTZd880A+BvhR1jy1v4mWB4VFKVLG/eK9LYdDjxqNLmttSC1ygmqg6rkYjnEgaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Presenters/css/estilos.css">
+    <link rel="icon" href="resources/imagenes/logo-TopCine.png">
 
-    <script scr ="js/jquery-3.6.0.min.js"></script>
-    <script scr ="js/registro.js"></script>
+    <!--Scripts-->
+    <script src="js/CarteleraPrincipal.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/promo.js"></script>
+
+    <title>Home | TopCine</title>
 </head>
 
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4 text-warning"
-        viewBox="0 0 16 16">
-        <path
-            d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-    </svg>
-    
-    <h2>hola</h2>
-    <a href="login.html" target="_blank">Login</a>
-    <a href="registro.html" target="_blank">Registrar</a>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <div id="logo">
+                    <a class="navbar-brand" href="index.html"><img class="img-fluid" src="resources/imagenes/logo-TopCine.png"
+                            alt="Logo TopCine" title="Logo TopCine"></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuDespegable"
+                    aria-controls="MenuDespegable" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="MenuDespegable">
+                    <div class="col">
+                        <ul class="navbar-nav justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html" id="login.html" target="_blank"><b>Ingresar</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link barra-opciones" href="index.html"><b>Inicio</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link barra-opciones" href="UI/estrenos.html"><b>Cartelera</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link barra-opciones" href="UI/dulceria.html"><strong>Dulcería</strong></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link barra-opciones" href="usuario.html" target="_blank"><strong>Perfil</strong></a>
+                            </li>
+                            <li class="nav-item carrito">
+                                <a href="carritoCompras.html"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="bi bi-cart4 text-warning" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                                    </svg></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Fin Header-->
+
+    <!--Inicio Contenido-->
+    <div class="hero-slider" data-carousel>
+        <div class="carousel-cell"
+            style="background-image: url(resources/imagenes/CarteleraPrincipal/cartelera3.jpg);">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h2 class="title">Buzz Lightyear</h2>
+                <a href="#" class="btn" id="Estreno1">Ver Trailer</a>
+            </div>
+        </div>
+
+        <div class="carousel-cell"
+            style="background-image: url(resources/imagenes/CarteleraPrincipal/cartelera2.jpg);">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h2 class="title">Minions</h2>
+                <a href="#" class="btn" id="Estreno2">Ver Trailer</a>
+            </div>
+        </div>
+
+        <div class="carousel-cell"
+            style="background-image: url(resources/imagenes/CarteleraPrincipal/cartelera1.jpg);">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h2 class="title">Thor: Thunder and Love</h2>
+                <a href="#" class="btn" id="Estreno3">Ver Trailer</a>
+            </div>
+        </div>
+        <div class="carousel-cell"
+            style="background-image: url(resources/imagenes/CarteleraPrincipal/cartelera4.jpg);">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h2 class="title">The Black Phone</h2>
+                <a href="#" class="btn" id="Estreno4">Ver Trailer</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Inicio Promociones-->
+    <section class="content">
+        <div class="containerPromocion">
+            <div>
+                <p class="h1">Aprovecha nuestras promociones y descuentos</p>
+            </div>
+            <div>
+                <div class="row" id="promocion">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Fin Promociones-->
+    <!--Fin Contenido-->
+
+    <!--Inicio Footer-->
+    <div class="clearfix"></div>
+    <!--Inicio Footer-->
+    <footer class="bg-dark text-center text-white pt-5">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+
+                <!-- Youtube -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-youtube-play fa-2x" aria-hidden="true"></i></a>
+            </section>
+            <!-- Section: Social media -->
+
+            <!-- Section: Text -->
+            <section class="mb-4">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+                    repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+                    eum harum corrupti dicta, aliquam sequi voluptate quas.
+                </p>
+            </section>
+            <!-- Section: Text -->
+
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <img src="resources/imagenes/logo-TopCine.png" alt="Logo TopCine"
+                                    title="Logo TopCine" class="img-fluid ">
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Sobre nosotros</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Legales</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">Link 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            TopCine © 2022. Todos los derechos reservados:
+            <a class="text-white" href="https://mdbootstrap.com/">Grupo 3</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!--Fin Footer-->
+
+    <!--Scripts-->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
 </body>
 
 </html>
