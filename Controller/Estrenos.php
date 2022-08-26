@@ -35,6 +35,7 @@
     }
 .img_Pelicula{
     width: 100%;
+    height: 100vh;
     border-radius: 20px;
 }
 
@@ -200,14 +201,16 @@
     <div class="Pelicula">
         <div class="Info_Pelicula">
         <h1 style="color: white; margin-bottom: 20px;">Escoger Numero de Entradas</h1>
-            <?php echo '<img class=img_Pelicula src="data:image/png;base64,'.base64_encode($row['IMAGEN_PELICULA']).'"/>';}
+            <?php echo '<img class=img_Pelicula src="../'.$row['IMAGEN_PELICULA'].'"/>';}
 ?>
  
             <div class="text_Pelicula">
                 <h1><?php echo $row['TITULO_PELICULA']?></h1>
                 <h2>Duracion: <?php echo $row['DURACION_PELICULA']?> minutos </h2>
-                <h2>Reparto</h2>
-                <p>Actores Principales:<?php echo $row['ACTPRINCIPAL_PELICULA']?> <br> Actores Secundarios:<?php echo $row['ACTSECUNDARIOS_PELICULAS']?> </p>
+                <h2>Reparto:</h2>
+                <p>Actores Principales:<?php echo $row['ACTPRIN_PELICULA']?> <br> Actores Secundarios:<?php echo $row['ACTSECUN_PELICULA']?> </p>
+                <h2>Sinapsis:</h2>
+                <p><?php echo $row['SINOPSIS_PELICULA']?></p>
             </div>
         </div>
     </div>
@@ -222,13 +225,18 @@
     <script src="http://localhost:90/ProyectoIG2/Controller/js/Contador.js"></script>
     <div  style= "color: white;" class="fechas_Disponibles">
     <?php
-        $fechaInicio=strtotime(date("m-d-Y")); // desde la fecha actual hastala fecha en la que la pelicula estarà en cartelera
-        $fechaFin=strtotime("16-08-2022"); // se extrae el dato de fecha en cartelera de la pelicula seleccionada (dato quemado por el momento)
-        setlocale(LC_ALL, 'spanish');
-        echo "<h2>".strftime('%B')."</h2> <br>";
-        for($i=$fechaInicio; $i<=$fechaFin; $i+=86400){
-        echo "<div class = caja_fecha <p>".date("d", $i)."</p><br></div>";
-        }
+    $fecha_inicial = new DateTime("${row['ESTRENO_PELICULA']}");
+    $fecha_inicial->format("Y-m-d");
+    $fecha_final = new DateTime('now');
+    $fecha_final->format("Y-m-d");
+    $fecha_final = $fecha_final ->modify('+1 day');
+
+    $intervalo = DateInterval::createFromDateString('1 day');
+    $periodo = new DatePeriod($fecha_inicial , $intervalo, $fecha_final);
+
+    foreach ($periodo as $dt) {
+    echo "<div class =caja_fecha <p>".$dt->format("d")."</p><br></div>";
+}
 ?>
     </div>
     <div  style= "color: white;" class="Salas_Disponibles">

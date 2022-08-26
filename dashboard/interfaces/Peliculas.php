@@ -258,7 +258,91 @@ if (mysqli_query($con, $sql)) {
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Películas/</span> Estrenos</h4>
-
+              <button class="btn btn-primary py-2 mb-4" data-bs-toggle = "modal" data-bs-target = "#NuevaPelicula">Nueva Pelicula</button>
+              <!-- Form de Registro de Nueva Pelicula (Modal) -->
+              <div class="col-lg-4 col-md-3">
+                        <!-- Modal -->
+                        <div class="modal fade modal" id="NuevaPelicula" data-bs-backdrop="static" tabindex="-1">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <form class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="backDropModalTitle">Nueva Pelicula</h5>
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                ></button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="nameBackdrop" class="form-label">Nombre Pelicula</label>
+                                    <input
+                                      type="text"
+                                      id="nameBackdrop"
+                                      class="form-control"
+                                      placeholder="Ingrese el Nombre"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Actores_Principales" class="form-label">Actores Principales</label>
+                                    <input
+                                      type="text"
+                                      id="Actores_Principales"
+                                      class="form-control"
+                                      placeholder="Ej:Crhis, Alan, etc"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Actores_Secundarios" class="form-label">Actores Secundarios</label>
+                                    <input
+                                      type="text"
+                                      id="Actores_Secundarios"
+                                      class="form-control"
+                                      placeholder="Ej:Crhis, Alan, etc"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Idioma" class="form-label">Idioma</label>
+                                    <input
+                                      type="text"
+                                      id="Idioma"
+                                      class="form-control"
+                                      placeholder="Ingrese el Nombre"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Estreno" class="form-label">Estreno</label>
+                                    <input
+                                      type="date"
+                                      id="Estreno"
+                                      class="form-control"
+                                      placeholder="yyyy/mm/dd"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                  Close
+                                </button>
+                                <button type="button" class="btn btn-primary">Save</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              <!-- /Fin Form Registro Nueva Pelicula (Modal)-->
               <!-- Hoverable Table rows -->
               <div class="card">
                 <h5 class="card-header">Peliculas de Estreno</h5>
@@ -363,16 +447,7 @@ if (mysqli_query($con, $sql)) {
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
-    <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
