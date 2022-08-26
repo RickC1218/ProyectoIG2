@@ -3,7 +3,6 @@ session_start();
 require("conexion.php");
 
 if (isset($_SESSION['user'])) {
-    
     $numced = $_SESSION['user'];
 
 

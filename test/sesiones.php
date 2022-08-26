@@ -19,13 +19,14 @@ print_r(session_get_cookie_params());
 
 
 
-
+/*
 $_SESSION = array();
-// Borra la cookie que almacena la sesión 
+// Borra la cookie que almacena la sesión
 if (isset($_COOKIE[session_name()])) {
     setcookie(session_name(), '', time() - 42000, '/');
 }
 session_destroy();
 echo 'destruir ';
+*/
 
 ?>

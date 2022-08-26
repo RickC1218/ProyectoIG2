@@ -57,7 +57,6 @@ window.addEventListener('load', () => {
                     cajaCli.css("border", "").css("margin", "").css("border-radius", "");
                 });
             })
-            
     }
 
 });
