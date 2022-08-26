@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
         <div id="perfil" class="col-6 col-sm-6 col-lg-3 mt-4">
             <div class="card">
                 <div class="avatar-perfil">
-                    <img src="recursos/imagenes/perfil.jpg" class="img-fluid" alt="avatar">
+                    <img src="resources/imagenes/perfil.jpg" class="img-fluid" alt="avatar">
                 </div>
                 <div class="info-perfil row">
                     <div class="col-2">
