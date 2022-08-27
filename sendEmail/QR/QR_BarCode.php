@@ -101,8 +101,7 @@ class QR_BarCode{
             if($filename) {
                 if(!preg_match("#.png$#i", $filename)) {
                     $filename .= ".png";
-                }
-                
+                }        
 
                 return file_put_contents($filename, $img);
             } else {

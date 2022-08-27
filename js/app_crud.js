@@ -254,7 +254,14 @@ function getPayPalButtons() {
                             icon: 'success',
                             title: 'Pago realizado con éxito!',
                         });
-                        console.log(html);
+                        //console.log(html);
+                        $.ajax({
+                            method: 'POST',
+                            url: '../sendEmail/pdf/factura.php',
+                            success: function (html) {
+                                console.log(html);
+                            }
+                        });
                     }
                 });
             });
