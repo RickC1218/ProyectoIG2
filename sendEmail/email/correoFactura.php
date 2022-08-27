@@ -2,18 +2,16 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-
+    
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
     require 'PHPMailer/src/Exception.php';
-
     function sendEmail(){
         require '../pdf/conexion.php';
 
-        $consulta = $pdo->prepare("SELECT EMAIL_CLI, NUMCED_CLI FROM CLIENTE WHERE NUMCED_CLI = 1726639410;");
+        $consulta = $pdo->prepare("SELECT EMAIL_CLI, NUMCED_CLI, NOMBRE_CLI FROM CLIENTE WHERE NUMCED_CLI = 1726639410;");
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
         $mail = new PHPMailer(true);
         try{
             //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -26,9 +24,14 @@
             $mail->Port = 587;
 
             $mail->setFrom('topcineEPN@gmail.com', 'TopCine EPN');
-            $mail->addAddress($resultado[0]['EMAIL_CLI'], 'COMPRAS TOPCINE');
+            $mail->addAddress($resultado[0]["EMAIL_CLI"], 'COMPRAS TOPCINE');
 
+            //adjuntando factura
             $mail->addAttachment('../email/docs/factura'.$resultado[0]["NUMCED_CLI"].'.pdf', 'Factura.pdf');
+
+            //adjuntando QR
+            $mail->addAttachment('../QR/QRs/'.$resultado[0]["NOMBRE_CLI"].'.png', 'CódigoQR.png');
+
             $mail->isHTML(true);
             $mail->Subject = 'Factura de compra TopCine';
             $mail->Body = utf8_decode('<h4>Gracias por tu compra, disfruta tu película con </h4><h2><b>TopCine:<h2> <h3><i>Anywhere, Anytime, Anyplace</i></b><h3>');

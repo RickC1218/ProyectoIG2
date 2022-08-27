@@ -3,6 +3,7 @@
 include 'plantilla.php';
 require 'conexion.php';
 require '../email/correoFactura.php';
+include '../QR/QR.php';
 //require '../css/base';
 
 //Consulta cliente
@@ -19,41 +20,30 @@ $resultado2 = $consulta2->fetchAll(PDO::FETCH_ASSOC);
 $consulta3 = $pdo->prepare("SELECT
 
     COMBOS.NOMB_COMBO AS 'NOMB_PROD',
-
     COMBOS.DESCRIP_COMBO AS 'DESCRIP_PROD',
-
     DETALLE_DULCERIA.CANTIDAD_DETDUL,
-
     DETALLE_DULCERIA.PRECIO_DETDUL
 
 FROM COMBOS
 
     INNER JOIN DETALLE_DULCERIA ON DETALLE_DULCERIA.ID_COMBO = COMBOS.ID_COMBO
-
     INNER JOIN FACTURA ON DETALLE_DULCERIA.ID_FACTURA = FACTURA.ID_FACTURA
 
 WHERE
-
     FACTURA.NUMCED_CLI = 1726639410
-
     /*Filtra COMBOS o SNACKs comprados según el usuario*/
 
 UNION
 
 SELECT
-
     SNACK.NOMBRE_SNACK AS 'NOMB_PROD',
-
     SNACK.NOMBRE_SNACK AS 'DESCRIP_PROD',
-
     DETALLE_DULCERIA.CANTIDAD_DETDUL,
-
     DETALLE_DULCERIA.PRECIO_DETDUL
 
 FROM DETALLE_DULCERIA
 
     INNER JOIN SNACK ON DETALLE_DULCERIA.ID_SNACK = SNACK.ID_SNACK
-
     INNER JOIN FACTURA ON DETALLE_DULCERIA.ID_FACTURA = FACTURA.ID_FACTURA
 
 WHERE
@@ -126,6 +116,7 @@ $pdf->Cell(50, 8, '$ '.$resultado4[0]['VALTOTAL_FACTURA'], 1, 1, 'C', 1);
 
 //$pdf->Output();
 $pdf->Output('F','../email/docs/factura'.$resultado1[0]["NUMCED_CLI"].'.pdf');
+createQR();
 sleep(5);
 sendEmail();
 unlink('../email/docs/factura'.$resultado1[0]["NUMCED_CLI"].'.pdf');
