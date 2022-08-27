@@ -29,6 +29,7 @@ if (isset($_SESSION['user'])) {
                 <div class="avatar-perfil">
                     <img src="resources/imagenes/perfil.jpg" class="img-fluid" alt="avatar">
                 </div>
+
                 <div class="info-perfil row">
                     <div class="col-2">
                         <p class="text-center">
@@ -55,6 +56,7 @@ if (isset($_SESSION['user'])) {
                         </p>
                     </div>
                 </div>
+
                 <div class="info-pedidos row">
                     <div class="col-2 text-center">
                         <p>
@@ -82,6 +84,12 @@ if (isset($_SESSION['user'])) {
                                 </svg>
                             </span>
                         </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p id="logout">Cerrar Sesion</p>
                     </div>
                 </div>
             </div>
@@ -181,8 +189,8 @@ if (isset($_SESSION['user'])) {
                 echo '
                         <tr>
                             <th scope="row">' . $resultado['titulo_pelicula'] . '</th>
-                            <td>' . $resultado['cantboletos_detpel'] . '</td>
-                            <td>' . $resultado['FECHACOMPRA_FACTURA'] . '</td>
+                            <td>' . $resultado['NUMBOLETOS_DETPEL'] . '</td>
+                            <td>' . $resultado['FECHCOMP_FACTURA'] . '</td>
                             <td> $' . $resultado['VALTOTAL_FACTURA'] . '</td>
                         </tr>';
             }

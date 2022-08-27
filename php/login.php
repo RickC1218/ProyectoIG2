@@ -4,7 +4,7 @@
     $pswd = isset($_POST['pswd']) ? $_POST['pswd'] : '';
     require('conexion.php');
 
-    $sql = "SELECT EMAIL_CLI, CONTRASENA_CLI, NUMCED_CLI FROM cliente WHERE EMAIL_CLI='$email'";
+    $sql = "SELECT EMAIL_CLI, CONTRASENA_CLI, NUMCED_CLI FROM CLIENTE WHERE EMAIL_CLI='$email'";
     $result = $conexion->query($sql);
     $resultado = $result -> fetchAll(PDO::FETCH_ASSOC);
 
