@@ -2,10 +2,8 @@
 session_start();
 require("conexion.php");
 
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) { //verificar que la sesion exite
     $numced = $_SESSION['user'];
-
-
     $sql = "SELECT * FROM CLIENTE WHERE NUMCED_CLI=$numced";
     $result = $conexion->query($sql);
     $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
