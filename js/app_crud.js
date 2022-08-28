@@ -240,7 +240,8 @@ function getPayPalButtons() {
                 if (statusCompra == 'COMPLETED') {
                     statusCompra = 1;
                 }
-                var fechaCompra = detalles.create_time.split('T')[0];
+                var MyDate = new Date();
+                var fechaCompra = transformDate(MyDate.toLocaleDateString());
                 var totalCompra = detalles.purchase_units[0].amount.value;
                 var idFactura = 1; // coger ID_FACTURA de la sesion
 
@@ -296,4 +297,17 @@ function getPayPalButtons() {
             console.log(data);
         }
     }).render('#paypal-button-container');
+}
+
+function transformDate(fecha) {
+    var aux = fecha.split('/');
+    var fechaString = '';
+    for (var i = 2; i >= 0; i--) {
+        if (i == 0) {
+            fechaString += aux[i];
+        } else {
+            fechaString += aux[i] + '-';
+        }
+    }
+    return fechaString;
 }
