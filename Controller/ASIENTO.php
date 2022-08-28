@@ -2,17 +2,14 @@
 class ASIENTO
 {
     public $ID_SALA;
-    public $X_COL_ASIENTO;
-    public $Y_FIL_ASIENTO;
-    public $ESTADO_ASIENTO;
     public $ID_ASIENTO;
+    public $ESTADO_ASIENTO;
+    
 
 
-    public function __construct($id_sala, $x, $y, $estado, $id_a)
+    public function __construct($id_a, $id_sala, $estado)
     {
         $this->ID_SALA = $id_sala;
-        $this->X_COL_ASIENTO = $x;
-        $this->Y_FIL_ASIENTO = $y;
         $this->ESTADO_ASIENTO = $estado;
         $this->ID_ASIENTO = $id_a;
     }

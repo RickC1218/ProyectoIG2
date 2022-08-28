@@ -55,10 +55,10 @@ class SALA
         for ($i = 0; $i < ($aforo / $n); $i++) {
             for ($j = 0; $j < ($n); $j++) {
                 $id_asiento = $id_asiento + 1;
-                $Asientos[$i][$j] = new ASIENTO($id_sala, $i, $j, "vacio", $id_asiento);
+                $Asientos[$i][$j] = new ASIENTO($id_asiento,$id_asiento, "D");
                 $estado = 0;
-                $Insert = "INSERT INTO asiento (ID_ASIENTO,X_COL_ASIENTO,Y_FIL_ASIENTO,ID_SALA,ESTADO_ASIENTO) 
-                VALUES (" . $id_asiento . "," . $i . "," . $j . "," . $id_sala . "," . $estado . ");";
+                $Insert = "INSERT INTO ASIENTO ( ID_ASIENTO, ID_SALA, DISPONIBILIDAD_ASIENTO) 
+                VALUES (" . $id_asiento ."," . $id_sala . "," . $estado . ");";
                 if (mysqli_query($con, $Insert)) {
                     echo "registrado con exito";
                 } else {
