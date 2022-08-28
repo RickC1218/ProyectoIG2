@@ -8,9 +8,8 @@
     $pswd = isset($_POST['pswd']) ? $_POST['pswd'] : '';
     $v_pswd = isset($_POST['v-pswd']) ? $_POST['v-pswd'] : '';
     require('conexion.php');
-
     if (strcmp($pswd,$v_pswd)===0){
-        $pdo = $conexion ->prepare('INSERT INTO cliente(NUMCED_CLI, NOMBRE_CLI, APELLIDO_CLI, FECHANACIMIENTO_CLI, EMAIL_CLI, CONTRASENA_CLI) VALUES(?, ?, ?, ?, ?, ?)');
+        $pdo = $conexion ->prepare('INSERT INTO CLIENTE(NUMCED_CLI, NOMBRE_CLI, APELLIDO_CLI, FECHANACIMIENTO_CLI, EMAIL_CLI, CONTRASENA_CLI) VALUES(?, ?, ?, ?, ?, ?)');
         $pdo->bindParam(1,$ci);
         $pdo->bindParam(2,$nombre);
         $pdo->bindParam(3,$apellido);
