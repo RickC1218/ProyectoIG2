@@ -93,7 +93,7 @@ require "core/config.php";
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="http://localhost:90/ProyectoIG2/dashboard/" class="menu-link">
+              <a href="/ProyectoIG2/dashboard/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -135,13 +135,13 @@ require "core/config.php";
               </ul>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
+              <a href="./interfaces/Promociones.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cool"></i>
                 <div data-i18n="Authentications">Promociones</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
+              <a href="./interfaces/Facturas.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-money"></i>
                 <div data-i18n="Misc">Facturas</div>
               </a>

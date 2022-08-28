@@ -14,7 +14,7 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
        crossorigin="anonymous">
     </script>
-    <script src="js/CarteleraPrincipal.js"></script>
+    <script src="./../js/CarteleraPrincipal.js"></script>
     <style>
 * {
   margin: 0;
@@ -215,14 +215,14 @@
         </div>
     </div>
     <div class="Numero_Boletos">
-        <h2 style="background-color: #064663; border-radius: 20px;">Boletos Adulto</h2>
+        <h2 style="background-color: #064663; border-radius: 20px;">Boletos</h2>
         <div id="n_boletos" class="contador">
         <span class="next" onclick="nextNum()"></span>
         <span class="prev" onclick="prevNum()"></span>
         <div id="box"></div>
         </div>
     </div>
-    <script src="http://localhost:90/ProyectoIG2/Controller/js/Contador.js"></script>
+    <script src="/ProyectoIG2/Controller/js/Contador.js"></script>
     <div  style= "color: white;" class="fechas_Disponibles">
     <?php
     $fecha_inicial = new DateTime("${row['ESTRENO_PELICULA']}");
@@ -250,12 +250,12 @@
        $HoraFin = $HoraFin->modify( '+150 minutes' ); 
        
        $rangoHoras = new DatePeriod($HoraInicio, new DateInterval('PT150M'), $HoraFin);
-       echo "<h2>Sala Normal</h2> <br>";
+       echo "<h2>Sala 2D</h2> <br>";
        $id_sala1 =1;
        foreach($rangoHoras as $Hora){
            echo "<div class =caja_hora onclick= 'EnviarInfo(${id_sala1})' <p>".$Hora->format("H:i") . PHP_EOL."</p><br></div>";
        }
-       echo "<h2>Sala Grande</h2> <br>";
+       echo "<h2>Sala IMAX</h2> <br>";
        $id_sala2 =2;
        foreach($rangoHoras as $Hora){
            echo "<div class =caja_hora onclick= 'EnviarInfo(${id_sala2})' <p>".$Hora->format("H:i") . PHP_EOL."</p><br></div>";

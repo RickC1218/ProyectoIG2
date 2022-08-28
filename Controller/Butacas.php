@@ -1,8 +1,6 @@
 <?php
-$URL_BASE = "http://localhost:90/ProyectoIG2/Controller";
-#require ("ASIENTO.php");
+$URL_BASE = "/ProyectoIG2/Controller";
 require("BasedeDatos.php");
-#$Salas = "SELECT *FROM SALA WHERE ID_SALA =". $_GET["ID_SALA"].";";
 require("SALA.php");
 #$N_Butacas = $_GET['n_butacas'];
 ?>
@@ -170,7 +168,7 @@ require("SALA.php");
         $id_usuario = 1;
 
         ?>
-        <form id="reservado" method="post" action="http://localhost:90/ProyectoIG2/Controller/reservar.php">
+        <form id="reservado" method="post" action="/ProyectoIG2/Controller/reservar.php">
             <!-- <input type="hidden" name="id_asiento" value="<?= $id_asiento ?>"/> -->
             <input type="hidden" name="id_sala" value="<?= $id_sala ?>" />
             <!-- Para integración del sistema relacionar las reservaciones con los usuarios-->

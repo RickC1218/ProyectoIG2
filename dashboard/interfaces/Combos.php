@@ -58,6 +58,8 @@ if (mysqli_query($con, $sql)) {
 
     <!-- Helpers -->
     <script src="<?=ROOT_ADMIN?>/assets/vendor/js/helpers.js"></script>
+        <!-- sweetalert -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
@@ -89,7 +91,7 @@ if (mysqli_query($con, $sql)) {
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="http://localhost:90/ProyectoIG2/dashboard/" class="menu-link">
+              <a href="/ProyectoIG2/dashboard/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -131,13 +133,13 @@ if (mysqli_query($con, $sql)) {
               </ul>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
+              <a href="Promociones.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cool"></i>
                 <div data-i18n="Authentications">Promociones</div>
               </a>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link">
+              <a href="Facturas.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-money"></i>
                 <div data-i18n="Misc">Facturas</div>
               </a>
@@ -259,11 +261,160 @@ if (mysqli_query($con, $sql)) {
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Snacks/</span> Combos</h4>
 
+              <button class="btn btn-primary py-2 mb-4" data-bs-toggle = "modal" data-bs-target = "#NuevoCombo">Nuevo Combo</button>
+                        <!-- Form de Registro de Nuevo Combo(Modal) -->
+                            <div class="col-lg-4 col-md-3">
+                        <!-- Modal -->
+                        <div class="modal fade modal" id="NuevoCombo" data-bs-backdrop="static" tabindex="-1">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <form class="modal-content needs-validation"  method="POST">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="backDropModalTitle">Nuevo Combo</h5>
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                ></button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Nombre_Combo" class="form-label">Nombre</label>
+                                    <input
+                                      type="text"
+                                      id="Nombre_Combo"
+                                      class="form-control"
+                                      placeholder="Ingrese el Nombre" 
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Descripcion_Combo" class="form-label">Descripción</label>
+                                    <input
+                                      type="text"
+                                      id="Descripcion_Combo"
+                                      class="form-control"
+                                      placeholder="Ingrese una pequeña Descripcion"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Precio_Combo" class="form-label">Precio</label>
+                                    <input
+                                      type="text"
+                                      id="Precio_Combo"
+                                      class="form-control"
+                                      placeholder="Precio del Combo"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Banner_Combo" class="form-label">Banner</label>
+                                    <input
+                                      type="text"
+                                      id="Banner_Combo"
+                                      class="form-control"
+                                      placeholder="Path del Banner"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                                  Cancelar
+                                </button>
+                                <button type="button" class="btn btn-primary" id="Guardar_Combo" data-bs-dismiss="modal">
+                                  Guardar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                            
+              <!-- /Inicio Form Update Combo (Modal)-->
+              <div class="col-lg-4 col-md-3">
+                                      <!-- Modal -->
+                        <div class="modal fade modal" id="EditCombo" data-bs-backdrop="static" tabindex="-1">
+                          <div class="modal-dialog modal-dialog-centered">
+                          <form class="modal-content needs-validation"  method="POST">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="backDropModalTitle">Editar Combo</h5>
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                ></button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="N_Nombre_Combo" class="form-label">Nombre</label>
+                                    <input
+                                      type="text"
+                                      id="N_Nombre_Combo"
+                                      class="form-control"
+                                      placeholder="Ingrese una pequeña Descripcion"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="N_Descripcion_Combo" class="form-label">Descripción</label>
+                                    <input
+                                      type="text"
+                                      id="N_Descripcion_Combo"
+                                      class="form-control"
+                                      placeholder="Ej:1"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="N_Precio_Combo" class="form-label">Precio</label>
+                                    <input
+                                      type="text"
+                                      id="N_Precio_Combo"
+                                      class="form-control"
+                                      placeholder="Precio del Combo"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="N_Banner_Combo" class="form-label">Banner</label>
+                                    <input
+                                      type="text"
+                                      id="N_Banner_Combo"
+                                      class="form-control"
+                                      placeholder="Path del Banner"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                                  Cancelar
+                                </button>
+                                <button type="button" class="btn btn-primary" id="Editar_Combo" data-bs-dismiss="modal">
+                                  Guardar
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+              </div>             
+              <!-- /Fin Form Update Combo (Modal)-->
               <!-- Hoverable Table rows -->
               <div class="card">
                 <h5 class="card-header">Peliculas de Estreno</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table table-hover">
+                <div class="table-responsive text-wrap">
+                  <table class="table table-sm table-hover">
                     <thead>
                       <tr>
                         <th>Id</th>
@@ -282,20 +433,20 @@ if (mysqli_query($con, $sql)) {
                         <td>${combo['NOMB_COMBO']}</td>
                         <td>${combo['DESCRIP_COMBO']}</td>
                         <td>${combo['PRECIO_COMBO']}</td>
-                        <td>${combo['IMG_COMBO']}</td>
+                        <td> <img class='w-px-100 h-auto rounded' src='../../${combo['IMG_COMBO']}'</img></td>
                         <td>
                           <div class='dropdown'>
                             <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
                               <i class='bx bx-dots-vertical-rounded'></i>
                             </button>
                             <div class='dropdown-menu'>
-                            <a class='dropdown-item' href='javascript:void(0);'
+                            <a class='dropdown-item' data-bs-toggle = 'modal' data-bs-target = '#NuevoCombo'
                             ><i class='bx bx-bookmark-plus me-1'></i> Añadir</a
                           >
-                              <a class='dropdown-item' href='javascript:void(0);'
+                              <a class='dropdown-item' data-bs-toggle = 'modal' data-bs-target = '#EditCombo' onclick='rellenarFormulario(${combo['ID_COMBO']})'
                                 ><i class='bx bx-edit-alt me-1'></i> Edit</a
                               >
-                              <a class='dropdown-item' href='javascript:void(0);'
+                              <a class='dropdown-item'  id='${combo['ID_COMBO']}' onclick='Eliminar_Combo(this.id)'
                                 ><i class='bx bx-trash me-1'></i> Delete</a
                               >
                             </div>
@@ -357,15 +508,6 @@ if (mysqli_query($con, $sql)) {
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="<?=ROOT_ADMIN?>/assets/vendor/libs/jquery/jquery.js"></script>
@@ -387,5 +529,11 @@ if (mysqli_query($con, $sql)) {
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Crud js -->
+    <script src="../core/crud_Combos/Insert_combo.js"></script>
+    <script src="../core/crud_Combos/Delete_combo.js"></script>
+    <script src="../core/crud_Combos/Update_combo.js"></script>
+
   </body>
 </html>
