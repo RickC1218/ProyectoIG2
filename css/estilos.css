@@ -5,35 +5,30 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Poppins", sans-serif;
   src: url("../resources/fuentes/Poppins/Poppins-Thin.ttf");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Raleway", sans-serif;
   src: url("../resources/fuentes/Raleway/Raleway-VariableFont_wght.ttf");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Roboto Condensed", sans-serif;
   src: url("../resources/fuentes/Roboto_Condensed/RobotoCondensed-Light.ttf");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Source Sans Pro", sans-serif;
   src: url("../resources/fuentes/Source_Sans_Pro/SourceSansPro-Black.ttf");
   font-weight: normal;
   font-style: normal;
 }
-
 /*Paleta de Colores*/
 /*Clase clearfix*/
 .clearfix {
@@ -44,14 +39,12 @@
 body {
   background: linear-gradient(to bottom, #041C32, #04293A) fixed;
 }
-
 body .bg-glass {
   background-color: #064663 !important;
   color: #ECB365;
   text-align: center;
   backdrop-filter: saturate(200%) blur(25px);
 }
-
 body .boton {
   width: 100%;
   background-color: #ECB365;
@@ -83,12 +76,10 @@ body .boton {
 #header {
   margin: 10px 50px;
 }
-
 #header #logo {
   width: 40%;
   border-radius: 15px;
 }
-
 #header #logo a img {
   width: 150px;
 }
@@ -98,7 +89,6 @@ body .boton {
   margin-right: 7px;
   letter-spacing: 2px;
 }
-
 #MenuDespegable ul li a {
   color: white;
 }
@@ -151,39 +141,31 @@ body .boton {
     text-align: center;
   }
 }
-
 .wrap h2 {
   color: #ECB365;
   padding-bottom: 20px;
   padding-top: 20px;
 }
-
 .wrap p {
   color: #ECB365;
   padding-top: 20px;
 }
-
 .wrap .card {
   background-color: #064663;
 }
-
 .wrap .card .editarPerfil {
   color: #ECB365;
 }
-
 .wrap .card .editarPerfil:hover {
   color: white;
   cursor: pointer;
 }
-
 .wrap .card .table {
   color: #ECB365;
 }
-
 .wrap .card .mostrarPedidos {
   color: #ECB365;
 }
-
 .wrap .card .mostrarPedidos:hover {
   color: white;
   cursor: pointer;
@@ -192,7 +174,6 @@ body .boton {
 #formMostrarCli {
   padding: 3%;
 }
-
 #formMostrarCli #dato {
   margin-left: 20px;
   margin-right: 20px;
@@ -202,7 +183,6 @@ body .boton {
   border-radius: 5px;
   text-align: center;
 }
-
 #formMostrarCli #dato input {
   border-radius: 10px;
   background-color: #064663;
@@ -211,33 +191,25 @@ body .boton {
   border: none;
   text-align: center;
 }
-
 #formMostrarCli button {
   width: 90%;
   border-radius: 10px;
   letter-spacing: 1px;
   border-color: white;
 }
-
 #formMostrarCli button:hover {
   transform: scale(1.1);
 }
 
-#logout {
-  margin-top: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 !important;
-  width: 50% !important;
-  border-radius: 15px;
-  background-color: red;
-  color: black !important;
+#perfil button {
+  width: 90%;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  border-color: white;
 }
-
-#logout:hover {
-  cursor: pointer;
+#perfil button:hover {
+  transform: scale(1.1);
 }
-
 
 @media (max-width: 991px) {
   #perfil {

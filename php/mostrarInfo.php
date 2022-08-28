@@ -87,7 +87,9 @@ if (isset($_SESSION['user'])) { //verificar que la sesion exite
 
                 <div class="row">
                     <div class="col-12 text-center">
-                        <p id="logout">Cerrar Sesion</p>
+                        <button id="logout" class="btn btn-primary btn-block mt-4 mb-4" style="background-color: red;">
+                            Cerrar Sesión
+                        </button>
                     </div>
                 </div>
             </div>
