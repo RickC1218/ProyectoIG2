@@ -2,9 +2,9 @@
 require "../core/config.php";
 require "../../Controller/BasedeDatos.php";
 
-$sql = "SELECT * FROM COMBOS";
+$sql = "SELECT * FROM CLIENTE";
 $result = mysqli_query($con, $sql);
-$combos = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$clientes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 if (mysqli_query($con, $sql)) {
 } else {
     echo "error " . $sql . "<br>" . mysqli_error($con);
@@ -114,12 +114,12 @@ if (mysqli_query($con, $sql)) {
                 </li>
               </ul>
             </li>
-            <li class="menu-item active">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-coffee"></i>
                 <div data-i18n="Account Settings">Snacks</div>
               </a>
-              <ul class="menu-sub active">
+              <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="Combos.php" class="menu-link">
                     <div data-i18n="Account">Combos</div>
@@ -150,7 +150,7 @@ if (mysqli_query($con, $sql)) {
                 <div data-i18n="Misc">Salas</div>
               </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="Usuarios.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Misc">Usuarios</div>
@@ -271,17 +271,17 @@ if (mysqli_query($con, $sql)) {
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Snacks/</span> Combos</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Usuarios</span> Info</h4>
 
-              <button class="btn btn-primary py-2 mb-4" data-bs-toggle = "modal" data-bs-target = "#NuevoCombo">Nuevo Combo</button>
+              <button class="btn btn-primary py-2 mb-4" data-bs-toggle = "modal" data-bs-target = "#NuevoUsuario">Nueva Usuario</button>
                         <!-- Form de Registro de Nuevo Combo(Modal) -->
                             <div class="col-lg-4 col-md-3">
                         <!-- Modal -->
-                        <div class="modal fade modal" id="NuevoCombo" data-bs-backdrop="static" tabindex="-1">
+                        <div class="modal fade modal" id="NuevoUsuario" data-bs-backdrop="static" tabindex="-1">
                           <div class="modal-dialog modal-dialog-centered">
                             <form class="modal-content needs-validation"  method="POST">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="backDropModalTitle">Nuevo Combo</h5>
+                                <h5 class="modal-title" id="backDropModalTitle">Nuevo Usuario</h5>
                                 <button
                                   type="button"
                                   class="btn-close"
@@ -292,45 +292,67 @@ if (mysqli_query($con, $sql)) {
                               <div class="modal-body">
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="Nombre_Combo" class="form-label">Nombre</label>
+                                    <label for="Ci_Cli" class="form-label">N.Cedula</label>
                                     <input
                                       type="text"
-                                      id="Nombre_Combo"
+                                      id="Ci_Cli"
                                       class="form-control"
-                                      placeholder="Ingrese el Nombre" 
+                                      placeholder="Ingrese el CI" 
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="Descripcion_Combo" class="form-label">Descripción</label>
+                                    <label for="Nombre_Cli" class="form-label">Nombres</label>
                                     <input
                                       type="text"
-                                      id="Descripcion_Combo"
+                                      id="Nombre_Cli"
                                       class="form-control"
-                                      placeholder="Ingrese una pequeña Descripcion"
+                                      placeholder="Nombres"
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="Precio_Combo" class="form-label">Precio</label>
+                                    <label for="Apellidos_Cli" class="form-label">Apellidos</label>
                                     <input
                                       type="text"
-                                      id="Precio_Combo"
+                                      id="Apellidos_Cli"
                                       class="form-control"
-                                      placeholder="Precio del Combo"
+                                      placeholder="Apellidos"
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="Banner_Combo" class="form-label">Banner</label>
+                                    <label for="Fecha_Cli" class="form-label">Fecha Nacimiento</label>
                                     <input
-                                      type="text"
-                                      id="Banner_Combo"
+                                      type="date"
+                                      id="Fecha_Cli"
                                       class="form-control"
-                                      placeholder="Path del Banner"
+                                      placeholder="yyyy/mm/dd"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="email_Cli" class="form-label">Correo</label>
+                                    <input
+                                      type="email"
+                                      id="email_Cli"
+                                      class="form-control"
+                                      placeholder="ejm@gmail.com"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="pass_Cli" class="form-label">Contraseña</label>
+                                    <input
+                                      type="password"
+                                      id="pass_Cli"
+                                      class="form-control"
+                                      placeholder="*******"
                                     />
                                   </div>
                                 </div>
@@ -339,7 +361,7 @@ if (mysqli_query($con, $sql)) {
                                 <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                   Cancelar
                                 </button>
-                                <button type="button" class="btn btn-primary" id="Guardar_Combo" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-primary" id="Guardar_Usuario" data-bs-dismiss="modal">
                                   Guardar
                                 </button>
                               </div>
@@ -351,11 +373,11 @@ if (mysqli_query($con, $sql)) {
               <!-- /Inicio Form Update Combo (Modal)-->
               <div class="col-lg-4 col-md-3">
                                       <!-- Modal -->
-                        <div class="modal fade modal" id="EditCombo" data-bs-backdrop="static" tabindex="-1">
+                        <div class="modal fade modal" id="EditUsuario" data-bs-backdrop="static" tabindex="-1">
                           <div class="modal-dialog modal-dialog-centered">
                           <form class="modal-content needs-validation"  method="POST">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="backDropModalTitle">Editar Combo</h5>
+                                <h5 class="modal-title" id="backDropModalTitle">Editar Usuario</h5>
                                 <button
                                   type="button"
                                   class="btn-close"
@@ -366,45 +388,68 @@ if (mysqli_query($con, $sql)) {
                               <div class="modal-body">
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="N_Nombre_Combo" class="form-label">Nombre</label>
+                                    <label for="N_Ci_Cli" class="form-label">N.Cedula</label>
                                     <input
                                       type="text"
-                                      id="N_Nombre_Combo"
+                                      id="N_Ci_Cli"
                                       class="form-control"
-                                      placeholder="Ingrese una pequeña Descripcion"
+                                      placeholder="Ingrese el CI"
+                                      disabled
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="N_Descripcion_Combo" class="form-label">Descripción</label>
+                                    <label for="N_Nombre_Cli" class="form-label">Nombres</label>
                                     <input
                                       type="text"
-                                      id="N_Descripcion_Combo"
+                                      id="N_Nombre_Cli"
                                       class="form-control"
-                                      placeholder="Ej:1"
+                                      placeholder="Nombres"
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="N_Precio_Combo" class="form-label">Precio</label>
+                                    <label for="N_Apellidos_Cli" class="form-label">Apellidos</label>
                                     <input
                                       type="text"
-                                      id="N_Precio_Combo"
+                                      id="N_Apellidos_Cli"
                                       class="form-control"
-                                      placeholder="Precio del Combo"
+                                      placeholder="Apellidos"
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="N_Banner_Combo" class="form-label">Banner</label>
+                                    <label for="N_Fecha_Cli" class="form-label">Fecha Nacimiento</label>
                                     <input
-                                      type="text"
-                                      id="N_Banner_Combo"
+                                      type="date"
+                                      id="N_Fecha_Cli"
                                       class="form-control"
-                                      placeholder="Path del Banner"
+                                      placeholder="yyyy/mmm/dd"
+                                    />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                <div class="col mb-3">
+                                    <label for="N_email_Cli" class="form-label">Correo</label>
+                                    <input
+                                      type="email"
+                                      id="N_email_Cli"
+                                      class="form-control"
+                                      placeholder="ejm@gmail.com"
+                                    />
+                                  </div>                                       
+                                </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="N_pass_Cli" class="form-label">Contraseña</label>
+                                    <input
+                                      type="password"
+                                      id="N_pass_Cli"
+                                      class="form-control"
+                                      placeholder="*******"
                                     />
                                   </div>
                                 </div>
@@ -413,7 +458,7 @@ if (mysqli_query($con, $sql)) {
                                 <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                   Cancelar
                                 </button>
-                                <button type="button" class="btn btn-primary" id="Editar_Combo" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-primary" id="Editar_Usuario" data-bs-dismiss="modal">
                                   Guardar
                                 </button>
                               </div>
@@ -424,41 +469,43 @@ if (mysqli_query($con, $sql)) {
               <!-- /Fin Form Update Combo (Modal)-->
               <!-- Hoverable Table rows -->
               <div class="card">
-                <h5 class="card-header">Peliculas de Estreno</h5>
+                <h5 class="card-header">Información de Usuarios</h5>
                 <div class="table-responsive text-wrap">
                   <table class="table table-sm table-hover">
                     <thead>
                       <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Banner</th>
+                        <th>Número de Cédula</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Email</th>
+                        <th>Contraseña</th>
                         <th>Acción</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php
-                    foreach ($combos  as $combo){
+                    foreach ($clientes as $usuario){
                       echo "<tr>
-                        <td><i class='fab fa-angular fa-lg text-danger me-3'></i> <strong>${combo['ID_COMBO']}</strong></td>
-                        <td>${combo['NOMB_COMBO']}</td>
-                        <td>${combo['DESCRIP_COMBO']}</td>
-                        <td>${combo['PRECIO_COMBO']}</td>
-                        <td> <img class='w-px-100 h-auto rounded' src='../../${combo['IMG_COMBO']}'</img></td>
+                        <td><i class='fab fa-angular fa-lg text-danger me-3'></i> <strong>${usuario['NUMCED_CLI']}</strong></td>
+                        <td>${usuario['NOMBRE_CLI']}</td>
+                        <td>${usuario['APELLIDO_CLI']}</td>
+                        <td>${usuario['FECHANACIMIENTO_CLI']}</td>
+                        <td>${usuario['EMAIL_CLI']}</td>
+                        <td>${usuario['CONTRASENA_CLI']}</td>
                         <td>
                           <div class='dropdown'>
                             <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
                               <i class='bx bx-dots-vertical-rounded'></i>
                             </button>
                             <div class='dropdown-menu'>
-                            <a class='dropdown-item' data-bs-toggle = 'modal' data-bs-target = '#NuevoCombo'
+                            <a class='dropdown-item' data-bs-toggle = 'modal' data-bs-target = '#NuevoUsuario'
                             ><i class='bx bx-bookmark-plus me-1'></i> Añadir</a
                           >
-                              <a class='dropdown-item' data-bs-toggle = 'modal' data-bs-target = '#EditCombo' onclick='rellenarFormulario(${combo['ID_COMBO']})'
+                              <a class='dropdown-item' data-bs-toggle = 'modal' data-bs-target = '#EditUsuario' onclick='rellenarFormulario(${usuario['NUMCED_CLI']})'
                                 ><i class='bx bx-edit-alt me-1'></i> Edit</a
                               >
-                              <a class='dropdown-item'  id='${combo['ID_COMBO']}' onclick='Eliminar_Combo(this.id)'
+                              <a class='dropdown-item'  id='${usuario['NUMCED_CLI']}' onclick='Eliminar_Usuario(this.id)'
                                 ><i class='bx bx-trash me-1'></i> Delete</a
                               >
                             </div>
@@ -543,9 +590,9 @@ if (mysqli_query($con, $sql)) {
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Crud js -->
-    <script src="../core/crud_Combos/Insert_combo.js"></script>
-    <script src="../core/crud_Combos/Delete_combo.js"></script>
-    <script src="../core/crud_Combos/Update_combo.js"></script>
+    <script src="../core/crud_usuarios/Insert_usuario.js"></script>
+    <script src="../core/crud_usuarios/Delete_usuario.js"></script>
+    <script src="../core/crud_usuarios/Update_usuario.js"></script>
 
   </body>
 </html>

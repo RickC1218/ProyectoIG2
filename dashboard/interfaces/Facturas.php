@@ -142,6 +142,18 @@ if (mysqli_query($con, $sql)) {
                 <div data-i18n="Misc">Facturas</div>
               </a>
             </li>
+            <li class="menu-item">
+              <a href="Salas.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-tv"></i>
+                <div data-i18n="Misc">Salas</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="Usuarios.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Misc">Usuarios</div>
+              </a>
+            </li>
         </aside>
         <!-- / Menu -->
 
