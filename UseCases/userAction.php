@@ -272,9 +272,15 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                 // guarda en el local storage el valor total del detalle de la dulceria
                 localStorage.setItem("precioTotalDulceria", <?php echo $precioTotalDulceria; ?>);
             </script>
-<?php
+        <?php
             echo $output;
         } else {
+        ?>
+            <script>
+                // guarda en el local storage el valor total del detalle de la dulceria
+                localStorage.setItem("precioTotalDulceria", <?php echo $precioTotalDulceria; ?>);
+            </script>
+<?php
             echo '';
         }
     } elseif ($_POST['action_type'] == 'delete') {

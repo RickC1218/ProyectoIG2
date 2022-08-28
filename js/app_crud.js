@@ -242,7 +242,7 @@ function getPayPalButtons() {
                 }
                 var fechaCompra = detalles.create_time.split('T')[0];
                 var totalCompra = detalles.purchase_units[0].amount.value;
-                var idFactura = 1;
+                var idFactura = 1; // coger ID_FACTURA de la sesion
 
                 var userData = 'action_type=updateFactura' + '&tbName=FACTURA' + '&id=' + idFactura + '&statusCompra=' + statusCompra + '&fechaCompra=' + fechaCompra + '&totalCompra=' + totalCompra;
                 $.ajax({
@@ -268,11 +268,32 @@ function getPayPalButtons() {
         },
         onCancel: function (data) {
             Swal.fire({
-                icon: 'error',
-                title: 'Pago cancelado!',
+                title: 'PAGO CANCELADO',
+                text: '¿Desea eliminar su pedido?',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'SI',
+                denyButtonText: `NO`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // DELETE FROM FACTURA WHERE ID_FACTURA = ?
+                    /*var userData = 'action_type=delete' + '&table_name=DETALLE_DULCERIA' + '&id=' + idAux;
+            $.ajax({
+                type: 'POST',
+                url: '../UseCases/userAction.php',
+                data: userData,
+                success: function (msg) {
+                    Swal.fire('Producto ELIMINADO');
+                    setTimeout(function () {
+                        document.location.reload();
+                    }, 2000);
+                }
+            });*/
+                } else if (result.isDenied) {
+                    Swal.fire('Intente nuevamente realizar el pago!')
+                }
             });
             console.log(data);
-            //enviar opcion de eliminar factura
         }
     }).render('#paypal-button-container');
 }
