@@ -11,8 +11,6 @@ function checkPassword(data) {
 function checkSamePwd() {
     var p1 = document.formRegistro.pswd.value;
     var p2 = document.formRegistro.v_pswd.value;
-    console.log(p1);
-    console.log(p2);
     if (p1 == p2) {
         verification.classList.add('valid');
     } else {

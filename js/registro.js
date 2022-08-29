@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
             })
             .then(response => response.text())
             .then(response => {
+                console.log(response)
                 if (response == 'ok') {
                     Swal.fire({
                         icon: 'success',
