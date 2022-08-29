@@ -36,7 +36,7 @@
             //sending emai;
             $to=$email;
             $subject="Verificacion de email";
-            $body='Hi, <br/> <br/> We need to make sure you are human. Please verify your email and get'.
+            $body='Hola, <br/> <br/> We need to make sure you are human. Please verify your email and get'.
             'started using your Website account. <br/> <br/> <a href="http://localhost/xampp/ProyectoIG2/activacion.php?code='.$activacion.'">'.$activacion.'</a>';
             Send_Mail($to,$subject,$body);
             $msg= "Registration successful, please activate email.";
