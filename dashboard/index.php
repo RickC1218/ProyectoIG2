@@ -20,7 +20,7 @@ require "core/config.php";
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="<?=ROOT_ADMIN?>/assets/"
+  data-assets-path="Template/assets/"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -35,7 +35,7 @@ require "core/config.php";
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?=ROOT_ADMIN?>/assets/img/favicon/logo-TopCine.png" />
+    <link rel="icon" type="image/x-icon" href="Template/assets/img/favicon/logo-TopCine.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,26 +46,28 @@ require "core/config.php";
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?=ROOT_ADMIN?>/assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="Template/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="<?=ROOT_ADMIN?>/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?=ROOT_ADMIN?>/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="<?=ROOT_ADMIN?>/assets/css/demo.css" />
+    <link rel="stylesheet" href="Template/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="Template/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="Template/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?=ROOT_ADMIN?>/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="Template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="<?=ROOT_ADMIN?>/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="Template/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/js/helpers.js"></script>
+    <script src="Template/assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="<?=ROOT_ADMIN?>/assets/js/config.js"></script>
+    <script src="Template/assets/js/config.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/logout-dashboard.js"></script>
   </head>
 
   <body>
@@ -78,7 +80,7 @@ require "core/config.php";
           <div class="app-brand demo">
             <a href="index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img style="width: 70px;" src="<?=ROOT_ADMIN?>/assets/img/favicon/logo-TopCine.png">
+                <img style="width: 70px;" src="Template/assets/img/favicon/logo-TopCine.png">
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">Topcine</span>
             </a>
@@ -208,7 +210,7 @@ require "core/config.php";
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="<?=ROOT_ADMIN?>/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="Template/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -217,7 +219,7 @@ require "core/config.php";
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="<?=ROOT_ADMIN?>/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="Template/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -255,7 +257,7 @@ require "core/config.php";
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" id="logout_dashboard">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -292,7 +294,7 @@ require "core/config.php";
                       <div class="col-sm-5 text-center text-sm-left">
                         <div class="card-body pb-0 px-0 px-md-4">
                           <img
-                            src="<?=ROOT_ADMIN?>/assets/img/illustrations/man-with-laptop-light.png"
+                            src="Template/assets/img/illustrations/man-with-laptop-light.png"
                             height="140"
                             alt="View Badge User"
                             data-app-dark-img="illustrations/man-with-laptop-dark.png"
@@ -311,7 +313,7 @@ require "core/config.php";
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
                               <img
-                                src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/chart-success.png"
+                                src="Template/assets/img/icons/unicons/chart-success.png"
                                 alt="chart success"
                                 class="rounded"
                               />
@@ -345,7 +347,7 @@ require "core/config.php";
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
                               <img
-                                src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/wallet-info.png"
+                                src="Template/assets/img/icons/unicons/wallet-info.png"
                                 alt="Credit Card"
                                 class="rounded"
                               />
@@ -440,7 +442,7 @@ require "core/config.php";
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                              <img src="Template/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
                             </div>
                             <div class="dropdown">
                               <button
@@ -470,7 +472,7 @@ require "core/config.php";
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                              <img src="Template/assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
                             </div>
                             <div class="dropdown">
                               <button
@@ -654,7 +656,7 @@ require "core/config.php";
                         <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
                           <div class="d-flex p-4 pt-3">
                             <div class="avatar flex-shrink-0 me-3">
-                              <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/wallet.png" alt="User" />
+                              <img src="Template/assets/img/icons/unicons/wallet.png" alt="User" />
                             </div>
                             <div>
                               <small class="text-muted d-block">Total Balance</small>
@@ -711,7 +713,7 @@ require "core/config.php";
                       <ul class="p-0 m-0">
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                            <img src="Template/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -726,7 +728,7 @@ require "core/config.php";
                         </li>
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                            <img src="Template/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -741,7 +743,7 @@ require "core/config.php";
                         </li>
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
+                            <img src="Template/assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -756,7 +758,7 @@ require "core/config.php";
                         </li>
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
+                            <img src="Template/assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -771,7 +773,7 @@ require "core/config.php";
                         </li>
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                            <img src="Template/assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -786,7 +788,7 @@ require "core/config.php";
                         </li>
                         <li class="d-flex">
                           <div class="avatar flex-shrink-0 me-3">
-                            <img src="<?=ROOT_ADMIN?>/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
+                            <img src="Template/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -864,22 +866,22 @@ require "core/config.php";
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/libs/popper/popper.js"></script>
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/js/bootstrap.js"></script>
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="Template/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="Template/assets/vendor/libs/popper/popper.js"></script>
+    <script src="Template/assets/vendor/js/bootstrap.js"></script>
+    <script src="Template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/js/menu.js"></script>
+    <script src="Template/assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="<?=ROOT_ADMIN?>/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="Template/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
-    <script src="<?=ROOT_ADMIN?>/assets/js/main.js"></script>
+    <script src="Template/assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="<?=ROOT_ADMIN?>/assets/js/dashboards-analytics.js"></script>
+    <script src="Template/assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
