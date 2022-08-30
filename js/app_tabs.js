@@ -4,13 +4,19 @@ var idClickDulceria;
 var items = 0;
 var cantidad;
 
+// control ocultar boton ingresar - boton carrito
 var login = $('#login');
+var carrito = $('#carritoHeader');
 var sesion = localStorage.getItem('sesion');
 if (sesion=='si'){
     login.hide()
+    carrito.show()
 }else{
     login.show()
+    carrito.hide()
 }
+
+// control ocultar boton carrito
 
 function getId(idClick) {
     idClickDulceria = idClick;

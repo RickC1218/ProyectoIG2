@@ -1,11 +1,14 @@
 'use strict'
 //Ocultar boton Ingresar si no exite una sesion
 var login = $('#login');
+var carrito = $('#carritoHeader');
 var sesion = localStorage.getItem('sesion');
 if (sesion == 'si') {
     login.hide()
+    carrito.show()
 } else {
     login.show()
+    carrito.hide()
 }
 
 function listarPeliculas(id) {
