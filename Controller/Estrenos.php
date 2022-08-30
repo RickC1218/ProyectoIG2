@@ -19,8 +19,6 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
     <link rel="stylesheet" href="../resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src="js/Contador.js"></script>
     <style>
         * {
             margin: 0;
@@ -308,6 +306,9 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
             }
             ?>
         </div>
+        <!-- Contador -->
+
+        <script src="js/Contador.js"></script>
         <script>
             function EnviarInfo(id) {
 
