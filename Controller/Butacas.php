@@ -11,11 +11,11 @@ require("SALA.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://localhost:90/ProyectoIG2/Controller/node_modules/sweetalert2/dist/sweetalert2.css">
-    <script src="http://localhost:90/ProyectoIG2/Controller/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/ProyectoIG2/Controller/node_modules/sweetalert2/dist/sweetalert2.css">
+    <script src="/ProyectoIG2/Controller/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="http://localhost:90/ProyectoIG2/Controller/js/cambiar_estado.js"></script>
+    <script src="/js/cambiar_estado.js"></script>
     <!-- Icons -->
     <link rel="stylesheet" href="../resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
