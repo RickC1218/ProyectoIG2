@@ -56,11 +56,13 @@ $color-botones-enlaces: #ecb365;
   right: 0;
   background: linear-gradient(to bottom, #04293a99, #041c3266);
 }
+
 .hero-slider {
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
+
 .hero-slider .carousel-cell {
   width: 100%;
   height: 100%;
@@ -68,6 +70,7 @@ $color-botones-enlaces: #ecb365;
   background-size: cover;
   background-position: center;
 }
+
 .hero-slider .carousel-cell .inner {
   position: relative;
   top: 50%;
@@ -75,6 +78,7 @@ $color-botones-enlaces: #ecb365;
   color: white;
   text-align: center;
 }
+
 .hero-slider .carousel-cell .inner .subtitle {
   font-family: "Roboto Slab", serif;
   font-size: 2.2rem;
@@ -85,6 +89,7 @@ $color-botones-enlaces: #ecb365;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 5px;
 }
+
 .hero-slider .carousel-cell .inner .title {
   font-family: "Montserrat", sans-serif;
   font-size: 3rem;
@@ -93,6 +98,7 @@ $color-botones-enlaces: #ecb365;
   letter-spacing: 3px;
   margin-bottom: 40px;
 }
+
 .hero-slider .carousel-cell .inner .btn {
   border: 1px solid #fff;
   padding: 14px 18px;
@@ -104,25 +110,31 @@ $color-botones-enlaces: #ecb365;
   text-decoration: none;
   transition: all 0.2s ease;
 }
+
 .hero-slider .carousel-cell .inner .btn:hover {
   background: $color-botones-enlaces;
   color: $color-primario;
 }
+
 .hero-slider .flickity-prev-next-button {
   width: 80px;
   height: 80px;
   background: transparent;
 }
+
 .hero-slider .flickity-prev-next-button:hover {
   background: transparent;
 }
+
 .hero-slider .flickity-prev-next-button .arrow {
   fill: $color-botones-enlaces;
 }
+
 .hero-slider .flickity-page-dots {
   list-style: none;
   bottom: 30px;
 }
+
 .hero-slider .flickity-page-dots .dot {
   width: 30px;
   height: 4px;
@@ -131,10 +143,12 @@ $color-botones-enlaces: #ecb365;
   border: 0 solid $color-botones-enlaces;
   border-radius: 0;
 }
+
 .hero-slider .flickity-page-dots .dot.is-selected {
   background: $color-botones-enlaces;
   border: 0 solid $color-botones-enlaces;
 }
+
 /*Clase clearfix*/
 .clearfix {
   float: none;
@@ -146,4 +160,32 @@ $color-botones-enlaces: #ecb365;
 }
 
 /*Perfil*/
+body {
+  background: linear-gradient(to bottom, $color-primario, $color-secundario) fixed;
 
+  .bg-glass {
+    background-color: $color-cajas  !important;
+    color: $color-botones-enlaces;
+    text-align: center;
+    backdrop-filter: saturate(200%) blur(25px);
+  }
+
+  .boton {
+    width: 100%;
+    background-color: $color-botones-enlaces;
+    color: $color-primario;
+    border-radius: 10px;
+  }
+}
+
+.h1 {
+  font-family: 'Roboto Condensed';
+}
+
+.h2 {
+  font-family: 'Roboto Condensed';
+}
+
+.h4 {
+  font-family: cursive;
+}

@@ -151,6 +151,34 @@
 }
 
 /*Perfil*/
+body {
+  background: linear-gradient(to bottom, #041c32, #04293a) fixed;
+}
+body .bg-glass {
+  background-color: #064663 !important;
+  color: #ecb365;
+  text-align: center;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+body .boton {
+  width: 100%;
+  background-color: #ecb365;
+  color: #041c32;
+  border-radius: 10px;
+}
+
+.h1 {
+  font-family: "Roboto Condensed";
+}
+
+.h2 {
+  font-family: "Roboto Condensed";
+}
+
+.h4 {
+  font-family: cursive;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -390,15 +418,11 @@ body #peliculas #pelicula #cajaPelicula:hover #infoPelicula strong {
 .container-cartas .tarjeta img {
   margin-top: 10px;
 }
-.container-cartas .tarjeta .card-body p {
-  color: white;
-}
-
-.card-body h4 {
+.container-cartas .tarjeta .card-body h4 {
   color: white;
   letter-spacing: 2px;
 }
-.card-body a {
+.container-cartas .tarjeta .card-body a {
   background-color: #ecb365;
   border: 1px solid black;
   border-radius: 10px;
@@ -406,9 +430,12 @@ body #peliculas #pelicula #cajaPelicula:hover #infoPelicula strong {
   letter-spacing: 1px;
   font-weight: bold;
 }
-.card-body a:hover {
+.container-cartas .tarjeta .card-body a:hover {
   background-color: #064663;
   border: 1px solid white;
+  color: white;
+}
+.container-cartas .tarjeta .card-body p {
   color: white;
 }
 
@@ -680,5 +707,116 @@ hr {
 }
 
 /*Perfil*/
+.wrap h2 {
+  color: #ecb365;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.wrap p {
+  color: #ecb365;
+  padding-top: 20px;
+}
+.wrap .card {
+  background-color: #064663;
+}
+.wrap .card .editarPerfil {
+  color: #ecb365;
+}
+.wrap .card .editarPerfil:hover {
+  color: white;
+  cursor: pointer;
+}
+.wrap .card .table {
+  color: #ecb365;
+}
+.wrap .card .mostrarPedidos {
+  color: #ecb365;
+}
+.wrap .card .mostrarPedidos:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#formMostrarCli {
+  padding: 3%;
+}
+#formMostrarCli #dato {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 1%;
+  color: #ecb365;
+  background-color: #041c32;
+  border-radius: 5px;
+  text-align: center;
+}
+#formMostrarCli #dato input {
+  border-radius: 10px;
+  background-color: #064663;
+  color: white;
+  width: 100%;
+  border: none;
+  text-align: center;
+}
+#formMostrarCli button {
+  width: 90%;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  border-color: white;
+}
+#formMostrarCli button:hover {
+  transform: scale(1.1);
+}
+
+#perfil button {
+  width: 90%;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  border-color: white;
+}
+#perfil button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 991px) {
+  #perfil {
+    margin: auto;
+  }
+}
+.validation {
+  background: #346488;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.validation ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.validation ul li {
+  list-style: none;
+  color: #fff;
+  font-size: 0.9em;
+  transition: 0.5s;
+}
+
+.validation ul li.valid {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.validation ul li::before {
+  content: "\f00d";
+  color: red;
+  font-family: fontAwesome;
+}
+
+.validation ul li.valid::before {
+  content: "\f00c";
+  color: #0f0;
+}
 
 /*# sourceMappingURL=estilos.css.map */

@@ -203,32 +203,32 @@ body {
             margin-top: 10px;
         }
 
-        .card-body p {
-            color: white;
+        .card-body {
+
+            h4 {
+                color: white;
+                letter-spacing: 2px;
+            }
+
+            a {
+                background-color: base.$color-botones-enlaces;
+                border: 1px solid black;
+                border-radius: 10px;
+                color: white;
+                letter-spacing: 1px;
+                font-weight: bold;
+            }
+
+            a:hover {
+                background-color: base.$color-cajas;
+                border: 1px solid white;
+                color: white;
+            }
+
+            p {
+                color: white;
+            }
         }
-    }
-}
-
-.card-body {
-
-    h4 {
-        color: white;
-        letter-spacing: 2px;
-    }
-
-    a {
-        background-color: base.$color-botones-enlaces;
-        border: 1px solid black;
-        border-radius: 10px;
-        color: white;
-        letter-spacing: 1px;
-        font-weight: bold;
-    }
-
-    a:hover {
-        background-color: base.$color-cajas;
-        border: 1px solid white;
-        color: white;
     }
 }
 
@@ -541,3 +541,131 @@ hr {
 }
 
 /*Perfil*/
+.wrap {
+    h2 {
+        color: base.$color-botones-enlaces;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    p {
+        color: base.$color-botones-enlaces;
+        padding-top: 20px;
+    }
+
+    .card {
+        background-color: base.$color-cajas;
+
+        .editarPerfil {
+            color: base.$color-botones-enlaces;
+        }
+
+        .editarPerfil:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        .table {
+            color: base.$color-botones-enlaces;
+        }
+
+        .mostrarPedidos {
+            color: base.$color-botones-enlaces;
+        }
+
+        .mostrarPedidos:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+#formMostrarCli {
+    padding: 3%;
+
+    #dato {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 1%;
+        color: base.$color-botones-enlaces;
+        background-color: base.$color-primario;
+        border-radius: 5px;
+        text-align: center;
+
+        input {
+            border-radius: 10px;
+            background-color: base.$color-cajas;
+            color: white;
+            width: 100%;
+            border: none;
+            text-align: center;
+        }
+    }
+
+    button {
+        width: 90%;
+        border-radius: 10px;
+        letter-spacing: 1px;
+        border-color: white;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+}
+
+#perfil {
+    button {
+        width: 90%;
+        border-radius: 10px;
+        letter-spacing: 1px;
+        border-color: white;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media(max-width:991px) {
+    #perfil {
+        margin: auto;
+    }
+}
+
+.validation {
+    background: #346488;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.validation ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.validation ul li {
+    list-style: none;
+    color: #fff;
+    font-size: 0.9em;
+    transition: 0.5s;
+}
+
+.validation ul li.valid {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.validation ul li::before {
+    content: '\f00d';
+    color: red;
+    font-family: fontAwesome;
+}
+
+.validation ul li.valid::before {
+    content: '\f00c';
+    color: #0f0;
+}
