@@ -73,7 +73,7 @@ $ git clone https://github.com/RickC1218/ProyectoIG2.git
 ```
 Demo del Proyecto:
 
-![Image text](./recursos/imagenes/Demo.png)
+![Image text](./resources/imagenes/Demo.png)
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
