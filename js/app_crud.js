@@ -79,6 +79,23 @@ function getDetalle_Dulceria() { // se puede enviar como parametro algun ID que 
     });
 }
 
+function getDetallePelicula() {
+    var userData = 'action_type=viewDetalle_pelicula';
+
+    $.ajax({
+        type: 'POST',
+        url: '../UseCases/userAction.php',
+        data: userData,
+        success: function (html) {
+            $('#container_detPelicula').html(html);
+            // obteniendo el total a pagar por los snacks de la dulceria
+            //var precioTotalDulceria = localStorage.getItem('precioTotalDulceria');
+            //var precioHTML = document.getElementById('precioTotal');
+            //precioHTML.innerHTML = '$ ' + precioTotalDulceria;
+        }
+    });
+}
+
 /*
 Devuelve el tipo de snack en funcion del nombre de la tabla ingresada
 */

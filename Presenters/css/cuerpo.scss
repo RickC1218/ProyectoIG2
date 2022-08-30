@@ -519,6 +519,16 @@ hr {
 
     .container-precioEntrada {
         text-align: right;
+
+        a {
+            text-decoration: none;
+            color: base.$color-botones-enlaces;
+        }
+
+        a:hover {
+            color: red;
+            cursor: pointer;
+        }
     }
 }
 

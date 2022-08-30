@@ -690,6 +690,14 @@ hr {
 .container-boletos .container-precioEntrada {
   text-align: right;
 }
+.container-boletos .container-precioEntrada a {
+  text-decoration: none;
+  color: #ecb365;
+}
+.container-boletos .container-precioEntrada a:hover {
+  color: red;
+  cursor: pointer;
+}
 
 .modal-body {
   background-color: #064663;
