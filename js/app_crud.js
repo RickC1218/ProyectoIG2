@@ -125,7 +125,7 @@ function getTipSnack(table_bd) {
 function userAction(type, id) {
     var boton_carrito = document.querySelector('#addProdCarrito');
     boton_carrito.addEventListener('click', () => {
-        if (localStorage.getItem('sesion') === undefined || localStorage.getItem('sesion') != 'no') {
+        if (localStorage.getItem('sesion') == null || localStorage.getItem('sesion') == 'no') {
             Swal.fire({
                 title: '¿Haz iniciado sesión?',
                 background: '#041C3299',
