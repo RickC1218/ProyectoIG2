@@ -43,7 +43,7 @@ window.addEventListener("load", () => {
       background: '#041C3299',
       color: '#ffff',
       html: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WikwAJ3NQew?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-      confirmButtonText: '<a href = "../Controller/Estrenos.php?ID=4"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
+      confirmButtonText: '<a href = "./Controller/Estrenos.php?ID=4"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true,
     });
@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
       background: '#041C3299',
       color: '#ffff',
       html: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MO019NU9XUk?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-      confirmButtonText: '<a href = "../Controller/Estrenos.php?ID=2"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
+      confirmButtonText: '<a href = "./Controller/Estrenos.php?ID=2"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true
     });
@@ -69,7 +69,7 @@ window.addEventListener("load", () => {
       background: '#041C3299',
       color: '#ffff',
       html: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZaD7iZR0-5w?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-      confirmButtonText: '<a href = "../Controller/Estrenos.php?ID=6"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
+      confirmButtonText: '<a href = "./Controller/Estrenos.php?ID=6"  style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true
     });
@@ -82,7 +82,7 @@ window.addEventListener("load", () => {
       background: '#041C3299',
       color: '#ffff',
       html: '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/o58A5Z7e8Kg?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-      confirmButtonText: '<a href="../Controller/Estrenos.php?ID=3" style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
+      confirmButtonText: '<a href="./Controller/Estrenos.php?ID=3" style= "color:#041C3299; text-decoration: none; font-size:1rem;" >Adquiere tus boletos!!</a>',
       confirmButtonColor: '#ECB365',
       showCloseButton: true
     });
