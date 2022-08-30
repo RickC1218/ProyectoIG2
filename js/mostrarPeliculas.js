@@ -1,5 +1,5 @@
 'use strict'
-
+//Ocultar boton Ingresar si no exite una sesion
 var login = $('#login');
 var sesion = localStorage.getItem('sesion');
 if (sesion == 'si') {
