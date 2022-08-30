@@ -130,6 +130,8 @@ function userAction(type, id) {
             icon: 'error',
             title: 'ERROR',
             text: 'Es necesario elegir la cantidad del producto!',
+            background: '#041C3299', 
+            color: '#ffff',
         });
     } else {
         Swal.fire({
@@ -137,6 +139,9 @@ function userAction(type, id) {
             showDenyButton: true,
             showCancelButton: false,
             confirmButtonText: 'SI',
+            background: '#041C3299', 
+            color: '#ffff',
+            confirmButtonColor: '#ECB365',
             denyButtonText: 'NO',
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
@@ -185,6 +190,8 @@ function userAction(type, id) {
                             icon: 'success',
                             title: 'Producto GUARDADO',
                             showConfirmButton: false,
+                            background: '#041C3299', 
+                            color: '#ffff',
                             timer: 1500
                         });
                         setTimeout(function () {
@@ -210,6 +217,9 @@ function deleteUser(id) {
         showCancelButton: false,
         confirmButtonText: 'SI',
         denyButtonText: `NO`,
+        background: '#041C3299', 
+        color: '#ffff',
+        confirmButtonColor: '#ECB365'
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
@@ -220,14 +230,22 @@ function deleteUser(id) {
                 url: '../UseCases/userAction.php',
                 data: userData,
                 success: function (msg) {
-                    Swal.fire('Producto ELIMINADO');
+                    Swal.fire({
+                        title:'Producto ELIMINADO',
+                        background: '#041C3299', 
+                        color: '#ffff'
+                    });
                     setTimeout(function () {
                         document.location.reload();
                     }, 2000);
                 }
             });
         } else if (result.isDenied) {
-            Swal.fire('Producto NO ELIMINADO');
+            Swal.fire({
+            title:'Producto NO ELIMINADO',
+            background: '#041C3299', 
+            color: '#ffff'
+            });
         }
     });
 }
@@ -292,6 +310,9 @@ function getPayPalButtons() {
                 showCancelButton: false,
                 confirmButtonText: 'SI',
                 denyButtonText: `NO`,
+                background: '#041C3299', 
+                color: '#ffff',
+                confirmButtonColor: '#ECB365'
             }).then((result) => {
                 if (result.isConfirmed) {
                     // DELETE FROM FACTURA WHERE ID_FACTURA = ?

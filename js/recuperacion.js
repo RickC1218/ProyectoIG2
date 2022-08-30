@@ -15,6 +15,8 @@ window.addEventListener('load', () => {
                         icon: 'success',
                         title: 'Correo Enviado, verifica tu bandeja de entrada',
                         showConfirmButton: false,
+                        background: '#041C3299', 
+                        color: '#ffff',
                         timer: 1500
                     })
                     form.reset()
@@ -23,6 +25,8 @@ window.addEventListener('load', () => {
                         icon: 'error',
                         title: 'Aún no tienes cuenta',
                         showConfirmButton: false,
+                        background: '#041C3299', 
+                        color: '#ffff',
                         timer: 1500
                     })
                 }

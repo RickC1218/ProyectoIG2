@@ -17,6 +17,8 @@ window.addEventListener('load', () => {
                         title: 'Usuario registrado!',
                         text: 'Revisa tu correo electrónico',
                         showConfirmButton: false,
+                        background: '#041C3299',
+                        color: '#ffff',
                         timer: 1500
                     })
                     form.reset()
