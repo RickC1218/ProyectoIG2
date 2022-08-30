@@ -20,7 +20,7 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="js/contador.js"></script>
+    <script src="js/Contador.js"></script>
     <style>
         * {
             margin: 0;
