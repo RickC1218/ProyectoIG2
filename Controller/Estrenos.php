@@ -312,8 +312,9 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
         <script>
             function EnviarInfo(id) {
 
-                window.location.href = "Butacas.php?ID_SALA=" + id
-
+                window.location.href = "Butacas.php?ID_SALA=" + id;
+                fecha_funcion = document.querySelector(".caja_fecha");
+                localStorage.setItem("fecha_funcion",fecha_funcion);
             }
         </script>
 
