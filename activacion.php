@@ -37,35 +37,35 @@
                     <div class="card bg-glass">
                         <div class="card-body px-4 py-5 px-md-5">
                             <?php
-                            require 'php/conexion.php';
-                            $msg = '';
-                            if (!empty($_GET['code']) && isset($_GET['code'])) {
-                                $code = $_GET['code'];
+                                require 'php/conexion.php';
+                                $msg = '';
+                                if (!empty($_GET['code']) && isset($_GET['code'])) {
+                                    $code = $_GET['code'];
 
 
-                                $sql = "SELECT NUMCED_CLI FROM CLIENTE WHERE ACTIVACION_CLI='$code'";
-                                $result = $conexion->query($sql);
-                                $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+                                    $sql = "SELECT NUMCED_CLI FROM CLIENTE WHERE ACTIVACION_CLI='$code'";
+                                    $result = $conexion->query($sql);
+                                    $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                                if (sizeof($resultado) > 0) {
+                                    if (sizeof($resultado) > 0) {
 
-                                    $sql2 = "SELECT NUMCED_CLI FROM CLIENTE WHERE ACTIVACION_CLI='$code' and STATUS_CLI ='0'";
-                                    $result = $conexion->query($sql2);
-                                    $resultado2 = $result->fetchAll(PDO::FETCH_ASSOC);
+                                        $sql2 = "SELECT NUMCED_CLI FROM CLIENTE WHERE ACTIVACION_CLI='$code' and STATUS_CLI ='0'";
+                                        $result = $conexion->query($sql2);
+                                        $resultado2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
-                                    if (sizeof($resultado2) == 1) {
+                                        if (sizeof($resultado2) == 1) {
 
-                                        $sql3 = "UPDATE CLIENTE SET STATUS_CLI='1' WHERE ACTIVACION_CLI='$code'";
-                                        $result = $conexion->query($sql3);
-                                        $resultado3 = $result->fetchAll(PDO::FETCH_ASSOC);
-                                        $msg = "Your account is activated";
+                                            $sql3 = "UPDATE CLIENTE SET STATUS_CLI='1' WHERE ACTIVACION_CLI='$code'";
+                                            $result = $conexion->query($sql3);
+                                            $resultado3 = $result->fetchAll(PDO::FETCH_ASSOC);
+                                            $msg = "<h1>Bienvenido a TopCine</h1> <h4>Tu cuenta ha sido activada con éxito! <br><a href='login.html' class='link-danger'><b>Iniciar sesión.</b></a></h4>";
+                                        } else {
+                                            $msg = "<h4> Tu cuenta ya ha sido activada previamente, <a href='login.html' class='link-danger'><b>iniciar sesión.</b></a></h4>";
+                                        }
                                     } else {
-                                        $msg = "Your account is already active, no need to activate again";
+                                        $msg = "Error al activar la cuenta, volver a intentar.";
                                     }
-                                } else {
-                                    $msg = "Wrong activation code.";
                                 }
-                            }
                             ?>
                             <?php echo $msg; ?>
                         </div>

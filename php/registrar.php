@@ -10,7 +10,7 @@
     $pswd = isset($_POST['pswd']) ? $_POST['pswd'] : '';
     $v_pswd = isset($_POST['v_pswd']) ? $_POST['v_pswd'] : '';
     $msg='';
-    $activacion = $email.time();
+    $activacion = md5($email.time());
     //echo $activacion;
 
 
@@ -36,17 +36,13 @@
             //sending emai;
             $to=$email;
             $subject="Verificacion de email";
-            $body='Hola, <br/> <br/> We need to make sure you are human. Please verify your email and get'.
-            'started using your Website account. <br/> <br/> <a href="http://localhost/xampp/ProyectoIG2/activacion.php?code='.$activacion.'">'.$activacion.'</a>';
+            $body=utf8_encode('Hola y bienvenido a una experiencia entre Estrellas...<br/> <br/> Gracias por registrarte con nosotros, para activar tu cuenta por favor coloque Click en el siguiente enlace.<br/> <br/> <a href="http://localhost/xampp/ProyectoIG2/activacion.php?code='.$activacion.'">'.$activacion.'</a> ');
             Send_Mail($to,$subject,$body);
-            $msg= "Registration successful, please activate email.";
-            
-        }else{
-            $msg= "The email is already taken, please try new.";
+            echo 'ok';
+        } else {
+            //El email no pudo ser enviado.
+            echo 'fail';
         }
-
-       
-        echo 'ok';
     }else{
         echo'contraseñas no coinciden';
     }

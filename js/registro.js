@@ -15,8 +15,9 @@ window.addEventListener('load', () => {
                     Swal.fire({
                         icon: 'success',
                         title: 'Usuario registrado!',
+                        text: 'Revisa tu correo electrónico',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 2000
                     })
                     form.reset()
                 } else {
