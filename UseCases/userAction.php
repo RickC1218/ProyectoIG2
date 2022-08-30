@@ -1,5 +1,6 @@
 <?php
 include '../Entities/DB.php';
+session_start();
 $db = new DB();
 
 if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
@@ -233,13 +234,15 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
             INNER JOIN DETALLE_DULCERIA ON DETALLE_DULCERIA.ID_COMBO = COMBOS.ID_COMBO
             INNER JOIN FACTURA ON DETALLE_DULCERIA.ID_FACTURA = FACTURA.ID_FACTURA
                     ';
-        $numCed = 1726639410;
+        $numCed = $_SESSION["user"];
         $op_crud_union = '
         SELECT FACTURA.NUMCED_CLI, SNACK.NOMBRE_SNACK AS "NOMB_PROD", SNACK.NOMBRE_SNACK AS "DESCRIP_PROD", DETALLE_DULCERIA.CANTIDAD_DETDUL, DETALLE_DULCERIA.PRECIO_DETDUL, DETALLE_DULCERIA.ID_DETDUL, SNACK.IMG_SNACK AS "IMG_PROD" FROM DETALLE_DULCERIA
         INNER JOIN SNACK ON DETALLE_DULCERIA.ID_SNACK = SNACK.ID_SNACK
         INNER JOIN FACTURA ON DETALLE_DULCERIA.ID_FACTURA = FACTURA.ID_FACTURA
-        WHERE FACTURA.NUMCED_CLI = 1726639410 /*Filtra combos o snacks comprados según el usuario*/
+        WHERE FACTURA.NUMCED_CLI = 
         ';
+        $op_crud_union .= $numCed;
+        
         $tblName = 'COMBOS';
         $precioTotalDulceria = 0;
         $consultaSubtSnack = $db->getRows($tblName, array('select' => $conditionsIJ, 'inner_join' => $subConsInnerJoin, 'where' => 'FACTURA.NUMCED_CLI = ' . $numCed, 'union' => $op_crud_union));
