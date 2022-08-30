@@ -52,8 +52,11 @@ window.addEventListener('load', () => {
                         .then(response => {
                             if (response == 'ok') {
                                 Swal.fire({
-                                    title: 'Sesion Cerrada',
+                                    title: 'Sesión Cerrada',
+                                    background: '#041C3299',
+                                    color: '#ffff',
                                     confirmButtonText: 'OK!',
+                                    confirmButtonColor: '#ECB365',
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         window.location.href = "../index.html"
@@ -64,9 +67,12 @@ window.addEventListener('load', () => {
                     })
                 }else{
                     Swal.fire({
-                        title: 'Haz iniciado sesion?',
+                        title: '¿Haz iniciado sesión?',
+                        background: '#041C3299',
+                        color: '#ffff',
                         showCancelButton: true,
                         confirmButtonText: 'No',
+                        confirmButtonColor: '#ECB365',
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href = "../UI/login.html"

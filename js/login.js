@@ -14,6 +14,9 @@ window.addEventListener('load', () => {
                     Swal.fire({
                         icon: 'success',
                         title: 'Bienvenido!',
+                        background: '#041C3299',
+                        color: '#ffff',
+                        confirmButtonColor: '#ECB365',
                         showConfirmButton: false,
                         timer: 1500
                     })
