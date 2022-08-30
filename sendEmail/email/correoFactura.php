@@ -24,7 +24,7 @@
             $mail->Port = 587;
 
             $mail->setFrom('topcineEPN@gmail.com', 'TopCine EPN');
-            $mail->addAddress($resultado[0]["EMAIL_CLI"], 'COMPRAS TOPCINE');
+            $mail->addAddress($resultado[0]["EMAIL_CLI"], $resultado[0]["EMAIL_CLI"]);
 
             //adjuntando factura
             $mail->addAttachment('../email/docs/factura'.$resultado[0]["NUMCED_CLI"].'.pdf', 'Factura.pdf');
