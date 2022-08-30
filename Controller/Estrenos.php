@@ -269,18 +269,9 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
                 <span class="prev" onclick="prevNum()"></span>
             </div>
         </div>
-        <script src="/ProyectoIG2/Controller/js/Contador.js"></script>
         <div style="color: white;" class="fechas_Disponibles">
             <input type="date" class="caja_fecha"></input>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    var elems = document.querySelectorAll('.datepicker');
-                    var instances = M.Datepicker.init(elems, options);
-                    $(document).ready(function() {
-                        $('.datepicker').datepicker();
-                    });
-                });
-            </script>
+
         </div>
         <div style="color: white;" class="Salas_Disponibles">
             <?php

@@ -1,13 +1,12 @@
 let numbers = document.getElementById('box');
-var numactual=0;
 for(i=0; i<100; i++){
     var span = document.createElement('span')
     span.textContent = i;
     numbers.appendChild(span);
 }
-var num = numbers.getElementsByTagName('span');
-var index = 0;
-var numactual;
+let num = numbers.getElementsByTagName('span');
+let index = 0;
+
 
 
 function nextNum(){
@@ -16,7 +15,6 @@ function nextNum(){
     index = (index + 1) % num.length;
     num[index].style.display = "initial";
     num[index].id = "active";
-    numactual = index;
     CalcularPrecio (index);
 }
 function prevNum(){

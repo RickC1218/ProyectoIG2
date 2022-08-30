@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require "../Entities/conexion.php";
 $consulta = $conexion->prepare("SELECT * FROM PELICULA ORDER BY ESTRENO_PELICULA");
 $consulta->execute();
@@ -34,10 +36,19 @@ foreach ($resultado as $key => $data) {
                         <div class='col-12'>
                             <h6><strong>Idioma disponible: </strong></h6>
                             <p>" . $data['IDIOMA_PELICULA'] . "</p>
-                        </div>     
-                        <button type='button' class='btn boton-cerrar' id='boton'>
-                        <a  id= 'comprarBoletos' style='text-decoration:none; pading: 30px; border-radius:30px color:white;' href='../Controller/Estrenos.php?ID=${data['ID_PELICULA']}'>Comprar Boletos</a>
-                        </button>
+                        </div>";
+                        if (isset($_SESSION['user'])) {
+                            echo"<a style='text-decoration:none; pading: 30px; border-radius:30px color:white;' href='../Controller/Estrenos.php?ID=${data['ID_PELICULA']}'>
+                            <button type='button' class='btn boton-cerrar' id='boton'>Comprar Boletos</button>
+                            </a>";
+                        }else{
+                            echo"<a style='text-decoration:none; pading: 30px; border-radius:30px color:white;' href='../UI/login.html'>
+                            <button type='button' class='btn boton-cerrar' id='boton'>Inicia Sesion para comprar</button>
+                            </a>";
+                        }
+                        
+                        
+                    echo"
                     </div>
                 </div>              
             </div>

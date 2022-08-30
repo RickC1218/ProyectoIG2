@@ -13,7 +13,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../Presenters/css/estilos.css">
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -181,28 +181,7 @@
     <!--Scripts-->
     <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../js/mostrarPeliculas.js"></script>
-    <script>
-        
-        var comprar_boletos = document.querySelector('#comprarBoletos');
-        comprar_boletos.addEventListener('click', () => {
-                if (localStorage.getItem('sesion') === undefined || localStorage.getItem('sesion') != 'no') {
-                    Swal.fire({
-                        title: '¿Haz iniciado sesión?',
-                        background: '#041C3299',
-                        color: '#ffff',
-                        showCancelButton: true,
-                        confirmButtonText: 'No',
-                        confirmButtonColor: '#ECB365',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "../UI/login.html"
-                        } else {
-                            window.location.href = "../index.html"
-                        }
-                    })
-                }
-            })
-    </script>
+   
 </body>
 
 </html>
