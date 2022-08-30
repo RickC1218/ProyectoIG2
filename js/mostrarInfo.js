@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
                                     confirmButtonColor: '#ECB365',
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        localStorage.removeItem('sesion');
+                                        localStorage.setItem('sesion','no');
                                         window.location.href = "../index.html"
                                     }
                                 })
