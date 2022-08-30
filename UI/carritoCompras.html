@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="getDetalle_Dulceria(); getDetallePelicula()">
+<body onload="getDetalle_Dulceria()">
     <!--Inicio Header-->
     <div class="container" id="headerCarrito">
         <a href="dulceria_tiposProd.html">
@@ -41,57 +41,58 @@
                     <h1>BOLETOS</h1>
                     <div class="container container-boletos" id="container_detPelicula">
                         <!--Código userAction.php-->
-                        <h1>DULCERÍA</h1>
-                        <div class="container container-dulces" id="container_detalle_dul">
-                            <!--Código userAction.php-->
-                        </div>
-
-                        <a href="dulceria_tiposProd.html"><button role="dulceri_" type="button"
-                                class="btn btn-primary btn-lg" id="btExplorarMas">Explorar snacks</button></a>
                     </div>
+                    <h1>DULCERÍA</h1>
+                    <div class="container container-dulces" id="container_detalle_dul">
+                        <!--Código userAction.php-->
+                    </div>
+
+                    <a href="dulceria_tiposProd.html"><button role="dulceri_" type="button"
+                            class="btn btn-primary btn-lg" id="btExplorarMas">Explorar snacks</button></a>
                 </div>
+            </div>
 
-                <div class="col-md-3 container-detPago">
-                    <div class="container">
-                        <h3>Total del pedido: <span id="precioTotal">$ 0</span></h3>
+            <div class="col-md-3 container-detPago">
+                <div class="container">
+                    <h3>Total del pedido: <span id="precioTotal">$ 0</span></h3>
 
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"><button type="button"
-                                class="btn btn-primary btn-lg" id="btPagar" onclick="getPayPalButtons()">Ir a
-                                pagar</button></a>
-                    </div>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"><button type="button"
+                            class="btn btn-primary btn-lg" id="btPagar" onclick="getPayPalButtons()">Ir a
+                            pagar</button></a>
                 </div>
             </div>
         </div>
-        <!--Fin Contenido-->
+    </div>
+    <!--Fin Contenido-->
 
-        <!--Inicio MODAL Popup-->
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
+    <!--Inicio MODAL Popup-->
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <h1>Elegir método de pago</h1>
-                        <div id="paypal-button-container"></div>
-                    </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <h1>Elegir método de pago</h1>
+                    <div id="paypal-button-container"></div>
                 </div>
             </div>
         </div>
-        <!--Fin MODAL Popup-->
+    </div>
+    <!--Fin MODAL Popup-->
 
-        <!--Scripts-->
-        <script src="../js/app_tabs.js"></script>
-        <script src="../js/app_crud.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <!-- Replace "test" with your own sandbox Business account app client ID -->
-        <script
-            src="https://www.paypal.com/sdk/js?client-id=AdCAgkqjvhB1FpzD_NOkZvkN05RbQuDgWWcB_FoptwYW8ad0sU3-9AXLHoTFRjEkUXoVKrpYUkhdct8a&currency=USD"></script>
+    <!--Scripts-->
+    <script src="../js/app_tabs.js"></script>
+    <script src="../js/app_crud.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AdCAgkqjvhB1FpzD_NOkZvkN05RbQuDgWWcB_FoptwYW8ad0sU3-9AXLHoTFRjEkUXoVKrpYUkhdct8a&currency=USD"></script>
 </body>
 
 </html>
