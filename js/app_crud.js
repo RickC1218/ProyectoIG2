@@ -125,7 +125,7 @@ function getTipSnack(table_bd) {
 function userAction(type, id) {
     var boton_carrito = document.querySelector('#addProdCarrito');
     boton_carrito.addEventListener('click', () => {
-        if (localStorage.getItem('sesion') === undefined || localStorage.getItem('sesion') != 'no') {
+        if (localStorage.getItem('sesion') == null || localStorage.getItem('sesion') == 'no') {
             Swal.fire({
                 title: '¿Haz iniciado sesión?',
                 background: '#041C3299',
@@ -219,7 +219,11 @@ function userAction(type, id) {
                         });
                     } else if (result.isDenied) {
                         $('#myModal').modal('hide');
-                        Swal.fire('Producto NO GUARDADO');
+                        Swal.fire({
+                            title: 'Producto NO GUARDADO',
+                            background: '#041C3299',
+                            color: '#ffff',
+                        });
                     }
                 });
             }
@@ -309,6 +313,8 @@ function getPayPalButtons() {
                         Swal.fire({
                             icon: 'success',
                             title: 'Pago realizado con éxito!',
+                            background: '#041C3299',
+                            color: '#ffff'
                         });
                         //console.log(html);
                         $.ajax({
@@ -349,7 +355,11 @@ function getPayPalButtons() {
                 }
             });*/
                 } else if (result.isDenied) {
-                    Swal.fire('Intente nuevamente realizar el pago!')
+                    Swal.fire({
+                        title: 'Intente nuevamente realizar el pago!',
+                        background: '#041C3299',
+                        color: '#ffff'
+                    })
                 }
             });
             console.log(data);

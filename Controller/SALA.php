@@ -95,24 +95,52 @@ class SALA
         $id_asientos = "";
         $id_funcion=1;
         require("BasedeDatos.php");
+
+        //Se crea la factura para incluir el detalle a nombre del usuario actual
+        date_default_timezone_set('America/Lima');
+
+        $fecha_compra = "".date('Y-m-d')."";
+        $id_metodo_pago = null;
+        $id_promo = null;
+
+        $sql = "INSERT INTO FACTURA (ID_METPAGO, NUMCED_CLI, ID_PROMOCION, FECHCOMP_FACTURA, VALTOTAL_FACTURA)"
+                VALUES (${id_metodo_pago},${id_usuario},${id_promo},${fecha_compra},${costo});
+
+                if (mysqli_query($con, $sql)) {
+                
+                } else {
+                    echo "error " . $sql . "<br>" . mysqli_error($con);
+                }
+
+        // Se extrae el id de fatcura del usuario actual 
+        $sql1 = "SELECT ID_FACTURA FROM FACTURA WHERE NUMCED_CLI = ${id_usuario} AND FECHACOMP_FACTURA = ${fecha_compra}";
+        $factura = mysqli_query($con, $sql1);
+        $id_factura = mysqli_fetch_array($factura,MYSQLI_NUM);
+        if (mysqli_query($con, $sql1)) {
+                
+        } else {
+            echo "error " . $sql1 . "<br>" . mysqli_error($con);
+        }
+
+        // se crea el detalle pelicula 
         foreach ($Asientos as $asiento) {
             $id_asiento = $id_asiento .",". $asiento;
         }
-            $sql = "INSERT INTO DETALLE_PELICULA (ID_FACTURA, ID_ASIENTO,ID_SALA,ID_FUNCION,NUMBOLETOS_DETPEL,COSTO_DETPEL) 
-            VALUES (2," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
-            if (mysqli_query($con, $sql)) {
+            $sql2 = "INSERT INTO DETALLE_PELICULA (ID_FACTURA, ID_ASIENTO,ID_SALA,ID_FUNCION,NUMBOLETOS_DETPEL,COSTO_DETPEL) 
+            VALUES (${id_factura}," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
+            if (mysqli_query($con, $sql2)) {
                 
             } else {
-                echo "error " . $sql . "<br>" . mysqli_error($con);
+                echo "error " . $sql2 . "<br>" . mysqli_error($con);
             }
             
             foreach ($Asientos as $asiento) {    
-            $sql2 = "UPDATE ASIENTO 
+            $sql3 = "UPDATE ASIENTO 
             SET DISPONIBILIDAD_ASIENTO = 1 
             WHERE ID_ASIENTO = $asiento AND ID_SALA=$id_sala";
-            if (mysqli_query($con, $sql2)) {
+            if (mysqli_query($con, $sql3)) {
             } else {
-                echo "error " . $sql2 . "<br>" . mysqli_error($con);
+                echo "error " . $sql3 . "<br>" . mysqli_error($con);
             }
         }
 
