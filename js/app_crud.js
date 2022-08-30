@@ -123,88 +123,108 @@ function getTipSnack(table_bd) {
 
 //INSERT INTO detalle_dulceria
 function userAction(type, id) {
-    var cantidad_aux = parseInt(document.getElementById("cantidad").innerHTML);
-
-    if (cantidad_aux == 0) {
-        Swal.fire({
-            icon: 'error',
-            title: 'ERROR',
-            text: 'Es necesario elegir la cantidad del producto!',
-            background: '#041C3299', 
-            color: '#ffff',
-        });
-    } else {
-        Swal.fire({
-            title: '¿Desea agregar al carrito el producto seleccionado?',
-            showDenyButton: true,
-            showCancelButton: false,
-            confirmButtonText: 'SI',
-            background: '#041C3299', 
-            color: '#ffff',
-            confirmButtonColor: '#ECB365',
-            denyButtonText: 'NO',
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                var table_bd = localStorage.getItem("idClickDulceria");
-                var ID_prod = localStorage.getItem('id_specific'); // obtener número (ID_COMBO or ID_SNACK)
-                var userData;
-                var cantidad = parseInt(document.getElementById("cantidad").innerHTML);
-                var precio = document.getElementById("precioPopup").innerHTML;
-                precio = parseFloat(precio.split('$ ')[1]);
-
-                console.log(precio);
-
-                if (table_bd != 'combos') { // snack
-                    tipoSnack = getTipSnack(table_bd);
-                    userData = 'tipo_prod=0';
-                } else { // combos
-                    userData = 'tipo_prod=1';
+    var boton_carrito = document.querySelector('#addProdCarrito');
+    boton_carrito.addEventListener('click', () => {
+        if (localStorage.getItem('sesion') === undefined || localStorage.getItem('sesion') != 'no') {
+            Swal.fire({
+                title: '¿Haz iniciado sesión?',
+                background: '#041C3299',
+                color: '#ffff',
+                showCancelButton: true,
+                confirmButtonText: 'No',
+                confirmButtonColor: '#ECB365',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "../UI/login.html"
+                } else {
+                    window.location.href = "../index.html"
                 }
+            })
+        } else { // iniciado sesion
+            var cantidad_aux = parseInt(document.getElementById("cantidad").innerHTML);
 
-                userData += '&table_bd=DETALLE_DULCERIA' + '&id=' + ID_prod + '&id_factura=1' + '&cantidad_detdul=' + cantidad + '&precio=' + precio;
+            if (cantidad_aux == 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ERROR',
+                    text: 'Es necesario elegir la cantidad del producto!',
+                    background: '#041C3299',
+                    color: '#ffff',
+                });
+            } else {
+                Swal.fire({
+                    title: '¿Desea agregar al carrito el producto seleccionado?',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'SI',
+                    background: '#041C3299',
+                    color: '#ffff',
+                    confirmButtonColor: '#ECB365',
+                    denyButtonText: 'NO',
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        var table_bd = localStorage.getItem("idClickDulceria");
+                        var ID_prod = localStorage.getItem('id_specific'); // obtener número (ID_COMBO or ID_SNACK)
+                        var userData;
+                        var cantidad = parseInt(document.getElementById("cantidad").innerHTML);
+                        var precio = document.getElementById("precioPopup").innerHTML;
+                        precio = parseFloat(precio.split('$ ')[1]);
 
-                id = (typeof id == "undefined") ? '' : id; // ver si el id fue definido
-                var statusArr = { add: "added", edit: "updated", delete: "deleted" };
+                        console.log(precio);
 
-                let array_ids;
-                if (type == 'add') {
-                    if (localStorage.getItem("array_ids") == 0) { // verificar si es un snack sin subtipo
-                        array_ids = ['NULL'];
-                    } else {
-                        array_ids = JSON.parse(localStorage.getItem("array_ids"));
-                    }
-                    userData += '&action_type=' + type + '&array_ids=' + array_ids;
-                }
+                        if (table_bd != 'combos') { // snack
+                            tipoSnack = getTipSnack(table_bd);
+                            userData = 'tipo_prod=0';
+                        } else { // combos
+                            userData = 'tipo_prod=1';
+                        }
 
-                console.log(userData);
+                        userData += '&table_bd=DETALLE_DULCERIA' + '&id=' + ID_prod + '&id_factura=1' + '&cantidad_detdul=' + cantidad + '&precio=' + precio;
 
-                $.ajax({
-                    type: 'POST',
-                    url: '../UseCases/userAction.php',
-                    data: userData,
-                    success: function (msg) {
-                        $('#myModal').modal('hide');
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: 'Producto GUARDADO',
-                            showConfirmButton: false,
-                            background: '#041C3299', 
-                            color: '#ffff',
-                            timer: 1500
+                        id = (typeof id == "undefined") ? '' : id; // ver si el id fue definido
+                        var statusArr = { add: "added", edit: "updated", delete: "deleted" };
+
+                        let array_ids;
+                        if (type == 'add') {
+                            if (localStorage.getItem("array_ids") == 0) { // verificar si es un snack sin subtipo
+                                array_ids = ['NULL'];
+                            } else {
+                                array_ids = JSON.parse(localStorage.getItem("array_ids"));
+                            }
+                            userData += '&action_type=' + type + '&array_ids=' + array_ids;
+                        }
+
+                        console.log(userData);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '../UseCases/userAction.php',
+                            data: userData,
+                            success: function (msg) {
+                                $('#myModal').modal('hide');
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'Producto GUARDADO',
+                                    showConfirmButton: false,
+                                    background: '#041C3299',
+                                    color: '#ffff',
+                                    timer: 1500
+                                });
+                                setTimeout(function () {
+                                    document.location.href = 'carritoCompras.html';
+                                }, 2000);
+                            }
                         });
-                        setTimeout(function () {
-                            document.location.href = 'carritoCompras.html';
-                        }, 2000);
+                    } else if (result.isDenied) {
+                        $('#myModal').modal('hide');
+                        Swal.fire('Producto NO GUARDADO');
                     }
                 });
-            } else if (result.isDenied) {
-                $('#myModal').modal('hide');
-                Swal.fire('Producto NO GUARDADO');
             }
-        });
-    }
+        }
+    });
 }
 
 /*
@@ -217,7 +237,7 @@ function deleteUser(id) {
         showCancelButton: false,
         confirmButtonText: 'SI',
         denyButtonText: `NO`,
-        background: '#041C3299', 
+        background: '#041C3299',
         color: '#ffff',
         confirmButtonColor: '#ECB365'
     }).then((result) => {
@@ -231,8 +251,8 @@ function deleteUser(id) {
                 data: userData,
                 success: function (msg) {
                     Swal.fire({
-                        title:'Producto ELIMINADO',
-                        background: '#041C3299', 
+                        title: 'Producto ELIMINADO',
+                        background: '#041C3299',
                         color: '#ffff'
                     });
                     setTimeout(function () {
@@ -242,9 +262,9 @@ function deleteUser(id) {
             });
         } else if (result.isDenied) {
             Swal.fire({
-            title:'Producto NO ELIMINADO',
-            background: '#041C3299', 
-            color: '#ffff'
+                title: 'Producto NO ELIMINADO',
+                background: '#041C3299',
+                color: '#ffff'
             });
         }
     });
@@ -310,7 +330,7 @@ function getPayPalButtons() {
                 showCancelButton: false,
                 confirmButtonText: 'SI',
                 denyButtonText: `NO`,
-                background: '#041C3299', 
+                background: '#041C3299',
                 color: '#ffff',
                 confirmButtonColor: '#ECB365'
             }).then((result) => {
