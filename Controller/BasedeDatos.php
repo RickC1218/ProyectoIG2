@@ -14,7 +14,7 @@ if (!$con) {
 // print "Conexión satisfactoria\n";
 mysqli_set_charset($con, "utf8");
 
-// $sql = "SELECT *FROM ASIENTO";
+// $sql = "SELECT *FROM FACTURA";
 // $result = mysqli_query($con, $sql);
 // $r = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // if (mysqli_query($con, $sql)) {

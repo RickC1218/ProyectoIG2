@@ -6,6 +6,8 @@ var reservacion = {
   },
   guardar: () => {
     // Recoger los Asientos Seleccionados
+    var num_boletos = localStorage.numboletos;
+    console.log(num_boletos);
     var seleccionados = document.querySelectorAll(".Butacas .selected");
     console.log(seleccionados.length);
     console.log(seleccionados);
@@ -22,10 +24,10 @@ var reservacion = {
         showCloseButton: true,
       });
     }
-    if (seleccionados.length > num_asientos){
+    if (seleccionados.length > num_boletos){
       Swal.fire({
         icon: 'error',
-        title: 'Escoja unicamente'+ num_asientos + 'asientos',
+        title: 'Escoja unicamente '+ num_boletos + ' asiento(s)',
         background: '#041C32',
         color: '#ffff',
         confirmButtonColor: '#ECB365',
@@ -44,8 +46,15 @@ var reservacion = {
         input.value = id;
         console.log(input);
         reservado.appendChild(input);
+        let costo = document.createElement("input");
+        costo.type = "hidden";
+        costo.name = "costo_entradas";
+        costo.value = num_boletos*5.0;
+        reservado.appendChild(costo);
+        console.log(costo.value);
       }
       reservado.submit();
     }
   },
 };
+

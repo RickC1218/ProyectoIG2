@@ -36,7 +36,7 @@ foreach ($resultado as $key => $data) {
                             <p>" . $data['IDIOMA_PELICULA'] . "</p>
                         </div>     
                         <button type='button' class='btn boton-cerrar' id='boton'>
-                        <a style='text-decoratio:none; pading: 30px; border-radius:30px' href='../Controller/Estrenos.php?ID=${data['ID_PELICULA']}'>Comprar Boletos</a>
+                        <a style='text-decoration:none; pading: 30px; border-radius:30px color:white;' href='../Controller/Estrenos.php?ID=${data['ID_PELICULA']}'>Comprar Boletos</a>
                         </button>
                     </div>
                 </div>              

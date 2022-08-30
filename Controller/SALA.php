@@ -73,7 +73,7 @@ class SALA
     {
         require("BasedeDatos.php");
         //$id_sala=1;
-        $sql = "SELECT * FROM `asiento` WHERE ID_SALA=${id_sala};";
+        $sql = "SELECT * FROM ASIENTO WHERE ID_SALA=${id_sala};";
         $result =  mysqli_query($con, $sql);
         $Asientos = mysqli_fetch_all($result, MYSQLI_ASSOC);
         if (mysqli_query($con, $sql)) {
@@ -81,7 +81,7 @@ class SALA
             echo "error " . $sql . "<br>" . mysqli_error($con);
         }
         foreach ($Asientos  as $asiento) {
-            if ($asiento['ESTADO_ASIENTO'] == 0) {
+            if ($asiento['DISPONIBILIDAD_ASIENTO'] == 0) {
                 echo '<button type="button" class="btn_Butaca" id=' . $asiento['ID_ASIENTO'] . ' onclick="reservacion.toggle(this)" >B' . $asiento['ID_ASIENTO'] . '</button>';
             } else {
                 echo '<button type="button" class="btn_Butaca taken" id=' . $asiento['ID_ASIENTO'] . ' onclick="reservacion.toggle(this)" >B' . $asiento['ID_ASIENTO'] . '</button>';
@@ -90,19 +90,26 @@ class SALA
         return $Asientos;
     }
 
-    public static function save($id_sala, $Asientos, $id_usuario)
+    public static function save($id_sala, $Asientos, $id_usuario, $costo)
     {
+        $id_asientos = "";
+        $id_funcion=1;
         require("BasedeDatos.php");
         foreach ($Asientos as $asiento) {
-            $sql = "INSERT INTO `Reservaciones` (`id_asiento`, `id_sala`,`id_usuario`) 
-            VALUES (" . $asiento . "," . $id_sala . "," . $id_usuario . ")";
-            $sql2 = "UPDATE asiento 
-            SET ESTADO_ASIENTO = 1 
-            WHERE ID_ASIENTO = $asiento AND ID_SALA=$id_sala";
+            $id_asiento = $id_asiento . $asiento;
+        }
+            $sql = "INSERT INTO DETALLE_PELICULA (ID_FACTURA, ID_ASIENTO,ID_SALA,ID_FUNCION,NUMBOLETOS_DETPEL,COSTO_DETPEL) 
+            VALUES (2," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
             if (mysqli_query($con, $sql)) {
+                
             } else {
                 echo "error " . $sql . "<br>" . mysqli_error($con);
             }
+            
+            foreach ($Asientos as $asiento) {    
+            $sql2 = "UPDATE ASIENTO 
+            SET DISPONIBILIDAD_ASIENTO = 1 
+            WHERE ID_ASIENTO = $asiento AND ID_SALA=$id_sala";
             if (mysqli_query($con, $sql2)) {
             } else {
                 echo "error " . $sql2 . "<br>" . mysqli_error($con);

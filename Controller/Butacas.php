@@ -16,6 +16,8 @@ require("SALA.php");
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="http://localhost:90/ProyectoIG2/Controller/js/cambiar_estado.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="../resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <title>Document</title>
     <style>
@@ -126,16 +128,37 @@ require("SALA.php");
         .btn_reservacion:hover {
             background-color: #ECB365;
         }
+       /* Header Volver*/
+       #headerButacas {
+            margin: 40px 50px;
+        }
+
+        #headerButacas a {
+            color: #ecb365;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        #headerButacas a span {
+            padding-left: 20px;
+        }        
     </style>
 </head>
 
 <body>
+    <!-- <div class="container" id="headerButacas">
+        <a href="Estrenos.php">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i><span> Volver</span>
+        </a>
+    </div> -->
+    <!--Fin Header-->
 
+    <hr>
     <div class="Contenedor_principal">
         <h1 style="color:white; margin-top: 40px;">Escoja sus asientos</h1>
         <hr>
         <div class="estados_Asientos">
-        
+
             <div class="seleccionado">
                 <div class="circle_seleccionado"></div>
                 <p>Seleccionado</p>
@@ -147,11 +170,11 @@ require("SALA.php");
             <div class="ocupado">
                 <div class="circle_ocupado"></div>
                 <p>Ocupado</p>
-            </div> 
+            </div>
         </div>
         <hr>
     </div>
-    
+
     <div class="Pantalla">
 
         <h2>PANTALLA</h2>
@@ -163,7 +186,7 @@ require("SALA.php");
         $json = json_encode($Asientos);
         ?>
         <?php
-        
+
         //datos quemados aqui se debe enviar el id del usuario en la sesiòn
         $id_usuario = 1;
 

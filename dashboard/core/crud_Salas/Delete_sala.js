@@ -1,5 +1,5 @@
 
-    async function Eliminar_Usuario (idSala) {
+    async function Eliminar_Sala (idSala) {
             const respuestaConfirmacion = await Swal.fire({
                 title: "Confirmación",
                 text: "Esta Seguro de Eliminar, esta acción no se puede deshacer",
