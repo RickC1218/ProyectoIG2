@@ -96,7 +96,7 @@ class SALA
         $id_funcion=1;
         require("BasedeDatos.php");
         foreach ($Asientos as $asiento) {
-            $id_asiento = $id_asiento . $asiento;
+            $id_asiento = $id_asiento .",". $asiento;
         }
             $sql = "INSERT INTO DETALLE_PELICULA (ID_FACTURA, ID_ASIENTO,ID_SALA,ID_FUNCION,NUMBOLETOS_DETPEL,COSTO_DETPEL) 
             VALUES (2," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";

@@ -2,6 +2,8 @@
 $URL_BASE = "/ProyectoIG2/Controller";
 require("BasedeDatos.php");
 require("SALA.php");
+session_start();
+$numced = $_SESSION['user'];
 #$N_Butacas = $_GET['n_butacas'];
 ?>
 <!DOCTYPE html>
@@ -188,7 +190,7 @@ require("SALA.php");
         <?php
 
         //datos quemados aqui se debe enviar el id del usuario en la sesiòn
-        $id_usuario = 1;
+        $id_usuario = $numced;
 
         ?>
         <form id="reservado" method="post" action="/ProyectoIG2/Controller/reservar.php">
