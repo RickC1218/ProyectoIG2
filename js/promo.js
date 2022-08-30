@@ -1,6 +1,13 @@
 'use strict'
 
 window.addEventListener('load', () => {
+    var login = $('#login');
+    var sesion = localStorage.getItem('sesion');
+    if (sesion=='si'){
+        login.hide()
+    }else{
+        login.show()
+    }
     listarPromocion();
 
     function listarPromocion() {

@@ -47,6 +47,7 @@ window.addEventListener('load', () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    localStorage.setItem('sesion', 'si');
                     window.location.href = "./usuario.html"
                 } else {
                     alert('Error al iniciar sesión')

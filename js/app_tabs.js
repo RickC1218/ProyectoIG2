@@ -4,6 +4,14 @@ var idClickDulceria;
 var items = 0;
 var cantidad;
 
+var login = $('#login');
+var sesion = localStorage.getItem('sesion');
+if (sesion=='si'){
+    login.hide()
+}else{
+    login.show()
+}
+
 function getId(idClick) {
     idClickDulceria = idClick;
     localStorage.setItem("idClickDulceria", idClickDulceria);

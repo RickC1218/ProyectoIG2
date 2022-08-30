@@ -1,6 +1,13 @@
 'use strict'
 window.addEventListener('load', () => {
     listarCliente()
+    var login = $('#login');
+    var sesion = localStorage.getItem('sesion');
+    if (sesion=='si'){
+        login.hide()
+    }else{
+        login.show()
+    }
 
     function listarCliente() {
         fetch('../UseCases/mostrarInfo.php', {
@@ -59,6 +66,7 @@ window.addEventListener('load', () => {
                                     confirmButtonColor: '#ECB365',
                                 }).then((result) => {
                                     if (result.isConfirmed) {
+                                        localStorage.removeItem('sesion');
                                         window.location.href = "../index.html"
                                     }
                                 })
