@@ -147,7 +147,7 @@ require("SALA.php");
 
 <body>
     <!-- <div class="container" id="headerButacas">
-        <a href="Estrenos.php">
+        <a onclick="window.history.back()">
             <i class="fa fa-arrow-left" aria-hidden="true"></i><span> Volver</span>
         </a>
     </div> -->
