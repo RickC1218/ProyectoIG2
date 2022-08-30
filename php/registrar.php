@@ -10,7 +10,7 @@
     $pswd = isset($_POST['pswd']) ? $_POST['pswd'] : '';
     $v_pswd = isset($_POST['v_pswd']) ? $_POST['v_pswd'] : '';
     $msg='';
-    $activacion = md5($email.time());
+    $activacion = md5($email.time()); //timestamp  //encriptacion md5
     //echo $activacion;
 
 
