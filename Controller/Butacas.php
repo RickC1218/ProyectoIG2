@@ -15,7 +15,7 @@ require("SALA.php");
     <script src="/ProyectoIG2/Controller/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/js/cambiar_estado.js"></script>
+    <script src="js/cambiar_estado.js"></script>
     <!-- Icons -->
     <link rel="stylesheet" href="../resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
