@@ -17,16 +17,15 @@
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
         $mail = new PHPMailer(true);
         try{
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'topcineEPN@gmail.com';
-            $mail->Password = 'hahcjhpwgdamqpru';
+            $mail->Username = 'epntopcine2022@gmail.com';
+            $mail->Password = 'qcraohldqylgyxs';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('topcineEPN@gmail.com', 'TopCine EPN');
+            $mail->setFrom('epntopcine2022@gmail.com', 'TopCine EPN');
             $mail->addAddress($resultado[0]["EMAIL_CLI"], $resultado[0]["EMAIL_CLI"]);
 
             //adjuntando factura
