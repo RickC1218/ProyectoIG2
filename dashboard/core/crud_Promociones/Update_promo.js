@@ -9,7 +9,7 @@ var $N_Descripcion_promo = document.querySelector("#N_Descripcion_Promo"),
 
 async function rellenarFormulario (idPromo) {
 
-    const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Promociones/obtener_promo_id.php?id=" + parseInt(idPromo));
+    const respuestaRaw = await fetch("../core/crud_Promociones/obtener_promo_id.php?id=" + parseInt(idPromo));
     const Promo = await respuestaRaw.json();
     // Rellenar formulario
     $N_Descripcion_promo.value = Promo.DESCRIPCION_PROMOCION;
@@ -61,7 +61,7 @@ $N_ActualizarPromo.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Promociones/Update_promo.php", {
+        const respuestaRaw = await fetch("../core/crud_Promociones/Update_promo.php", {
             method:"PUT",
             body: cargaUtilCodificada,
         });

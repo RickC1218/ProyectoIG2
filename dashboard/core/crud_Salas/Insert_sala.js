@@ -35,7 +35,7 @@ $GuardarSala.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Salas/Insert_sala.php", {
+        const respuestaRaw = await fetch("../core/crud_Salas/Insert_sala.php", {
             method:"POST",
             body: cargaUtilCodificada,
         });

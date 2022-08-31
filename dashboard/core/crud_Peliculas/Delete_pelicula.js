@@ -11,7 +11,7 @@
                 cancelButtonText: 'Cancelar',
             });
             if (respuestaConfirmacion.value) {
-                const url = "/ProyectoIG2/dashboard/core/crud_Peliculas/Delete_pelicula.php?id="+parseInt(idPelicula);
+                const url = "../core/crud_Peliculas/Delete_pelicula.php?id="+parseInt(idPelicula);
                 const respuestaRaw = await fetch(url, {
                     method: "DELETE",
                 });

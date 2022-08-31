@@ -11,7 +11,7 @@
                 cancelButtonText: 'Cancelar',
             });
             if (respuestaConfirmacion.value) {
-                const url = "/ProyectoIG2/dashboard/core/crud_Salas/Delete_sala.php?id="+parseInt(idSala);
+                const url = "../core/crud_Salas/Delete_sala.php?id="+parseInt(idSala);
                 const respuestaRaw = await fetch(url, {
                     method: "DELETE",
                 });

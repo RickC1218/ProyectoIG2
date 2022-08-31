@@ -55,7 +55,7 @@ $GuardarCombo.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Combos/Insert_combo.php", {
+        const respuestaRaw = await fetch("../core/crud_Combos/Insert_combo.php", {
             method:"POST",
             body: cargaUtilCodificada,
         });

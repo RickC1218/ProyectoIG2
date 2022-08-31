@@ -10,7 +10,7 @@ var $N_Nombre_Combo = document.querySelector("#N_Nombre_Combo"),
 
 async function rellenarFormulario (idCombo) {
 
-    const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Combos/obtener_combo_id.php?id=" + parseInt(idCombo));
+    const respuestaRaw = await fetch("../core/crud_Combos/obtener_combo_id.php?id=" + parseInt(idCombo));
     const Combo = await respuestaRaw.json();
     // Rellenar formulario
     $N_Nombre_Combo.value = Combo.NOMB_COMBO;
@@ -72,7 +72,7 @@ $N_EditarCombo.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Combos/Update_combo.php", {
+        const respuestaRaw = await fetch("../core/crud_Combos/Update_combo.php", {
             method:"PUT",
             body: cargaUtilCodificada,
         });

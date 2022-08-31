@@ -11,7 +11,7 @@
                 cancelButtonText: 'Cancelar',
             });
             if (respuestaConfirmacion.value) {
-                const url = "/ProyectoIG2/dashboard/core/crud_Combos/Delete_combo.php?id="+parseInt(idCombo);
+                const url = "../core/crud_Combos/Delete_combo.php?id="+parseInt(idCombo);
                 const respuestaRaw = await fetch(url, {
                     method: "DELETE",
                 });

@@ -12,7 +12,7 @@ var $N_Nombre_Cli = document.querySelector("#N_Nombre_Cli"),
 
 async function rellenarFormulario (CiUser) {
 
-    const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_usuarios/obtener_usuario_id.php?id=" + CiUser);
+    const respuestaRaw = await fetch("../core/crud_usuarios/obtener_usuario_id.php?id=" + CiUser);
     const User = await respuestaRaw.json();
     // Rellenar formulario
     $N_Nombre_Cli.value = User.NOMBRE_CLI;

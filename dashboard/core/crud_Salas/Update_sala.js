@@ -8,7 +8,7 @@ var $N_Aforo = document.querySelector("#N_Aforo"),
 
 async function rellenarFormulario (Idsala) {
 
-    const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Salas/obtener_sala_id.php?id=" + Idsala);
+    const respuestaRaw = await fetch("../core/crud_Salas/obtener_sala_id.php?id=" + Idsala);
     const Sala = await respuestaRaw.json();
     // Rellenar formulario
     $N_Aforo.value = Sala.TOTALASIENTOS_SALA;

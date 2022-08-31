@@ -45,7 +45,7 @@ $GuardarPromo.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Promociones/Insert_promo.php", {
+        const respuestaRaw = await fetch("../core/crud_Promociones/Insert_promo.php", {
             method:"POST",
             body: cargaUtilCodificada,
         });

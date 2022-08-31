@@ -11,7 +11,7 @@
                 cancelButtonText: 'Cancelar',
             });
             if (respuestaConfirmacion.value) {
-                const url = "/ProyectoIG2/dashboard/core/crud_usuarios/Delete_usuario.php?id="+parseInt(CiUser);
+                const url = "../core/crud_usuarios/Delete_usuario.php?id="+parseInt(CiUser);
                 const respuestaRaw = await fetch(url, {
                     method: "DELETE",
                 });

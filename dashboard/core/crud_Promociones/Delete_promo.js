@@ -11,7 +11,7 @@
                 cancelButtonText: 'Cancelar',
             });
             if (respuestaConfirmacion.value) {
-                const url = "/ProyectoIG2/dashboard/core/crud_Promociones/Delete_promo.php?id="+parseInt(idPromo);
+                const url = "../core/crud_Promociones/Delete_promo.php?id="+parseInt(idPromo);
                 const respuestaRaw = await fetch(url, {
                     method: "DELETE",
                 });

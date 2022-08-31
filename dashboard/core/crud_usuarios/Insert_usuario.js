@@ -75,7 +75,7 @@ $GuardarUser.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_usuarios/Insert_usuario.php", {
+        const respuestaRaw = await fetch("../core/crud_usuarios/Insert_usuario.php", {
             method:"POST",
             body: cargaUtilCodificada,
         });

@@ -15,7 +15,7 @@ var $N_Nombre_Pelicula = document.querySelector("#N_Nombre_Pelicula"),
 
 async function rellenarFormulario (idPelicula) {
 
-    const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Peliculas/obtener_pelicula_id.php?id=" + parseInt(idPelicula));
+    const respuestaRaw = await fetch("../core/crud_Peliculas/obtener_pelicula_id.php?id=" + parseInt(idPelicula));
     const Pelicula = await respuestaRaw.json();
     // Rellenar formulario
     $N_Nombre_Pelicula.value = Pelicula.TITULO_PELICULA;

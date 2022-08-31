@@ -88,7 +88,7 @@ $GuardarPelicula.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Peliculas/Insert_pelicula.php", {
+        const respuestaRaw = await fetch("../core/crud_Peliculas/Insert_pelicula.php", {
             method:"POST",
             body: cargaUtilCodificada,
         });
