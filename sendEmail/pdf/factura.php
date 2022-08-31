@@ -5,6 +5,10 @@ require 'conexion.php';
 require '../email/correoFactura.php';
 include '../QR/QR.php';
 //require '../css/base';
+
+date_default_timezone_set("America/Mexico_City");
+$Date = date('Y-m-d');
+
 $numced = $_SESSION['user'];
 //Consulta cliente
 $consulta1 = $pdo->prepare("SELECT NUMCED_CLI, NOMBRE_CLI, APELLIDO_CLI FROM CLIENTE where NUMCED_CLI = $numced;");
@@ -12,7 +16,12 @@ $consulta1->execute();
 $resultado1 = $consulta1->fetchAll(PDO::FETCH_ASSOC);
 
 //Consulta pelicula
-$consulta2 = $pdo->prepare("SELECT * FROM PELICULA where ID_PELICULA = 1");
+$consulta2 = $pdo->prepare("SELECT FACTURA.ID_FACTURA, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION, DETALLE_PELICULA.NUMBOLETOS_DETPEL, DETALLE_PELICULA.COSTO_DETPEL, CLIENTE.NUMCED_CLI FROM `FUNCION`
+INNER JOIN `PELICULA` ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
+INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION
+INNER JOIN `FACTURA`  ON FACTURA.ID_FACTURA = DETALLE_PELICULA.ID_FACTURA
+INNER JOIN `CLIENTE` ON CLIENTE.NUMCED_CLI = FACTURA.NUMCED_CLI
+WHERE CLIENTE.NUMCED_CLI = $numced AND FACTURA.ID_FACTURA = (SELECT MAX(FACTURA.ID_FACTURA) FROM FACTURA WHERE FACTURA.NUMCED_CLI = $numced);");
 $consulta2->execute();
 $resultado2 = $consulta2->fetchAll(PDO::FETCH_ASSOC);
 
@@ -72,7 +81,7 @@ $pdf->SetFillColor(6, 70, 99);
 $pdf->SetTextColor(255, 255, 255);
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(90, 8, utf8_decode('Boletos'), 1, 0, 'C', 1);
-$pdf->Cell(25, 8, utf8_decode('Sala'), 1, 0, 'C', 1);
+$pdf->Cell(25, 8, utf8_decode('Fecha'), 1, 0, 'C', 1);
 $pdf->Cell(25, 8, utf8_decode('Cantidad'), 1, 0, 'C', 1);
 $pdf->Cell(50, 8, 'Precio', 1, 1, 'C', 1);
 
@@ -80,9 +89,9 @@ $pdf->SetFillColor(204, 204, 204);
 $pdf->SetTextColor(0, 0, 0);
 foreach ($resultado2 as $key => $data) {
     $pdf->Cell(90, 8, utf8_decode($data['TITULO_PELICULA']), 1, 0, 'C', 1);
-    $pdf->Cell(25, 8, $data['ESTRENO_PELICULA'], 1, 0, 'C', 1);
-    $pdf->Cell(25, 8, $data['DURACION_PELICULA'], 1, 0, 'C', 1);
-    $pdf->Cell(50, 8, '$ ' . $data['ESTRENO_PELICULA'], 1, 1, 'C', 1);
+    $pdf->Cell(25, 8, $data['FECHAPELI_FUNCION'], 1, 0, 'C', 1);
+    $pdf->Cell(25, 8, $data['NUMBOLETOS_DETPEL'], 1, 0, 'C', 1);
+    $pdf->Cell(50, 8, '$ ' . $data['COSTO_DETPEL'], 1, 1, 'C', 1);
 }
 
 //consulta 3

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -8,8 +8,8 @@
     require 'PHPMailer/src/SMTP.php';
     require 'PHPMailer/src/Exception.php';
 
-    $numced = $_SESSION['user'];
     function sendEmail(){
+        $numced = $_SESSION['user'];
         require '../pdf/conexion.php';
 
         $consulta = $pdo->prepare("SELECT EMAIL_CLI, NUMCED_CLI, NOMBRE_CLI FROM CLIENTE WHERE NUMCED_CLI = $numced;");
@@ -20,12 +20,12 @@
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'epntopcine2022@gmail.com';
-            $mail->Password = 'qcraohldqylgyxs';
+            $mail->Username = '';
+            $mail->Password = '';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('epntopcine2022@gmail.com', 'TopCine EPN');
+            $mail->setFrom('', 'TopCine EPN');
             $mail->addAddress($resultado[0]["EMAIL_CLI"], $resultado[0]["EMAIL_CLI"]);
 
             //adjuntando factura

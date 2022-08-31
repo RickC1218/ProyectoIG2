@@ -283,7 +283,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                 // guarda en el local storage el valor total del detalle de la dulceria
                 localStorage.setItem("precioTotalDulceria", <?php echo $precioTotalDulceria; ?>);
             </script>
-<?php
+        <?php
             echo '';
         }
     } elseif ($_POST['action_type'] == 'delete') {
@@ -292,7 +292,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
             $delete = $db->delete($_POST['table_name'], $condition);
             echo $delete ? 'ok' : 'err';
         } else {
-            //$condition = array('ID_FACTURA' => $_POST['id']);
+            $condition = array('ID_FACTURA' => $_POST['idFactura']);
             $delete = $db->delete($_POST['table_name'], $condition);
             echo $delete ? 'ok' : 'err';
         }
@@ -308,13 +308,16 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
         );
         $update = $db->update($tblName, $updateData, $conditions);
         echo $update ? 'ok' : 'err';
-
     } elseif ($_POST['action_type'] == 'viewDetalle_pelicula') {
+        $numCed = $_SESSION["user"];
         $tblaName = 'FUNCION';
         $conditions = array(
             'select' => 'FUNCION.ID_FUNCION, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION, DETALLE_PELICULA.NUMBOLETOS_DETPEL, DETALLE_PELICULA.COSTO_DETPEL',
             'inner_join' => ' INNER JOIN `PELICULA` ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
-                            INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION'
+                            INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION 
+                            INNER JOIN `FACTURA`  ON FACTURA.ID_FACTURA = DETALLE_PELICULA.ID_FACTURA 
+                            INNER JOIN `CLIENTE` ON CLIENTE.NUMCED_CLI = FACTURA.NUMCED_CLI',
+            'where' => " CLIENTE.NUMCED_CLI = $numCed AND FACTURA.ID_FACTURA = (SELECT MAX(FACTURA.ID_FACTURA) FROM FACTURA WHERE FACTURA.NUMCED_CLI = $numCed)"
         );
         $select = $db->getRows($tblaName, $conditions);
         $output = '';
@@ -332,7 +335,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                     </div>
                 </div>
                 <div class="container cuerpo_boleto">
-                    <h4>Número de boletos: '.$row['NUMBOLETOS_DETPEL'].'</h4>
+                    <h4>Número de boletos: ' . $row['NUMBOLETOS_DETPEL'] . '</h4>
                     <h4>Idioma Película: ' . $row['IDIOMA_PELICULA'] . '</h4>
                     <h4>Fecha y Hora: ' . $row['FECHAPELI_FUNCION'] . ' ' . " - " . ' ' . $row['HORA_FUNCION'] . '</h4>
                 </div>
@@ -340,15 +343,15 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
             }
             echo $output;
             $precioTotalPelicula += (float)$select[0]['COSTO_DETPEL'];
-            ?>
+        ?>
             <script>
                 // guarda en el local storage el valor total del detalle de la dulceria
                 localStorage.setItem("precioTotalPelicula", <?php echo $precioTotalPelicula; ?>);
             </script>
-<?php
+        <?php
         } else {
             echo $output;
-            ?>
+        ?>
             <script>
                 // guarda en el local storage el valor total del detalle de la dulceria
                 localStorage.setItem("precioTotalPelicula", <?php echo $precioTotalPelicula; ?>);

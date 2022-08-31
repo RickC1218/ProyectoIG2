@@ -9,12 +9,12 @@ if (isset($_SESSION['user'])) { //verificar que la sesion exite
     $result = $conexion->query($sql);
     $resultado = $result->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql2 = "SELECT titulo_pelicula, NUMBOLETOS_DETPEL, FECHCOMP_FACTURA, VALTOTAL_FACTURA
-        from CLIENTE, FACTURA, DETALLE_PELICULA, PELICULA
-        where CLIENTE.NUMCED_CLI=  $numced
-            and FACTURA.NUMCED_CLI = $numced
-            and FACTURA.ID_FACTURA = DETALLE_PELICULA.ID_FACTURA
-            and DETALLE_PELICULA.ID_DETPEL = PELICULA .ID_PELICULA;";
+    $sql2 = "SELECT PELICULA.TITULO_PELICULA, DETALLE_PELICULA.NUMBOLETOS_DETPEL, FACTURA.FECHCOMP_FACTURA, FACTURA.VALTOTAL_FACTURA FROM CLIENTE
+    INNER JOIN FACTURA ON FACTURA.NUMCED_CLI = CLIENTE.NUMCED_CLI
+    INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FACTURA = FACTURA.ID_FACTURA
+    INNER JOIN FUNCION ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION
+    INNER JOIN PELICULA ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
+    WHERE FACTURA.NUMCED_CLI = $numced";
     $result = $conexion->query($sql2);
     $resultado2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -186,16 +186,16 @@ if (isset($_SESSION['user'])) { //verificar que la sesion exite
                         </tr>
                     </thead>
                     <tbody>';
-            foreach ($resultado2 as $resultado) {
-                echo '
+    foreach ($resultado2 as $resultado) {
+        echo '
                         <tr>
-                            <th scope="row">' . $resultado['titulo_pelicula'] . '</th>
+                            <th scope="row">' . $resultado['TITULO_PELICULA'] . '</th>
                             <td>' . $resultado['NUMBOLETOS_DETPEL'] . '</td>
                             <td>' . $resultado['FECHCOMP_FACTURA'] . '</td>
                             <td> $' . $resultado['VALTOTAL_FACTURA'] . '</td>
                         </tr>';
-            }
-        echo '
+    }
+    echo '
                     </tbody>
                 </table>
             </div>

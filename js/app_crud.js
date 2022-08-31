@@ -75,7 +75,9 @@ function getDetalle_Dulceria() { // se puede enviar como parametro algun ID que 
             var precioTotalDulceria = parseFloat(localStorage.getItem('precioTotalDulceria'));
             var precioTotalPelicula = parseFloat(localStorage.getItem('precioTotalPelicula'));
             var precioHTML = document.getElementById('precioTotal');
-            precioHTML.innerHTML = '$ ' + (precioTotalDulceria + precioTotalPelicula);
+            var sumaAux = (precioTotalDulceria + precioTotalPelicula).toFixed(2);
+            localStorage.setItem('precioTotalFactura', sumaAux);
+            precioHTML.innerHTML = '$ ' + sumaAux;
         }
     });
 }
@@ -89,6 +91,13 @@ function getDetallePelicula() {
         data: userData,
         success: function (html) {
             $('#container_detPelicula').html(html);
+            // obteniendo el total a pagar por los snacks de la dulceria
+            var precioTotalDulceria = parseFloat(localStorage.getItem('precioTotalDulceria'));
+            var precioTotalPelicula = parseFloat(localStorage.getItem('precioTotalPelicula'));
+            var precioHTML = document.getElementById('precioTotal');
+            var sumaAux = (precioTotalDulceria + precioTotalPelicula).toFixed(2);
+            localStorage.setItem('precioTotalFactura', sumaAux);
+            precioHTML.innerHTML = '$ ' + sumaAux;
         }
     });
 }
@@ -167,6 +176,7 @@ function userAction(type, id) {
                         var cantidad = parseInt(document.getElementById("cantidad").innerHTML);
                         var precio = document.getElementById("precioPopup").innerHTML;
                         precio = parseFloat(precio.split('$ ')[1]);
+                        var idFactura = localStorage.getItem('id_factura');
 
                         console.log(precio);
 
@@ -177,7 +187,7 @@ function userAction(type, id) {
                             userData = 'tipo_prod=1';
                         }
 
-                        userData += '&table_bd=DETALLE_DULCERIA' + '&id=' + ID_prod + '&id_factura=1' + '&cantidad_detdul=' + cantidad + '&precio=' + precio;
+                        userData += '&table_bd=DETALLE_DULCERIA' + '&id=' + ID_prod + '&id_factura=' + idFactura + '&cantidad_detdul=' + cantidad + '&precio=' + precio;
 
                         id = (typeof id == "undefined") ? '' : id; // ver si el id fue definido
                         var statusArr = { add: "added", edit: "updated", delete: "deleted" };
@@ -280,12 +290,12 @@ function getPayPalButtons() {
             size: 'mini'
         },
         createOrder: function (data, actions) {
-            var precioTotalDulceria = parseFloat(localStorage.getItem('precioTotalDulceria'));
+            var precioTotal = parseFloat(localStorage.getItem('precioTotalFactura'));
 
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: precioTotalDulceria
+                        value: precioTotal
                     }
                 }]
             });
@@ -299,8 +309,8 @@ function getPayPalButtons() {
                 var MyDate = new Date();
                 var fechaCompra = transformDate(MyDate.toLocaleDateString());
                 var totalCompra = detalles.purchase_units[0].amount.value;
-                var idFactura = 1; // coger ID_FACTURA de la sesion
-
+                var idFactura = localStorage.getItem('id_factura'); // coger ID_FACTURA de la sesion
+                console.log(detalles);
                 var userData = 'action_type=updateFactura' + '&tbName=FACTURA' + '&id=' + idFactura + '&statusCompra=' + statusCompra + '&fechaCompra=' + fechaCompra + '&totalCompra=' + totalCompra;
                 $.ajax({
                     type: 'POST',
@@ -325,6 +335,7 @@ function getPayPalButtons() {
             });
         },
         onCancel: function (data) {
+            var idFactura = localStorage.getItem('id_factura'); // coger ID_FACTURA de la sesion
             Swal.fire({
                 title: 'PAGO CANCELADO',
                 text: '¿Desea eliminar su pedido?',
@@ -337,7 +348,7 @@ function getPayPalButtons() {
                 confirmButtonColor: '#ECB365'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    var userData = 'action_type=delete' + '&table_name=FACTURA';
+                    var userData = 'action_type=delete' + '&table_name=FACTURA' + '&idFactura=' + idFactura;
                     $.ajax({
                         type: 'POST',
                         url: '../UseCases/userAction.php',

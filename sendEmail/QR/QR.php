@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 function createQR()
 {
@@ -9,13 +9,12 @@ function createQR()
     date_default_timezone_set("America/Mexico_City");
     $Date = date('Y-m-d');
 
-    $sql1 = "SELECT NOMBRE_CLI, titulo_pelicula, NUMBOLETOS_DETPEL, FECHCOMP_FACTURA, VALTOTAL_FACTURA
-    from CLIENTE, FACTURA, DETALLE_PELICULA, PELICULA
-    where CLIENTE.NUMCED_CLI=  $numced
-        and FACTURA.NUMCED_CLI = $numced
-        and FECHCOMP_FACTURA = '$Date'
-        and FACTURA.ID_FACTURA = DETALLE_PELICULA.ID_FACTURA
-        and DETALLE_PELICULA.ID_DETPEL = PELICULA .ID_PELICULA;";
+    $sql1 = "SELECT FACTURA.ID_FACTURA, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION, DETALLE_PELICULA.NUMBOLETOS_DETPEL, DETALLE_PELICULA.COSTO_DETPEL, CLIENTE.NUMCED_CLI, CLIENTE.NOMBRE_CLI FROM `FUNCION`
+    INNER JOIN `PELICULA` ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
+    INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION
+    INNER JOIN `FACTURA`  ON FACTURA.ID_FACTURA = DETALLE_PELICULA.ID_FACTURA
+    INNER JOIN `CLIENTE` ON CLIENTE.NUMCED_CLI = FACTURA.NUMCED_CLI
+    WHERE CLIENTE.NUMCED_CLI = $numced AND FACTURA.ID_FACTURA = (SELECT MAX(FACTURA.ID_FACTURA) FROM FACTURA WHERE FACTURA.NUMCED_CLI = $numced)";
     $result = $pdo->query($sql1);
     $resultado1 = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -53,7 +52,7 @@ WHERE
     $result = $pdo->query($sql2);
     $resultado2 = $result->fetchAll(PDO::FETCH_ASSOC);
 
-    $salida1 = 'Titulo Pelicula: ' . $resultado1[0]['titulo_pelicula'] . ' Numero Boletos: ' . $resultado1[0]['NUMBOLETOS_DETPEL'] . ' Fecha: ' . $resultado1[0]['FECHCOMP_FACTURA'];
+    $salida1 = 'Titulo Pelicula: ' . $resultado1[0]['TITULO_PELICULA'] . ' Numero Boletos: ' . $resultado1[0]['NUMBOLETOS_DETPEL'] . ' Fecha: ' . $resultado1[0]['FECHAPELI_FUNCION'];
     $salida2 = nl2br("\n");
     foreach ($resultado2 as $row) {
         $salida2 .= nl2br('Dulce: ' . $row['NOMB_PROD'] . '  Cantidad: ' . $row['CANTIDAD_DETDUL'] . "\n");
