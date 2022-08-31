@@ -1,11 +1,51 @@
-let validation = document.getElementById('valida');
+let minuscula = document.getElementById('minuscula');
+let mayuscula = document.getElementById('mayuscula');
+let numero = document.getElementById('numero');
+let caracter = document.getElementById('caracter');
+let tamanio = document.getElementById('tamanio');
+
 let verification = document.getElementById('valida2');
+
 function checkPassword(data) {
-    const ps = new RegExp('(^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(([A-Za-z\d$@$!%*?&]|[^ ]){8,15}))');
-    if (ps.test(data)) {
-        validation.classList.add('valid');
+    const min = new RegExp('(?=.*[a-z])');
+    const may = new RegExp('(?=.*[A-Z])');
+    const num = new RegExp('(?=.*[0-9])');
+    const car = new RegExp('(?=.*[!@#\$%\^&\*])');
+    const tam = new RegExp('(?=.*{8,15})');
+
+    //tamaño de la contraseña
+    if (tam.test(data)) {
+        tamanio.classList.add('valid');
     } else {
-        validation.classList.remove('valid');
+        tamanio.classList.remove('valid');
+    }
+
+    //verificar minúsculas
+    if (min.test(data)) {
+        minuscula.classList.add('valid');
+    } else {
+        minuscula.classList.remove('valid');
+    }
+
+    //verificar mayusculas
+    if (may.test(data)) {
+        mayuscula.classList.add('valid');
+    } else {
+        mayuscula.classList.remove('valid');
+    }
+
+    //Verificar número
+    if (num.test(data)) {
+        numero.classList.add('valid');
+    } else {
+        numero.classList.remove('valid');
+    }
+
+    //Verificar caracter
+    if (car.test(data)) {
+        caracter.classList.add('valid');
+    } else {
+        caracter.classList.remove('valid');
     }
 }
 function checkSamePwd() {

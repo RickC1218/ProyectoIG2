@@ -827,4 +827,10 @@ hr {
   color: #0f0;
 }
 
+footer .links li:hover {
+  transform: scale(0.95);
+  background-color: #041c32 !important;
+  transition: all 300ms;
+}
+
 /*# sourceMappingURL=estilos.css.map */

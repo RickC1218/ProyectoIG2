@@ -1,7 +1,9 @@
+@use 'base';
 footer {
     .links{
         li:hover{
-            transform: scale(1.10);
+            transform: scale(0.95);
+            background-color: base.$color-primario !important;
             transition: all 300ms;
         }
     }
