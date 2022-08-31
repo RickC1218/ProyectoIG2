@@ -72,9 +72,10 @@ function getDetalle_Dulceria() { // se puede enviar como parametro algun ID que 
         success: function (html) {
             $('#container_detalle_dul').html(html);
             // obteniendo el total a pagar por los snacks de la dulceria
-            var precioTotalDulceria = localStorage.getItem('precioTotalDulceria');
+            var precioTotalDulceria = parseFloat(localStorage.getItem('precioTotalDulceria'));
+            var precioTotalPelicula = parseFloat(localStorage.getItem('precioTotalPelicula'));
             var precioHTML = document.getElementById('precioTotal');
-            precioHTML.innerHTML = '$ ' + precioTotalDulceria;
+            precioHTML.innerHTML = '$ ' + (precioTotalDulceria + precioTotalPelicula);
         }
     });
 }
@@ -88,10 +89,6 @@ function getDetallePelicula() {
         data: userData,
         success: function (html) {
             $('#container_detPelicula').html(html);
-            // obteniendo el total a pagar por los snacks de la dulceria
-            //var precioTotalDulceria = localStorage.getItem('precioTotalDulceria');
-            //var precioHTML = document.getElementById('precioTotal');
-            //precioHTML.innerHTML = '$ ' + precioTotalDulceria;
         }
     });
 }

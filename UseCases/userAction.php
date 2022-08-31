@@ -308,15 +308,17 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
         );
         $update = $db->update($tblName, $updateData, $conditions);
         echo $update ? 'ok' : 'err';
+
     } elseif ($_POST['action_type'] == 'viewDetalle_pelicula') {
         $tblaName = 'FUNCION';
         $conditions = array(
-            'select' => 'FUNCION.ID_FUNCION, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION',
-            'inner_join' => 'INNER JOIN `PELICULA` ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
+            'select' => 'FUNCION.ID_FUNCION, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION, DETALLE_PELICULA.NUMBOLETOS_DETPEL, DETALLE_PELICULA.COSTO_DETPEL',
+            'inner_join' => ' INNER JOIN `PELICULA` ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
                             INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION'
         );
         $select = $db->getRows($tblaName, $conditions);
         $output = '';
+        $precioTotalPelicula = 0;
         if (!empty($select)) {
             foreach ($select as $row) {
                 $output .= '
@@ -325,18 +327,33 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                         <h3>' . $row['TITULO_PELICULA'] . '</h3>
                     </div>
                     <div class="col container-precioEntrada">
-                        <h3>' . $row['COSTO_DETPEL'] . '</h3>
-                        <a id="eliminarFuncion_' . $value['ID_FUNCION'] . '" onclick="deleteUser(this.id)">Eliminar</a>
+                        <h3>$ ' . $row['COSTO_DETPEL'] . '</h3>
+                        <a id="eliminarFuncion_' . $row['ID_FUNCION'] . '" onclick="deleteUser(this.id)">Eliminar</a>
                     </div>
                 </div>
                 <div class="container cuerpo_boleto">
-                    <h4>' . $row['IDIOMA_PELICULA'] . '</h4>
-                    <h4>' . $row['FECHAPELI_FUNCION'] . ' ' . " - " . ' ' . $row['HORA_FUNCION'] . '</h4>
+                    <h4>Número de boletos: '.$row['NUMBOLETOS_DETPEL'].'</h4>
+                    <h4>Idioma Película: ' . $row['IDIOMA_PELICULA'] . '</h4>
+                    <h4>Fecha y Hora: ' . $row['FECHAPELI_FUNCION'] . ' ' . " - " . ' ' . $row['HORA_FUNCION'] . '</h4>
                 </div>
                 ';
             }
+            echo $output;
+            $precioTotalPelicula += (float)$select[0]['COSTO_DETPEL'];
+            ?>
+            <script>
+                // guarda en el local storage el valor total del detalle de la dulceria
+                localStorage.setItem("precioTotalPelicula", <?php echo $precioTotalPelicula; ?>);
+            </script>
+<?php
         } else {
             echo $output;
+            ?>
+            <script>
+                // guarda en el local storage el valor total del detalle de la dulceria
+                localStorage.setItem("precioTotalPelicula", <?php echo $precioTotalPelicula; ?>);
+            </script>
+<?php
         }
     }
     exit;
