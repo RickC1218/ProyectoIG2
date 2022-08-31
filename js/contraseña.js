@@ -11,7 +11,7 @@ function checkPassword(data) {
     const may = new RegExp('(?=.*[A-Z])');
     const num = new RegExp('(?=.*[0-9])');
     const car = new RegExp('(?=.*[!@#\$%\^&\*])');
-    const tam = new RegExp('(?=.*{8,15})');
+    const tam = new RegExp('(?=.{8,15})');
 
     //tamaño de la contraseña
     if (tam.test(data)) {
