@@ -103,8 +103,8 @@ class SALA
         $id_metodo_pago = null;
         $id_promo = null;
 
-        $sql = "INSERT INTO FACTURA (ID_METPAGO, NUMCED_CLI, ID_PROMOCION, FECHCOMP_FACTURA, VALTOTAL_FACTURA)"
-                VALUES (${id_metodo_pago},${id_usuario},${id_promo},${fecha_compra},${costo});
+        $sql = "INSERT INTO FACTURA (ID_METPAGO, NUMCED_CLI, ID_PROMOCION, FECHCOMP_FACTURA, VALTOTAL_FACTURA)
+                VALUES (${id_metodo_pago},${id_usuario},${id_promo},${fecha_compra},${costo})";
 
                 if (mysqli_query($con, $sql)) {
                 
@@ -116,6 +116,7 @@ class SALA
         $sql1 = "SELECT ID_FACTURA FROM FACTURA WHERE NUMCED_CLI = ${id_usuario} AND FECHACOMP_FACTURA = ${fecha_compra}";
         $factura = mysqli_query($con, $sql1);
         $id_factura = mysqli_fetch_array($factura,MYSQLI_NUM);
+        echo "<script> localStorage.setItem('id_factura',<?php echo $id_factura[0] ?>) </script>";
         if (mysqli_query($con, $sql1)) {
                 
         } else {
@@ -127,7 +128,7 @@ class SALA
             $id_asiento = $id_asiento .",". $asiento;
         }
             $sql2 = "INSERT INTO DETALLE_PELICULA (ID_FACTURA, ID_ASIENTO,ID_SALA,ID_FUNCION,NUMBOLETOS_DETPEL,COSTO_DETPEL) 
-            VALUES (${id_factura}," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
+            VALUES (${id_factura[0]}," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
             if (mysqli_query($con, $sql2)) {
                 
             } else {
