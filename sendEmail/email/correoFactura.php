@@ -20,12 +20,12 @@
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = '';
-            $mail->Password = '';
+            $mail->Username = 'epn2022topcine@gmail.com';
+            $mail->Password = 'uykreewzmdxcrqha';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('', 'TopCine EPN');
+            $mail->setFrom('epn2022topcine@gmail.com', 'TopCine EPN');
             $mail->addAddress($resultado[0]["EMAIL_CLI"], $resultado[0]["EMAIL_CLI"]);
 
             //adjuntando factura
