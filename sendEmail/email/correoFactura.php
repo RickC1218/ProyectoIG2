@@ -1,4 +1,5 @@
 <?php
+    session_start();
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
@@ -6,10 +7,12 @@
     require 'PHPMailer/src/PHPMailer.php';
     require 'PHPMailer/src/SMTP.php';
     require 'PHPMailer/src/Exception.php';
+
+    $numced = $_SESSION['user'];
     function sendEmail(){
         require '../pdf/conexion.php';
 
-        $consulta = $pdo->prepare("SELECT EMAIL_CLI, NUMCED_CLI, NOMBRE_CLI FROM CLIENTE WHERE NUMCED_CLI = 1726639410;");
+        $consulta = $pdo->prepare("SELECT EMAIL_CLI, NUMCED_CLI, NOMBRE_CLI FROM CLIENTE WHERE NUMCED_CLI = $numced;");
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
         $mail = new PHPMailer(true);

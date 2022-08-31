@@ -1,13 +1,13 @@
 <?php
-
+session_start();
 include 'plantilla.php';
 require 'conexion.php';
 require '../email/correoFactura.php';
 include '../QR/QR.php';
 //require '../css/base';
-
+$numced = $_SESSION['user'];
 //Consulta cliente
-$consulta1 = $pdo->prepare("SELECT NUMCED_CLI, NOMBRE_CLI, APELLIDO_CLI FROM CLIENTE where NUMCED_CLI = 1726639410;");
+$consulta1 = $pdo->prepare("SELECT NUMCED_CLI, NOMBRE_CLI, APELLIDO_CLI FROM CLIENTE where NUMCED_CLI = $numced;");
 $consulta1->execute();
 $resultado1 = $consulta1->fetchAll(PDO::FETCH_ASSOC);
 
@@ -30,7 +30,7 @@ FROM COMBOS
     INNER JOIN FACTURA ON DETALLE_DULCERIA.ID_FACTURA = FACTURA.ID_FACTURA
 
 WHERE
-    FACTURA.NUMCED_CLI = 1726639410
+    FACTURA.NUMCED_CLI = $numced
     /*Filtra COMBOS o SNACKs comprados según el usuario*/
 
 UNION
@@ -48,12 +48,12 @@ FROM DETALLE_DULCERIA
 
 WHERE
 
-    FACTURA.NUMCED_CLI = 1726639410;");
+    FACTURA.NUMCED_CLI = $numced;");
 $consulta3->execute();
 $resultado3 = $consulta3->fetchAll(PDO::FETCH_ASSOC);
 
 //Consulta total
-$consulta4 = $pdo->prepare("SELECT VALTOTAL_FACTURA FROM FACTURA where NUMCED_CLI = 1726639410;");
+$consulta4 = $pdo->prepare("SELECT VALTOTAL_FACTURA FROM FACTURA where NUMCED_CLI = $numced;");
 $consulta4->execute();
 $resultado4 = $consulta4->fetchAll(PDO::FETCH_ASSOC);
 

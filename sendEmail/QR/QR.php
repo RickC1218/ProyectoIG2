@@ -1,13 +1,13 @@
 <?php
+session_start();
+
 function createQR()
 {
-
+    $numced = $_SESSION['user'];
     require('../pdf/conexion.php');
 
     date_default_timezone_set("America/Mexico_City");
     $Date = date('Y-m-d');
-
-    $numced = 1726639410; // cookie
 
     $sql1 = "SELECT NOMBRE_CLI, titulo_pelicula, NUMBOLETOS_DETPEL, FECHCOMP_FACTURA, VALTOTAL_FACTURA
     from CLIENTE, FACTURA, DETALLE_PELICULA, PELICULA
@@ -31,7 +31,7 @@ FROM COMBOS
     INNER JOIN FACTURA ON DETALLE_DULCERIA.ID_FACTURA = FACTURA.ID_FACTURA
 
 WHERE
-    FACTURA.NUMCED_CLI = 1726639410
+    FACTURA.NUMCED_CLI = $numced
     /*Filtra COMBOS o SNACKs comprados según el usuario AND FECHA*/
 
 UNION
@@ -48,7 +48,7 @@ FROM DETALLE_DULCERIA
 
 WHERE
 
-    FACTURA.NUMCED_CLI = 1726639410;";
+    FACTURA.NUMCED_CLI = $numced;";
 
     $result = $pdo->query($sql2);
     $resultado2 = $result->fetchAll(PDO::FETCH_ASSOC);
