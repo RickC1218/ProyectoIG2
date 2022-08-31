@@ -242,7 +242,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
         WHERE FACTURA.NUMCED_CLI = 
         ';
         $op_crud_union .= $numCed;
-        
+
         $tblName = 'COMBOS';
         $precioTotalDulceria = 0;
         $consultaSubtSnack = $db->getRows($tblName, array('select' => $conditionsIJ, 'inner_join' => $subConsInnerJoin, 'where' => 'FACTURA.NUMCED_CLI = ' . $numCed, 'union' => $op_crud_union));
@@ -287,8 +287,12 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
             echo '';
         }
     } elseif ($_POST['action_type'] == 'delete') {
-        if (!empty($_POST['id'])) {
+        if (!empty($_POST['id'])) { // eliminar algùn producto de DETALLE_DULCERIA
             $condition = array('ID_DETDUL' => $_POST['id']);
+            $delete = $db->delete($_POST['table_name'], $condition);
+            echo $delete ? 'ok' : 'err';
+        } else {
+            //$condition = array('ID_FACTURA' => $_POST['id']);
             $delete = $db->delete($_POST['table_name'], $condition);
             echo $delete ? 'ok' : 'err';
         }

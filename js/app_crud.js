@@ -206,7 +206,7 @@ function userAction(type, id) {
                                 Swal.fire({
                                     position: 'center',
                                     icon: 'success',
-                                    title: 'Producto GUARDADO',
+                                    title: 'Producto guardado!',
                                     showConfirmButton: false,
                                     background: '#041C3299',
                                     color: '#ffff',
@@ -220,7 +220,7 @@ function userAction(type, id) {
                     } else if (result.isDenied) {
                         $('#myModal').modal('hide');
                         Swal.fire({
-                            title: 'Producto NO GUARDADO',
+                            title: 'Producto no guardado!',
                             background: '#041C3299',
                             color: '#ffff',
                         });
@@ -255,7 +255,7 @@ function deleteUser(id) {
                 data: userData,
                 success: function (msg) {
                     Swal.fire({
-                        title: 'Producto ELIMINADO',
+                        title: 'Producto eliminado!',
                         background: '#041C3299',
                         color: '#ffff'
                     });
@@ -266,7 +266,7 @@ function deleteUser(id) {
             });
         } else if (result.isDenied) {
             Swal.fire({
-                title: 'Producto NO ELIMINADO',
+                title: 'Producto no eliminado!',
                 background: '#041C3299',
                 color: '#ffff'
             });
@@ -310,18 +310,17 @@ function getPayPalButtons() {
                     url: '../UseCases/userAction.php',
                     data: userData,
                     success: function (html) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Pago realizado con éxito!',
-                            background: '#041C3299',
-                            color: '#ffff'
-                        });
-                        //console.log(html);
                         $.ajax({
                             method: 'POST',
                             url: '../sendEmail/pdf/factura.php',
                             success: function (html) {
-                                console.log(html);
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Pago realizado con éxito!',
+                                    text: 'Revise su correo electrónico',
+                                    background: '#041C3299',
+                                    color: '#ffff'
+                                });
                             }
                         });
                     }
@@ -341,19 +340,18 @@ function getPayPalButtons() {
                 confirmButtonColor: '#ECB365'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // DELETE FROM FACTURA WHERE ID_FACTURA = ?
-                    /*var userData = 'action_type=delete' + '&table_name=DETALLE_DULCERIA' + '&id=' + idAux;
-            $.ajax({
-                type: 'POST',
-                url: '../UseCases/userAction.php',
-                data: userData,
-                success: function (msg) {
-                    Swal.fire('Producto ELIMINADO');
-                    setTimeout(function () {
-                        document.location.reload();
-                    }, 2000);
-                }
-            });*/
+                    var userData = 'action_type=delete' + '&table_name=FACTURA';
+                    $.ajax({
+                        type: 'POST',
+                        url: '../UseCases/userAction.php',
+                        data: userData,
+                        success: function (msg) {
+                            Swal.fire('Pedido eliminado!');
+                            setTimeout(function () {
+                                window.location.href = '../index.html';
+                            }, 2000);
+                        }
+                    });
                 } else if (result.isDenied) {
                     Swal.fire({
                         title: 'Intente nuevamente realizar el pago!',

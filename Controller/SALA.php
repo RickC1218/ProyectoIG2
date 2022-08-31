@@ -19,7 +19,7 @@ class SALA
         $this->ID_SALA = $id_sala;
         $this->aforo = $aforo;
         $this->ESTADO_SALA = $estado;
-        
+
 
         // el crear una sala se inserta dicha sala en la base de datos
 
@@ -30,8 +30,6 @@ class SALA
         } else {
             echo "error" . $Insert . "<br>" . mysqli_error($con);
         }
-
-
     }
 
     //para establecer el estado cuando el usaurio escoja los nuevos asientos
@@ -55,16 +53,15 @@ class SALA
         for ($i = 0; $i < ($aforo / $n); $i++) {
             for ($j = 0; $j < ($n); $j++) {
                 $id_asiento = $id_asiento + 1;
-                $Asientos[$i][$j] = new ASIENTO($id_asiento,$id_asiento, "D");
+                $Asientos[$i][$j] = new ASIENTO($id_asiento, $id_asiento, "D");
                 $estado = 0;
                 $Insert = "INSERT INTO ASIENTO ( ID_ASIENTO, ID_SALA, DISPONIBILIDAD_ASIENTO) 
-                VALUES (" . $id_asiento ."," . $id_sala . "," . $estado . ");";
+                VALUES (" . $id_asiento . "," . $id_sala . "," . $estado . ");";
                 if (mysqli_query($con, $Insert)) {
                     echo "registrado con exito";
                 } else {
                     echo "error" . $Insert . "<br>" . mysqli_error($con);
                 }
-
             }
         }
     }
@@ -93,42 +90,39 @@ class SALA
     public static function save($id_sala, $Asientos, $id_usuario, $costo)
     {
         $id_asientos = "";
-        $id_funcion=1;
+        $id_funcion = 1;
         require("BasedeDatos.php");
 
         //Se crea la factura para incluir el detalle a nombre del usuario actual
         date_default_timezone_set('America/Lima');
 
-        $fecha_compra = "".date('Y-m-d')."";
+        $fecha_compra = "" . date('Y-m-d') . "";
         $id_metodo_pago = null;
         $id_promo = null;
 
         $sql = "INSERT INTO FACTURA (ID_METPAGO, NUMCED_CLI, ID_PROMOCION, FECHCOMP_FACTURA, VALTOTAL_FACTURA)
                 VALUES (${id_metodo_pago},${id_usuario},${id_promo},${fecha_compra},${costo})";
 
-                if (mysqli_query($con, $sql)) {
-                
-                } else {
-                    echo "error " . $sql . "<br>" . mysqli_error($con);
-                }
+        if (mysqli_query($con, $sql)) {
+        } else {
+            echo "error " . $sql . "<br>" . mysqli_error($con);
+        }
 
         // Se extrae el id de fatcura del usuario actual 
         $sql1 = "SELECT ID_FACTURA FROM FACTURA WHERE NUMCED_CLI = ${id_usuario} AND FECHACOMP_FACTURA = ${fecha_compra}";
         $factura = mysqli_query($con, $sql1);
         $id_factura = mysqli_fetch_array($factura,MYSQLI_NUM);
-        echo "<script> localStorage.setItem('id_factura',<?php echo $id_factura[0] ?>) </script>";
         if (mysqli_query($con, $sql1)) {
-                
         } else {
             echo "error " . $sql1 . "<br>" . mysqli_error($con);
         }
 
         // se crea el detalle pelicula 
         foreach ($Asientos as $asiento) {
-            $id_asiento = $id_asiento .",". $asiento;
+            $id_asiento = $id_asiento . "," . $asiento;
         }
             $sql2 = "INSERT INTO DETALLE_PELICULA (ID_FACTURA, ID_ASIENTO,ID_SALA,ID_FUNCION,NUMBOLETOS_DETPEL,COSTO_DETPEL) 
-            VALUES (${id_factura[0]}," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
+            VALUES (${id_factura}," . $id_asiento . "," . $id_sala . ",".$id_funcion.",".count($Asientos).",".$costo.")";
             if (mysqli_query($con, $sql2)) {
                 
             } else {
