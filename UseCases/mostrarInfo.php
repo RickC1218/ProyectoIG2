@@ -178,7 +178,7 @@ if (isset($_SESSION['user'])) { //verificar que la sesion exite
                                 <p>Número de entradas</p>
                             </th>
                             <th scope="col">
-                                <p>Fecha</p>
+                                <p>Fecha de compra</p>
                             </th>
                             <th scope="col">
                                 <p>Precio</p>

@@ -1,6 +1,6 @@
 <?php
 include("BasedeDatos.php");
-$Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
+$Peliculas = "SELECT * FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nùmero de Boletos</title>
+    <title>Nùmero de Boletos | TopCine</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
 
@@ -224,7 +224,7 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
         #headerEstrenos a span {
             padding-left: 20px;
         }
-</style>
+    </style>
 </head>
 
 <body>
@@ -271,7 +271,6 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
         </div>
         <div style="color: white;" class="fechas_Disponibles">
             <input type="date" class="caja_fecha"></input>
-
         </div>
         <div style="color: white;" class="Salas_Disponibles">
             <?php
@@ -292,7 +291,7 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
             echo "<h2>Sala IMAX</h2> <br>";
             $id_sala2 = 2;
             foreach ($rangoHoras as $Hora) {
-                $id_sala2 =$id_sala2+1;
+                $id_sala2 = $id_sala2 + 1;
                 echo "<div class =caja_hora onclick= 'EnviarInfo(${id_sala2})' <p>" . $Hora->format("H:i") . PHP_EOL . "</p><br></div>";
             }
             ?>
@@ -302,10 +301,9 @@ $Peliculas = "SELECT *FROM PELICULA WHERE ID_PELICULA =" . $_GET["ID"] . ";";
         <script src="js/Contador.js"></script>
         <script>
             function EnviarInfo(id) {
-
                 window.location.href = "Butacas.php?ID_SALA=" + id;
                 fecha_funcion = document.querySelector(".caja_fecha");
-                localStorage.setItem("fecha_funcion",fecha_funcion);
+                localStorage.setItem("fecha_funcion", fecha_funcion);
             }
         </script>
 

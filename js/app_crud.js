@@ -241,7 +241,7 @@ function userAction(type, id) {
 /*
 Funcion encargada de eliminar un producto del detalle_dulceria en funcion de su ID.
 */
-function deleteUser(id) {
+function deleteUser(id, tbName) {
     Swal.fire({
         title: '¿Desea eliminar el producto seleccionado?',
         showDenyButton: true,
@@ -255,7 +255,13 @@ function deleteUser(id) {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             var idAux = parseInt(id.split('_')[1]);
-            var userData = 'action_type=delete' + '&table_name=DETALLE_DULCERIA' + '&id=' + idAux;
+            var auxtbName;
+            if (tbName == 1) {
+                auxtbName = 'DETALLE_DULCERIA';
+            } else {
+                auxtbName = 'DETALLE_PELICULA';
+            }
+            var userData = 'action_type=delete' + '&table_name=' + auxtbName + '&id=' + idAux;
             $.ajax({
                 type: 'POST',
                 url: '../UseCases/userAction.php',
@@ -328,6 +334,7 @@ function getPayPalButtons() {
                                     background: '#041C3299',
                                     color: '#ffff'
                                 });
+                                $('#myModal').modal('hide');
                             }
                         });
                     }
@@ -355,12 +362,14 @@ function getPayPalButtons() {
                         data: userData,
                         success: function (msg) {
                             Swal.fire('Pedido eliminado!');
+                            $('#myModal').modal('hide');
                             setTimeout(function () {
                                 window.location.href = '../index.html';
                             }, 2000);
                         }
                     });
                 } else if (result.isDenied) {
+                    $('#myModal').modal('hide');
                     Swal.fire({
                         title: 'Intente nuevamente realizar el pago!',
                         background: '#041C3299',
