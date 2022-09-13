@@ -21,7 +21,7 @@ $numced = $_SESSION['user'];
     <!-- Icons -->
     <link rel="stylesheet" href="../resources/fuentes/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <title>Document</title>
+    <title>Butacas | TopCine</title>
     <style>
         * {
             margin: 0;
@@ -130,8 +130,9 @@ $numced = $_SESSION['user'];
         .btn_reservacion:hover {
             background-color: #ECB365;
         }
-       /* Header Volver*/
-       #headerButacas {
+
+        /* Header Volver*/
+        #headerButacas {
             margin: 40px 50px;
         }
 
@@ -143,18 +144,11 @@ $numced = $_SESSION['user'];
 
         #headerButacas a span {
             padding-left: 20px;
-        }        
+        }
     </style>
 </head>
 
 <body>
-    <!-- <div class="container" id="headerButacas">
-        <a onclick="window.history.back()">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i><span> Volver</span>
-        </a>
-    </div> -->
-    <!--Fin Header-->
-
     <hr>
     <div class="Contenedor_principal">
         <h1 style="color:white; margin-top: 40px;">Escoja sus asientos</h1>
@@ -189,7 +183,6 @@ $numced = $_SESSION['user'];
         ?>
         <?php
 
-        //datos quemados aqui se debe enviar el id del usuario en la sesiòn
         $id_usuario = $numced;
 
         ?>

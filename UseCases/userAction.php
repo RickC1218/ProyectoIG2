@@ -264,7 +264,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                         </div>
                         <div class="col-md-3">
                             <h3>$ ' . $value['PRECIO_DETDUL'] . '</h3>
-                            <a id="eliminar_' . $value['ID_DETDUL'] . '" onclick="deleteUser(this.id)">Eliminar</a>
+                            <a id="eliminar_' . $value['ID_DETDUL'] . '" onclick="deleteUser(this.id, 1)">Eliminar</a>
                         </div>
                     </div>
                 ';
@@ -288,7 +288,11 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
         }
     } elseif ($_POST['action_type'] == 'delete') {
         if (!empty($_POST['id'])) { // eliminar algùn producto de DETALLE_DULCERIA
-            $condition = array('ID_DETDUL' => $_POST['id']);
+            if ($_POST['table_name'] == 'DETALLE_DULCERIA') {
+                $condition = array('ID_DETDUL' => $_POST['id']);
+            } else {
+                $condition = array('ID_DETPEL' => $_POST['id']);
+            }
             $delete = $db->delete($_POST['table_name'], $condition);
             echo $delete ? 'ok' : 'err';
         } else {
@@ -312,7 +316,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
         $numCed = $_SESSION["user"];
         $tblaName = 'FUNCION';
         $conditions = array(
-            'select' => 'FUNCION.ID_FUNCION, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION, DETALLE_PELICULA.NUMBOLETOS_DETPEL, DETALLE_PELICULA.COSTO_DETPEL',
+            'select' => 'FUNCION.ID_FUNCION, PELICULA.TITULO_PELICULA, DETALLE_PELICULA.COSTO_DETPEL, PELICULA.IDIOMA_PELICULA, FUNCION.FECHAPELI_FUNCION, FUNCION.HORA_FUNCION, DETALLE_PELICULA.NUMBOLETOS_DETPEL, DETALLE_PELICULA.COSTO_DETPEL, DETALLE_PELICULA.ID_DETPEL',
             'inner_join' => ' INNER JOIN `PELICULA` ON PELICULA.ID_PELICULA = FUNCION.ID_PELICULA
                             INNER JOIN `DETALLE_PELICULA` ON DETALLE_PELICULA.ID_FUNCION = FUNCION.ID_FUNCION 
                             INNER JOIN `FACTURA`  ON FACTURA.ID_FACTURA = DETALLE_PELICULA.ID_FACTURA 
@@ -331,7 +335,7 @@ if (isset($_POST['action_type']) && !empty($_POST['action_type'])) {
                     </div>
                     <div class="col container-precioEntrada">
                         <h3>$ ' . $row['COSTO_DETPEL'] . '</h3>
-                        <a id="eliminarFuncion_' . $row['ID_FUNCION'] . '" onclick="deleteUser(this.id)">Eliminar</a>
+                        <a id="eliminarFuncion_' . $row['ID_DETPEL'] . '" onclick="deleteUser(this.id, 2)">Eliminar</a>
                     </div>
                 </div>
                 <div class="container cuerpo_boleto">

@@ -4,8 +4,6 @@ class ASIENTO
     public $ID_SALA;
     public $ID_ASIENTO;
     public $ESTADO_ASIENTO;
-    
-
 
     public function __construct($id_a, $id_sala, $estado)
     {

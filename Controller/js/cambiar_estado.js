@@ -24,10 +24,10 @@ var reservacion = {
         showCloseButton: true,
       });
     }
-    if (seleccionados.length > num_boletos){
+    if (seleccionados.length > num_boletos) {
       Swal.fire({
         icon: 'error',
-        title: 'Escoja unicamente '+ num_boletos + ' asiento(s)',
+        title: 'Escoja unicamente ' + num_boletos + ' asiento(s)',
         background: '#041C32',
         color: '#ffff',
         confirmButtonColor: '#ECB365',
@@ -49,7 +49,7 @@ var reservacion = {
         let costo = document.createElement("input");
         costo.type = "hidden";
         costo.name = "costo_entradas";
-        costo.value = num_boletos*5.0;
+        costo.value = num_boletos * 5.0;
         reservado.appendChild(costo);
         console.log(costo.value);
       }

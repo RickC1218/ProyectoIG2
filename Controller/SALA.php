@@ -10,15 +10,12 @@ class SALA
     public $n_asientos = 25;
     public $Asientos = array();
 
-
-
     public function __construct($id_sala, $aforo, $estado)
     {
         require("BasedeDatos.php");
         $this->ID_SALA = $id_sala;
         $this->aforo = $aforo;
         $this->ESTADO_SALA = $estado;
-
 
         // el crear una sala se inserta dicha sala en la base de datos
 

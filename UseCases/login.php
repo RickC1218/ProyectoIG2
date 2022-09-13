@@ -25,4 +25,3 @@
         echo 'fail';
     }
     //cookies
-?>

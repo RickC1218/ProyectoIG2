@@ -12,14 +12,14 @@
     //Send_Mail('leomijail@hotmail.com','Recuperar cuenta de TopCine1','Envio de prueba','Recuperación de cuenta TopCine2');
 
     function Send_Mail($to,$subject,$body){
-        $from       = "epn2022topcine@gmail.com";
+        $from       = "";
         $mail       = new PHPMailer();
         $mail->IsSMTP();
         $mail->SMTPAuth   = true;                  // enable SMTP authentication
         $mail->Host       = "smtp.gmail.com"; // SMTP host
         $mail->Port       =  587;                    // set the SMTP port
-        $mail->Username   = "epn2022topcine@gmail.com";  // SMTP  username
-        $mail->Password   = "uykreewzmdxcrqha";  // SMTP password
+        $mail->Username   = "";  // SMTP  username
+        $mail->Password   = "";  // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
         $mail->SetFrom($from, 'TopCine EPN');

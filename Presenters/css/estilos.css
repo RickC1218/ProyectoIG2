@@ -266,6 +266,10 @@ body #peliculas #pelicula {
   transition: all 300ms;
   color: #ecb365;
 }
+body #peliculas #pelicula #listaPeliculas {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
 body #peliculas #pelicula #cajaPelicula {
   float: left;
   background-color: #064663;

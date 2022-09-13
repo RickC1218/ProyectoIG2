@@ -13,12 +13,3 @@ if (!$con) {
 }
 // print "Conexión satisfactoria\n";
 mysqli_set_charset($con, "utf8");
-
-// $sql = "SELECT ID_FACTURA FROM FACTURA WHERE NUMCED_CLI = 1726639410";
-// $result = mysqli_query($con, $sql);
-// $r = mysqli_fetch_array($result, MYSQLI_NUM);
-// if (mysqli_query($con, $sql)) {
-//     print_r($r[0]);
-// } else {
-//     echo "error " . $sql . "<br>" . mysqli_error($con);
-// }

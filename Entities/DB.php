@@ -111,7 +111,7 @@ class DB
             $colvalSet = '';
             $whereSql = '';
             $i = 0;
-            
+
             foreach ($data as $key => $val) {
                 $pre = ($i > 0) ? ', ' : '';
                 $colvalSet .= $pre . $key . "='" . $val . "'";
