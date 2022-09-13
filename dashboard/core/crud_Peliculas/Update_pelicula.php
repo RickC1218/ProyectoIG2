@@ -26,3 +26,4 @@ $Sinopsis = $cargaUtil->N_Sinopsis;
 $respuesta = actualizarPelicula($Nombre_Pelicula,$Actores_Principales,$Actores_Secundarios,$Idioma,$Estreno,$Banner,$Duracion,$Sinopsis,$id_Pelicula);
 
 echo json_encode($respuesta);
+?>

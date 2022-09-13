@@ -13,7 +13,7 @@
             if (respuestaConfirmacion.value) {
                 const url = "../core/crud_Peliculas/Delete_pelicula.php?id="+parseInt(idPelicula);
                 const respuestaRaw = await fetch(url, {
-                    method: "DELETE",
+                    method: "GET",
                 });
                 const respuesta = await respuestaRaw.json();
                 if (respuesta) {

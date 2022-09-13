@@ -110,7 +110,7 @@ $N_ActualizarPelicula.onclick = async () => {
 
     try {
         const respuestaRaw = await fetch("../core/crud_Peliculas/Update_pelicula.php", {
-            method:"PUT",
+            method:"POST",
             body: cargaUtilCodificada,
         });
         // El servidor nos responderá con JSON

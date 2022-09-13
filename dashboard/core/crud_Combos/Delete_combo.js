@@ -13,7 +13,7 @@
             if (respuestaConfirmacion.value) {
                 const url = "../core/crud_Combos/Delete_combo.php?id="+parseInt(idCombo);
                 const respuestaRaw = await fetch(url, {
-                    method: "DELETE",
+                    method: "GET",
                 });
                 const respuesta = await respuestaRaw.json();
                 if (respuesta) {

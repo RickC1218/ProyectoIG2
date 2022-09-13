@@ -62,7 +62,7 @@ $N_ActualizarPromo.onclick = async () => {
 
     try {
         const respuestaRaw = await fetch("../core/crud_Promociones/Update_promo.php", {
-            method:"PUT",
+            method:"POST",
             body: cargaUtilCodificada,
         });
         // El servidor nos responderá con JSON

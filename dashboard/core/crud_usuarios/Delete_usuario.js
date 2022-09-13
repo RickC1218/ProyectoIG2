@@ -13,7 +13,7 @@
             if (respuestaConfirmacion.value) {
                 const url = "../core/crud_usuarios/Delete_usuario.php?id="+parseInt(CiUser);
                 const respuestaRaw = await fetch(url, {
-                    method: "DELETE",
+                    method: "GET",
                 });
                 const respuesta = await respuestaRaw.json();
                 if (respuesta) {
