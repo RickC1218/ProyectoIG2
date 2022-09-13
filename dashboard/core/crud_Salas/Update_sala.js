@@ -51,7 +51,7 @@ $EditarSala.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Salas/Update_sala.php", {
+        const respuestaRaw = await fetch("../core/crud_Salas/Update_sala.php", {
             method:"PUT",
             body: cargaUtilCodificada,
         });

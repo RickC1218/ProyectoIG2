@@ -1,5 +1,4 @@
 <?php
-
 function actualizarPelicula($Nombre_Pelicula, $Actores_Principales, $Actores_Secundarios, $Idioma, $Estreno, $Banner, $Duracion, $Sinopsis,$id_Pelicula)
 {
     require "../../../Controller/BasedeDatos.php";

@@ -8,9 +8,7 @@ function eliminarUsuario($id)
 {
     require "../../../Controller/BasedeDatos.php";
     $sentencia = $conexion->prepare("DELETE FROM CLIENTE WHERE NUMCED_CLI = ?");
-    $count = 1;
-    $refresh = $conexion->prepare("ALTER TABLE CLIENTE AUTO_INCREMENT = 1 AND TRUNCATE CLIENTE");
-    $refresh->execute();
+    setAutoIncrement($conexion, $id,'CLIENTE','NUMCED_CLI');
     return $sentencia->execute([$id]);
 }
 

@@ -8,10 +8,9 @@ function eliminarSala($id)
 {
     require "../../../Controller/BasedeDatos.php";
     $sentencia = $conexion->prepare("DELETE FROM SALA WHERE ID_SALA = ?");
-    $count = 1;
-    $refresh = $conexion->prepare("ALTER TABLE SALA AUTO_INCREMENT = 1 AND TRUNCATE SALA");
-    $refresh->execute();
-    return $sentencia->execute([$id]);
+    $sentencia->execute([$id]);
+    setAutoIncrement($conexion, $id,'COMBOS','ID_SALA');
+    return $sentencia;
 }
 
 $respuesta = eliminarSala($_GET["id"]);

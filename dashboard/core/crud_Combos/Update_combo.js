@@ -73,7 +73,7 @@ $N_EditarCombo.onclick = async () => {
 
     try {
         const respuestaRaw = await fetch("../core/crud_Combos/Update_combo.php", {
-            method:"PUT",
+            method:"POST",
             body: cargaUtilCodificada,
         });
         // El servidor nos responderá con JSON

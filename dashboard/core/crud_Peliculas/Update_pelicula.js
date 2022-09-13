@@ -108,9 +108,8 @@ $N_ActualizarPelicula.onclick = async () => {
     var cargaUtilCodificada = JSON.stringify(cargaUtil);
     console.log(cargaUtilCodificada);
 
-
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_Peliculas/Update_pelicula.php", {
+        const respuestaRaw = await fetch("../core/crud_Peliculas/Update_pelicula.php", {
             method:"PUT",
             body: cargaUtilCodificada,
         });

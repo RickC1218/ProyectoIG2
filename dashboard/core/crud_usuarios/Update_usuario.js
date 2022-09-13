@@ -86,7 +86,7 @@ $N_EditarUser.onclick = async () => {
 
 
     try {
-        const respuestaRaw = await fetch("/ProyectoIG2/dashboard/core/crud_usuarios/Update_usuario.php", {
+        const respuestaRaw = await fetch("../core/crud_usuarios/Update_usuario.php", {
             method:"PUT",
             body: cargaUtilCodificada,
         });

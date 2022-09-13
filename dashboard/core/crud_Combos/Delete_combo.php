@@ -1,4 +1,6 @@
 <?php
+    include '../autoIncrement.php';
+
 if (!isset($_GET["id"])) {
     http_response_code(500);
     exit();
@@ -8,10 +10,9 @@ function eliminarCombo($id)
 {
     require "../../../Controller/BasedeDatos.php";
     $sentencia = $conexion->prepare("DELETE FROM COMBOS WHERE ID_COMBO = ?");
-    $count = 1;
-    $refresh = $conexion->prepare("ALTER TABLE COMBOS AUTO_INCREMENT = 1 AND TRUNCATE COMBOS;");
-    $refresh->execute();
-    return $sentencia->execute([$id]);
+    $sentencia->execute([$id]);
+    setAutoIncrement($conexion, $id,'COMBOS','ID_COMBO');
+    return $sentencia;
 }
 
 $respuesta = eliminarCombo($_GET["id"]);
