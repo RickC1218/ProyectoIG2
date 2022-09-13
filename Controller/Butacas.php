@@ -186,7 +186,7 @@ $numced = $_SESSION['user'];
         $id_usuario = $numced;
 
         ?>
-        <form id="reservado" method="post" action="/ProyectoIG2/Controller/reservar.php">
+        <form id="reservado" method="post" action="reservar.php">
             <!-- <input type="hidden" name="id_asiento" value="<?= $id_asiento ?>"/> -->
             <input type="hidden" name="id_sala" value="<?= $id_sala ?>" />
             <!-- Para integración del sistema relacionar las reservaciones con los usuarios-->
