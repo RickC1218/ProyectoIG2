@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     var logout = document.querySelector('#logout_dashboard');
 
     logout.addEventListener('click', () => {
-        fetch('../UseCases/logout.php', {
+        fetch('../../UseCases/logout.php', {
             method: 'POST'
         })
         .then(response => response.text())
@@ -18,12 +18,14 @@ window.addEventListener('load', () => {
                     confirmButtonColor: '#ECB365',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "../index.html"
+                        window.location.href = "../../index.html"
                     }
                 })
             }
         });
     })
+
+    
 })
 
 

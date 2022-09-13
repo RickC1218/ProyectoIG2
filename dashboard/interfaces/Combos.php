@@ -64,6 +64,8 @@ if (mysqli_query($con, $sql)) {
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../Template/assets/js/config.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../js/logout-dashboard.js"></script>
   </head>
 
   <body>
@@ -91,7 +93,7 @@ if (mysqli_query($con, $sql)) {
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="/ProyectoIG2/dashboard/" class="menu-link">
+              <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -123,11 +125,6 @@ if (mysqli_query($con, $sql)) {
                 <li class="menu-item">
                   <a href="Combos.php" class="menu-link">
                     <div data-i18n="Account">Combos</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div data-i18n="Notifications">Bebidas</div>
                   </a>
                 </li>
               </ul>
@@ -253,7 +250,7 @@ if (mysqli_query($con, $sql)) {
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" id ="logout_dashboard">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>

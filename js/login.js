@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        window.location.href = "../dashboard/index.php"
+                        window.location.href = "../dashboard/interfaces"
                     } else {
                         alert('Error al iniciar sesión')
                     }
