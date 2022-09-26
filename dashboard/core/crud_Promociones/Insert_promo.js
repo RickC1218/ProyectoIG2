@@ -4,11 +4,13 @@
 const $Descripcion_promo = document.querySelector("#Descripcion_Promo"),
     $Categoria_Promo = document.querySelector("#Categoria_Promo"),
     $Banner_Promo = document.querySelector("#Banner_Promo"),
+    $Archivo_Promo = document.querySelector("#Archivo_Promo"),
     $GuardarPromo = document.querySelector("#Guardar_Promo");
 
 $GuardarPromo.onclick = async () => {
     const Descripcion_promo = $Descripcion_promo.value,
         Categoria_Promo = $Categoria_Promo.value,
+	Archivo_Promo = $Archivo_Promo.value,
         Banner_Promo = $Banner_Promo.value;
     
     if (!Descripcion_promo) {
@@ -37,7 +39,8 @@ $GuardarPromo.onclick = async () => {
     const cargaUtil = {
         Descripcion_promo,
         Categoria_Promo,
-        Banner_Promo
+        Banner_Promo,
+	Archivo_Promo
     };
 
     const cargaUtilCodificada = JSON.stringify(cargaUtil);
@@ -62,7 +65,7 @@ $GuardarPromo.onclick = async () => {
             // Limpiamos el formulario
             $Descripcion_promo.value = $Categoria_Promo.value = $Banner_Promo.value = "";
 
-            window.location.reload();
+            //window.location.reload();
         } else {
             Swal.fire({
                 icon: "error",

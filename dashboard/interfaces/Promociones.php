@@ -1,5 +1,7 @@
 <?php
 require "../core/config.php";
+require "../core/functions.php";
+require "../core/crud_Promociones/upload_Apromo.php";
 require "../../Controller/BasedeDatos.php";
 
 $sql = "SELECT * FROM PROMOCION";
@@ -276,7 +278,7 @@ if (mysqli_query($con, $sql)) {
                         <!-- Modal -->
                         <div class="modal fade modal" id="NuevaPromocion" data-bs-backdrop="static" tabindex="-1">
                           <div class="modal-dialog modal-dialog-centered">
-                            <form class="modal-content needs-validation"  method="POST">
+                            <form class="modal-content needs-validation"  method="POST" enctype="multipart/form-data">
                               <div class="modal-header">
                                 <h5 class="modal-title" id="backDropModalTitle">Nueva Promoción</h5>
                                 <button
@@ -321,12 +323,24 @@ if (mysqli_query($con, $sql)) {
                                     />
                                   </div>
                                 </div>
+                                <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Archivo_Promo" class="form-label" name="Archivo_Promo">Archivo Promo</label>
+                                    <input
+                                      type="file"
+                                      id="Archivo_Promo"
+                                      name="Archivo_Promo"
+                                      class="form-control"
+                                      placeholder="Archivo"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
                                   Cancelar
                                 </button>
-                                <button type="button" class="btn btn-primary" id="Guardar_Promo" data-bs-dismiss="modal">
+                                <button type="submit" class="btn btn-primary" id="Guardar_Promo" data-bs-dismiss="modal">
                                   Guardar
                                 </button>
                               </div>
@@ -334,13 +348,17 @@ if (mysqli_query($con, $sql)) {
                           </div>
                         </div>
                       </div>
-                            
+		<div class = "row">
+		<?php
+                    upload_promo_img($_POST);
+		?> 
+		</div>
               <!-- /Inicio Form Update Promo (Modal)-->
               <div class="col-lg-4 col-md-3">
                                       <!-- Modal -->
                         <div class="modal fade modal" id="EditPromo" data-bs-backdrop="static" tabindex="-1">
                           <div class="modal-dialog modal-dialog-centered">
-                          <form class="modal-content needs-validation"  method="POST">
+                          <form class="modal-content needs-validation"  method="POST" enctype="multipart/form-data">
                               <div class="modal-header">
                                 <h5 class="modal-title" id="backDropModalTitle">Editar Promoción</h5>
                                 <button
@@ -382,6 +400,18 @@ if (mysqli_query($con, $sql)) {
                                       id="N_Banner_Promo"
                                       class="form-control"
                                       placeholder="Path del Banner"
+                                    />
+                                  </div>
+                                </div>
+				 <div class="row">
+                                  <div class="col mb-3">
+                                    <label for="Archivo_Promo" class="form-label">Archivo Promo</label>
+                                    <input
+                                      type="file"
+                                      id="Archivo_Promo"
+                                      name="Archivo_Promo"
+                                      class="form-control"
+                                      placeholder="Archivo"
                                     />
                                   </div>
                                 </div>
