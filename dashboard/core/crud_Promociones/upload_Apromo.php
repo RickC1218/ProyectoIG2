@@ -6,16 +6,22 @@ function upload_promo_img($data){
 			$dir=mkdir($folder,0777,true);
 			file_put_contents($folder."/index.php","");
 		}
-		$allowed = ['image/jpeg','image/png','image/jpg'];
+		$allowed = ['image/jpeg','image/png','image/jpg','image/gif'];
 		if(!empty($_FILES['Archivo_Promo'])){
 			if($_FILES['Archivo_Promo']['error'] == 0){
 				if(in_array($_FILES['Archivo_Promo']['type'],$allowed)){
-					$destino = $folder."/".$_FILES['Archivo_Promo']['name'];
-					move_uploaded_file($_FILES['Archivo_Promo']['tmp_name'],$destino);
-					resize_image($destino);
-					$_POST['Archivo_Promo'] = $destino;
-					if(file_exists($data->Archivo_Promo)){
-						unlink($data->Archivo_Promo);
+					//echo exif_imagetype(($_FILES['Archivo_Promo']['tmp_name']));
+					if(exif_imagetype(($_FILES['Archivo_Promo']['tmp_name']))==2 ||exif_imagetype(($_FILES['Archivo_Promo']['tmp_name']))==3){
+						//echo "imagen valida".exif_imagetype($_FILES['Archivo_Promo']['tmp_name']);
+						$destino = $folder."/".$_FILES['Archivo_Promo']['name'];
+						move_uploaded_file($_FILES['Archivo_Promo']['tmp_name'],$destino);
+						resize_image($destino);
+						$_POST['Archivo_Promo'] = $destino;
+						if(file_exists($data->Archivo_Promo)){
+							unlink($data->Archivo_Promo);
+						}
+					}else{
+						echo "Formato no aceptado";
 					}
 				}else{
 					echo "El tipo de archivo no esta permitido";
